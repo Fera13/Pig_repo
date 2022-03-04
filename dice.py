@@ -30,19 +30,4 @@ class Dice:
      
 
 
-
-class main:
-    player = Player("Emil")
-
-    dice = Dice()
-    for i in range(2):
-        dice.roll(2)
-        print("--------------")
-    print(dice.getTotalSum())
-
-    player.setScore(dice.getTotalSum())
-
-    print(player.getScore())
-
-
     
