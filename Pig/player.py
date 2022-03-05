@@ -14,7 +14,6 @@ class Player:
     
     def setScore(self, score):
         self.score = score
-        print("YOU SET THE SCORE TO "+ str(score))
 
     def getScore(self):
         return self.score
