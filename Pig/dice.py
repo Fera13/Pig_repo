@@ -8,8 +8,10 @@ class Dice:
     # SHOULD MAYBE BE IN PLAYER CLASS? RETURN FROM ROLL ROUND SUM AND ADD TO TOTAL IN PLAYER?
     totalSum = 0
 
-    def roll(self, timesToRoll):
-        '''Rolls the amount of times entered, increments amountOfROlls and returns roundSum'''
+    def roll(self, timesToRoll: int):
+        if not isinstance(timesToRoll, int):
+            raise TypeError("timesToRoll must be an integer")
+
         self.roundSum = 0
         self.amountOfRolls =+ 1
 
@@ -28,6 +30,5 @@ class Dice:
     def getTotalSum(self):
         return self.totalSum
      
-
 
     
