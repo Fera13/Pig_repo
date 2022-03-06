@@ -7,7 +7,9 @@ class Player:
 
     def setName(self, name):
         self.name = name
-        # NEED TO CALL METHOD TO UPDATE NAME IN HIGHSCORE
+        # call method to update name in highscore
+        # inte lägga till samma namn
+        # alla namn som skrivs in måste i lista
     
     def getName(self):
         return self.name
