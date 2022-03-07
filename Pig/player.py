@@ -1,21 +1,35 @@
 class Player:
-    name = None
+    names = []
     score = 0
 
-    def __init__(self, name):
-        self.name = name
+    def __init__(self):
+        return None
+        
 
     def setName(self, name):
-        self.name = name
+        if name in self.names:
+            print(name + " has already been set")
+        else:
+            self.names.append(name)
+        
+        
         # call method to update name in highscore
-        # inte lägga till samma namn
-        # alla namn som skrivs in måste i lista
-    
-    def getName(self):
-        return self.name
+
+
+    def getNames(self):
+        return self.names
+
     
     def setScore(self, score):
         self.score = score
 
+
     def getScore(self):
         return self.score
+
+class main:
+    player = Player()
+    player.setName("naem1")
+    player.setName("naem2")
+    player.setName("naem3")
+    player.setName("naem4")
