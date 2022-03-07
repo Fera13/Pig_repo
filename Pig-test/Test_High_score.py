@@ -1,5 +1,6 @@
 import unittest
-from High_score import *
+
+from test import High_score
 
 class testGameFunctionality(unittest.TestCase):
     
