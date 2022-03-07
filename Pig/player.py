@@ -4,13 +4,15 @@ class Player:
 
     def __init__(self):
         return None
-        
+
 
     def setName(self, name):
         if name in self.names:
             print(name + " has already been set")
         else:
             self.names.append(name)
+
+        return len(self.names)
         
         
         # call method to update name in highscore
@@ -26,10 +28,3 @@ class Player:
 
     def getScore(self):
         return self.score
-
-class main:
-    player = Player()
-    player.setName("naem1")
-    player.setName("naem2")
-    player.setName("naem3")
-    player.setName("naem4")
