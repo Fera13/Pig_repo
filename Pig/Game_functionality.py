@@ -1,5 +1,5 @@
 import rlcompleter
-from High_score import *
+from high_score import *
 from display import *
 from player import *
 from dice import *
@@ -20,7 +20,7 @@ class Game_functionality:
             # start game
         elif choice == 2:
             self.enter_Names2p()
-            # start game
+            self.startGame2p()
         elif choice == 3:
             names = playr.getNames()
             disp.showPlayers(names)
@@ -53,7 +53,6 @@ class Game_functionality:
         playr.addCurrentScore(0, name)
         playr.addCurrentScore(0, name2)
         playr.addCurrentNames(name, name2)
-        self.startGame2p()
         
         #method 
         # curent points for both players 0
