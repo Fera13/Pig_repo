@@ -39,14 +39,14 @@ class dice:
                 self.player.addCurrentScore(self.roundSum, currentPl[0])
                 self.turn = 1
             else:
-                amountOfRolls[1] =+ 1
+                self.amountOfRolls[1] =+ 1
                 self.player.addCurrentScore(self.roundSum, currentPl[1])
                 self.turn = 0
 
             # if total over 100
             if self.totalSum >= 100:
                 pl = self.player.getCurrentNames()
-                if turn == 0:
+                if self.turn == 0:
                     self.winnerName = pl[0]
                 else:
                     self.winnerName = pl[1]
