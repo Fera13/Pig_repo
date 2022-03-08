@@ -74,7 +74,7 @@ class Game_functionality:
         # get the current point list
         # self.view_Game_Prog_2(name1, points1, name2, points2)
         print(currentPlayer,"\n")
-        roll_num = input("Enter the number of dice-rolls you would like to do (q to quit, cheat to cheat): ")
+        roll_num = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): ")
         # call for the roll method (get back numbers)
         if currentPlayer == "player1's turn":
             currentPlayer = "player2's turn"
@@ -87,11 +87,13 @@ class Game_functionality:
         # get the current point list
         # self.view_Game_Prog_2(name1, points1, name2, points2)
         print(currentPlayer1,"\n")
-        roll_num = input("Enter the number of dice-rolls you would like to do (q to quit, cheat to cheat): ")
+        roll_num = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): ")
         if roll_num.upper() == "Q":
             quit()
         elif roll_num.upper() == "CHEAT":
             self.cheat()
+        elif roll_num.upper() == "R":
+            self.restart()
         elif not isinstance(roll_num, int):
             print("You know that the number of rolls is a NUMBER right?")
         else:
@@ -125,4 +127,8 @@ class Game_functionality:
         print("You just had to cheat, didn't you :(\nJust choose to roll {num} times")
         roll_num = input("Enter the number of dice-rolls you would like to do (q to quit, you already cheated!): ")
         #cheating method with 16 times rolling 6 and one time rolling 4
-        
+    
+    
+    def restart():
+        # goes back to main menu
+        pass
