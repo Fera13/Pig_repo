@@ -86,5 +86,8 @@ class Display:
 
 
     def viewGameProg2(player1: str, points1: int, player2: str, points2: int):
+        if not isinstance(player1, str) or not isinstance(points1, int) or not isinstance(player2, str) or not isinstance(points2, int):
+            raise TypeError("The game progress is not available right now")
+
         print(f"Player1: {player1:60} Player2: {player2}")
         print(f"Points: {points1:<61} Points: {points2}\n")
