@@ -1,5 +1,3 @@
-
-
 class Display:
 
     def winner(self, name:str):
@@ -29,7 +27,8 @@ class Display:
                     print('Please enter a number from the available options')
             except TypeError:
                 print('You can only use numbers to choose an option')
-        
+
+
     def displayGameRules():
         notCorrect = True
         while notCorrect:
@@ -52,10 +51,12 @@ class Display:
             
                 
     
-    def gameSummary(self):
+    def gameSummary(self, name_1:str, name_2:str, score_1:list, score_2:list):
         roundCount = 1
-        #I will need an object created with a list so that each round can be calculated and added into the list. 
         print(f'\nHere is a summary of all the points collected by the players in each round')
+        print(f'\n----------------------------------------------------------------------\n')
+        print(f'Rounds {name_1:>10} {name_2:>10}')
         for i in self:
-            print(f'Round {roundCount} {self[i]:>10}')
+            print(f'Round {roundCount} {score_1[i]:>10} {score_2[i]:>10}')
             roundCount = roundCount + 1
+        print(f'\n----------------------------------------------------------------------\n')
