@@ -51,6 +51,8 @@ class Game_functionality:
         playr.setName(name)
         playr.setName(name2)
         playr.addCurrentNames(name, name2)
+        currentNames = playr.getCurrentNames()
+        #method 
         # curent points for both players 0
     
     

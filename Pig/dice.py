@@ -20,7 +20,7 @@ class dice:
         else:
             self.roundSum = 0
             self.amountOfRolls = + 1
-
+            
             for i in range(timesToRoll):
                 rollNumber = randrange(1, 7)
                 if rollNumber == 1:
