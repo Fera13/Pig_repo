@@ -13,20 +13,33 @@ class testPlayer(unittest.TestCase):
         self.assertEqual(player.setName("name3"), 3)
         self.assertEqual(player.setName("name2"), 3)
 
-    def test_setFinalScore_wrongType(self):
+    def test_addCurrentScore_wrongType(self):
         with self.assertRaises(TypeError):
-            player.setFinalScore("emil", "2")
+            player.addCurrentScore("2", "Emil")
         with self.assertRaises(TypeError):
-            player.setFinalScore(2, "2")
+            player.addCurrentScore("Emil", 2)
         with self.assertRaises(TypeError):
-            player.setFinalScore(2, 2)
+            player.addCurrentScore(2, 2)
 
-    def test_setScore_negativeValue(self):
+    def test_addCurrentScore_negativeValue(self):
         with self.assertRaises(ValueError):
-            player.setFinalScore("emil", -2)
+            player.addCurrentScore(-2, "Emil")
         with self.assertRaises(ValueError):
-            player.setFinalScore("emil", -1)
+            player.addCurrentScore(-1, "Emil")
 
+    def test_updateName_wrongType(self):
+        with self.assertRaises(TypeError):
+            player.updateName(2, "newName")
+
+    def test_deleteName_wrongType(self):
+        with self.assertRaises(TypeError):
+            player.deleteName(2)
+            player.deleteName(2.5)
+    
+    def test_addCurrentNames_wrongType(self):
+        with self.assertRaises(TypeError):
+            player.addCurrentNames("player1", 2)
+            player.addCurrentNames(2, "player2")
 
 if __name__ == "__main__":
     unittest.main()

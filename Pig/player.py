@@ -33,7 +33,13 @@ class Player:
             if i == name:
                 self.names.remove(name)
 
-    def addCurrentScore(self, score, name):
+    def addCurrentScore(self, score:int, name:str):
+        if not isinstance(score, int) or not isinstance(name, str):
+            raise TypeError("score has to be int and name has to be string")
+
+        if score < 0:
+            raise ValueError("score can be less than zero")
+
         if len(self.currentScores) < 2:
             self.currentScores.append([name, score])
         else:
@@ -45,6 +51,8 @@ class Player:
         return self.currentScores
 
     def addCurrentNames(self, name1: str, name2: str):
+        if not isinstance(name1, str) or not isinstance(name2, str):
+            raise TypeError("both names has to be string")
         self.currentNames.append(name1)
         self.currentNames.append(name2)
 
