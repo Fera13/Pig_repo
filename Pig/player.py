@@ -28,6 +28,9 @@ class Player:
                 self.names.remove(name)
 
 
+    def currentPlayer(self):
+        return None
+
 
     def getNames(self):
         return self.names
