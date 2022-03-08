@@ -5,6 +5,7 @@ gf = Game_functionality()
 def gameMenu(self):
         notCorrect = True
         while notCorrect:
+            print(f'                          THE PIG GAME')
             print(f'\n----------------------------------------------------------------------')
             print('1:  Start a one player game')
             print('2:  Start a two player game')
