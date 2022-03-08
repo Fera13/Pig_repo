@@ -71,7 +71,6 @@ class Display:
         i = 0
         for i in name_1 and name_2:
             print(f'Round {roundCount} {score_1[i]:>20} {score_2[i]:>20}')
-<<<<<<< HEAD
             roundCount + 1
             i += 1
         print(f'----------------------------------------------------------------------\n')
@@ -99,21 +98,3 @@ class Display:
             amountOfNames += 1
         amountOfNames = 0
     print(f'\n\n----------------------------------------------------------------------\n') 
-=======
-            roundCount = roundCount + 1
-        print(f'\n----------------------------------------------------------------------\n')
-        
-
-namelist = ["Farah", "Emil", "Alfred", "Kalle", "Tim", "ran", "how", "hi", "play"]
-n = 0
-print(f'Here is the list of current players\n----------------------------------------------------------------------\n')
-    #while i < len(namelist):
-for i in namelist:
-    if n < len(namelist)-3:
-        print(f'>{namelist[n]}  >{namelist[n+1]}  >{namelist[n+2]}\n')
-        n += 3
-while (len(namelist) > n):
-    print(f'>{namelist[n]}  >{namelist[n+1]}')
-    n += 2
-print(f'\n----------------------------------------------------------------------\n')
->>>>>>> 2a9fb9c0e2fdfa8cb8de7efe8203723677395433
