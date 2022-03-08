@@ -1,6 +1,7 @@
 class Player:
     names = []
-    score = []
+    currentNames = []
+    currentScores = []
     
     def __init__(self):
         return None
@@ -25,7 +26,6 @@ class Player:
                 self.deleteName(oldName)
                 self.setName(newName)
 
-
     def deleteName(self, name: str):
         if not isinstance(name, str):
             raise TypeError("name has to be a string")
@@ -33,26 +33,29 @@ class Player:
             if i == name:
                 self.names.remove(name)
 
+    def addCurrentScore(self, score, name):
+        if len(self.currentScores) < 2:
+            self.currentScores.append([name, score])
+        else:
+            for i in range(2):
+                if self.currentScores[i][0] == name:
+                    self.currentScores[i][1] = score
 
-    def currentPlayer(self):
+    def getCurrentScore(self):
+        return self.currentScores
+
+    def addCurrentNames(self, name1: str, name2: str):
+        self.currentNames.append(name1)
+        self.currentNames.append(name2)
+
+    def getCurrentNames(self):
+        return self.currentNames
+
+    def currentPlayers(self):
         return None
-
 
     def getNames(self):
         return self.names
 
-    # not sure what for
-    def setFinalScore(self, name: str, score: int):
-        if not isinstance(name, str) or not isinstance(score, int):
-            raise TypeError(
-                "name has to be a string, and score has to be an integer")
-
-        if score < 0:
-            raise ValueError("score cant be a negative value")
-
-        self.score.append([name, score])
-        return self.score
-
     def getScore(self):
         return self.score
-
