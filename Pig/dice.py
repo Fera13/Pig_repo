@@ -6,7 +6,7 @@ from display import *
 class dice:
     roundSum = 0
     winnerName = ""
-    amountOfRolls = 0
+    amountOfRolls = [0,0]
     display = Display()
     player = Player()
     totalSum = 0
@@ -22,7 +22,6 @@ class dice:
             raise ValueError("times to roll has to be more than 0")
         else:
             self.roundSum = 0
-            self.amountOfRolls = + 1
             
             for i in range(timesToRoll):
                 rollNumber = randrange(1, 7)
@@ -35,12 +34,14 @@ class dice:
                     self.roundSum += rollNumber
             
             currentPl = self.player.getCurrentNames()
-            if turn == 0:
+            if self.turn == 0:
+                self.amountOfRolls[0] =+ 1
                 self.player.addCurrentScore(self.roundSum, currentPl[0])
-                turn = 1
+                self.turn = 1
             else:
+                amountOfRolls[1] =+ 1
                 self.player.addCurrentScore(self.roundSum, currentPl[1])
-                turn = 0
+                self.turn = 0
 
             # if total over 100
             if self.totalSum >= 100:
@@ -59,4 +60,7 @@ class dice:
 
 
     def getAmountOfRolls(self):
-        return self.amountOfRolls
+        if self.turn == 0:
+            return self.amountOfRolls[0]
+        else:
+            return self.amountOfRolls[1]

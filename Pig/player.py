@@ -1,6 +1,6 @@
 class Player:
     names = []
-    currentNames = []
+    currentNames = ["",""]
     currentScores = [["", 0],["",0]]
     
     def __init__(self):
@@ -54,8 +54,8 @@ class Player:
     def addCurrentNames(self, name1: str, name2: str):
         if not isinstance(name1, str) or not isinstance(name2, str):
             raise TypeError("both names has to be string")
-        self.currentNames.append(name1)
-        self.currentNames.append(name2)
+        self.currentNames[0] = name1
+        self.currentNames[1] = name2
 
     def getCurrentNames(self):
         return self.currentNames
