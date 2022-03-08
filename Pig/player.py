@@ -2,7 +2,7 @@ class Player:
     names = []
     currentNames = []
     currentScores = []
-
+    
     def __init__(self):
         return None
 
@@ -15,9 +15,10 @@ class Player:
         return len(self.names)
 
         # call method to update name in highscore
+    
 
-    def updateName(self, oldName: str, newName: str):
-        if not isinstance(oldName, str) or not isinstance(newName, str):
+    def updateName(self, oldName:str, newName:str):
+        if not isinstance(oldName,str) or not isinstance(newName,str):
             raise TypeError("oldName and newName has to be strings")
 
         for i in self.names:
@@ -58,12 +59,3 @@ class Player:
 
     def getScore(self):
         return self.score
-
-
-p = Player()
-p.addCurrentScore(3, "name1")
-p.addCurrentScore(4, "name2")
-p.addCurrentScore(7, "name1")
-p.addCurrentScore(10, "name2")
-p.addCurrentScore(15, "name1")
-print(p.getCurrentScore())
