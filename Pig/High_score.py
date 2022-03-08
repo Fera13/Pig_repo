@@ -2,8 +2,11 @@
 
 
 
+from typing import Generic
+
+
 class High_score:
-    sorted_dict = {}
+    sorted_dict = {"Developers": 9000}
     
     def __init__(self):
         pass
@@ -14,8 +17,6 @@ class High_score:
 
 
     def view_HighScores(self, highScoreDic: dict[str: int]):
-        if not isinstance(highScoreDic, dict[str: int]):
-             raise TypeError("Please enter a dictionary with strings as keys and integers as values")
         i = 1
         print("High scores:\n")
         for keyName, valueScore in highScoreDic.items():

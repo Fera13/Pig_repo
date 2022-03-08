@@ -1,7 +1,7 @@
 class Player:
     names = []
     currentNames = ["", ""]
-    currentScores = [["", 0], ["", 0]]
+    currentScores = [ 0, 0]
 
     def __init__(self):
         return None
@@ -22,8 +22,7 @@ class Player:
 
         for i in self.names:
             if i == oldName:
-                self.deleteName(oldName)
-                self.setName(newName)
+                i = newName
 
     def deleteName(self, name: str):
         if not isinstance(name, str):
@@ -38,13 +37,11 @@ class Player:
 
         if score < 0:
             raise ValueError("score can be less than zero")
-
-        if len(self.currentScores) < 2:
-            self.currentScores.append([name, score])
+        if name == self.currentNames[0]:
+            self.currentScores[0] += score
         else:
-            for i in range(2):
-                if self.currentScores[i][0] == name:
-                    self.currentScores[i][1] = score
+            self.currentScores[1] += score
+
 
     def getCurrentScore(self):
         return self.currentScores

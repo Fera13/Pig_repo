@@ -3,8 +3,7 @@ from display import *
 from player import *
 from dice import *
 
-currentPlayer = "player1's turn"
-currentPlayer1 = "player1's turn"
+
 
 hs = High_score()
 disp = Display()
@@ -12,6 +11,9 @@ playr = Player()
 dise = dice()
 
 class Game_functionality:
+    currentPlayer = "player1's turn"
+    currentPlayer1 = "player1's turn"
+    
     
     def handleMenuChoice(self, choice: int):
         if choice == 1:
@@ -34,10 +36,16 @@ class Game_functionality:
             playr.deleteName(name)
         elif choice == 5:
             hsDic = {}
-            hsDic == hs.get_HighScore_Dic()
+            hsDic = hs.get_HighScore_Dic()
             hs.view_HighScores(hsDic)
+            back = input("\nWhen you are done reading the rules press and button to go back: ")
+            choice = disp.gameMenu()
+            self.handleMenuChoice(choice)
         elif choice == 6:
             disp.displayGameRules()
+            back = input("When you are done reading the rules press and button to go back: ")
+            choice = disp.gameMenu()
+            self.handleMenuChoice(choice)
         else:
             quit()
     
@@ -83,6 +91,7 @@ class Game_functionality:
 
     
     def ask_For_Rolls(self):
+        isInt = False
         currentNames = playr.getCurrentNames()
         player1 = currentNames[0]
         player2 = currentNames[1]
@@ -90,7 +99,7 @@ class Game_functionality:
         score1 = currentScores[0]
         score2 = currentScores[1]
         disp.viewGameProg2(player1, score1, player2, score2)
-        print(currentPlayer,"\n")
+        print(self.currentPlayer,"\n")
         rollNum = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): ")
         if rollNum.upper() == "Q":
             quit()
@@ -99,19 +108,26 @@ class Game_functionality:
         elif rollNum.upper() == "R":
             self.restart()
         elif not isinstance(rollNum, int):
-            print("You know that the number of rolls is a NUMBER right?")
+            print("\nYou know that the number of rolls is a NUMBER right?")
         else:
-            dise.roll(rollNum)
-        if currentPlayer == "player1's turn":
-            currentPlayer = "player2's turn"
-        else:
-            currentPlayer = "player1's turn"
+            isInt = True
+        if isInt:
+            intRollNum = int(rollNum)
+            roundPoints = dise.roll(intRollNum)
+            if self.currentPlayer == "player1's turn":
+                playr.addCurrentScore(roundPoints, player1)
+                self.currentPlayer = "player2's turn"
+            else:
+                playr.addCurrentScore(roundPoints, player2)
+                self.currentPlayer = "player1's turn"
 
+        
+        
 
     def ask_For_Rolls1p(self):
         
         
-        print(currentPlayer1,"\n")
+        print(self.currentPlayer1,"\n")
         roll_num = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): ")
         if roll_num.upper() == "Q":
             quit()
@@ -128,24 +144,24 @@ class Game_functionality:
             # else add number to current points
             print("You rolled a ", "Your total points are: ")
             # view roll number and points collected
-            if currentPlayer1 == "player1's turn":
-                currentPlayer1 = "AI's turn"
+            if self.currentPlayer1 == "player1's turn":
+                self.currentPlayer1 = "AI's turn"
             else:
-                currentPlayer1 = "player1's turn"
+                self.currentPlayer1 = "player1's turn"
 
 
-    def show_Ai_roll():
-        print(currentPlayer1,"\n")
+    def show_Ai_roll(self):
+        print(self.currentPlayer1,"\n")
         # get the current name list
         # get the current point list
         # self.view_Game_Prog_2(name1, points1, name2, points2)
         # call for random roll amount (get back number)
         #loop
         # call for the roll method for the amount of times entered (get back numbers)
-        if currentPlayer1 == "player1's turn":
-            currentPlayer1 = "AI's turn"
+        if self.currentPlayer1 == "player1's turn":
+            self.currentPlayer1 = "AI's turn"
         else:
-            currentPlayer1 = "player1's turn"
+            self.currentPlayer1 = "player1's turn"
     
     def cheat():
         #calculate difference from 100 returns amount of times to roll
@@ -154,6 +170,6 @@ class Game_functionality:
         #cheating method with 16 times rolling 6 and one time rolling 4
     
     
-    def restart():
-        # goes back to main menu
-        pass
+    def restart(self):
+        choice = disp.gameMenu()
+        self.handleMenuChoice(choice)

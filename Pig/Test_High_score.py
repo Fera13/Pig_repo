@@ -6,10 +6,6 @@ hs = High_score()
 
 class testGameFunctionality(unittest.TestCase):
     
-    def test_view_Highscores_wrongDic(self):
-        with self.assertRaises(TypeError): hs.view_HighScores(dict[int: str])
-    
-    
     def test_view_Highscores_wrongType(self):
         with self.assertRaises(TypeError): hs.view_HighScores("hi")
     
