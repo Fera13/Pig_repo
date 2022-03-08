@@ -57,19 +57,16 @@ class Display:
 
 
 
-    def gameSummary(self, name_1:str, name_2:str, score_1:list[int], score_2:list[int]):
+    def gameSummary(self, name:str, rolls:int):
         roundCount = 1
-        if not isinstance(name_1, str) or not isinstance(name_2, str) or not isinstance(score_1,[int]) or not isinstance(score_2,[int]):
+        if not isinstance(name, str) or not isinstance(rolls, int):
             raise TypeError('The game summary is not available right now')
 
-        print(f'\nHere is a summary of all the points collected by the players in each round')
-        print(f'\n----------------------------------------------------------------------')
-        print(f'Rounds {name_1:>10} {name_2:>10}')
-        i = 0
-        for i in name_1 and name_2:
-            print(f'Round {roundCount} {score_1[i]:>20} {score_2[i]:>20}')
-            roundCount += 1
-            i += 1
+        amountOfRolls = 'Amount of rolls'
+        print(f'\nHere is the amount of rolls for the player to reach 100 points\n')
+        print(f'Name {amountOfRolls:>35}')
+        print(f'----------------------------------------------------------------------')
+        print(f'{name}  {rolls:>25}')
         print(f'----------------------------------------------------------------------\n')
 
 
