@@ -5,9 +5,12 @@ from display import *
 
 class dice:
     roundSum = 0
+    winner = ""
     amountOfRolls = 0
     display = Display()
+    player = Player()
     totalSum = 0
+    turn = 0
 
     def __init__(self):
         return None
@@ -30,7 +33,16 @@ class dice:
                 else:
                     print("Rolled a " + str(rollNumber))
                     self.roundSum += rollNumber
-            self.totalSum += self.roundSum
+            
+            currentPl = self.player.getCurrentNames()
+            if turn == 0:
+                self.player.addCurrentScore(roundSum, currentPl[0])
+                turn = 1
+            else:
+                self.player.addCurrentScore(roundSum, currentPl[1])
+                turn = 0
+
+            
 
             # if total over 100, call winner method from display
             if self.totalSum >= 100:
@@ -38,8 +50,6 @@ class dice:
 
             return self.roundSum
 
-    def getTotalSum(self):
-        return self.totalSum
 
     def getAmountOfRolls(self):
         return self.amountOfRolls

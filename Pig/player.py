@@ -1,6 +1,7 @@
 class Player:
     names = []
-    score = []
+    currentNames = []
+    currentScores = [["", 0],["",0]]
     
     def __init__(self):
         return None
