@@ -1,3 +1,8 @@
+from ctypes import sizeof
+from html.entities import name2codepoint
+from queue import Empty
+
+
 class Display:
 
     def winner(self, name:str):
@@ -14,7 +19,7 @@ class Display:
     def gameMenu(self):
         notCorrect = True
         while notCorrect:
-            print(f'\n----------------------------------------------------------------------\n')
+            print(f'\n----------------------------------------------------------------------')
             print('1:  Start a one player game')
             print('2:  Start a two player game')
             print('3:  Update existing player name')
@@ -22,7 +27,7 @@ class Display:
             print('5:  View highscore')
             print('6:  Show rules')
             print('7:  Exit game')
-            print(f'\n----------------------------------------------------------------------\n')
+            print(f'----------------------------------------------------------------------\n')
             try:
                 choice = input('Please enter your choice here: ')
                 if choice in [1,2,3,4,5,6,7]:
@@ -33,7 +38,7 @@ class Display:
                 print('You can only use numbers to choose an option')
 
 
-    def displayGameRules():
+    def displayGameRules(self):
         notCorrect = True
         while notCorrect:
             print(f'\nThe rules for Pig-Game are as following:\n') 
@@ -57,10 +62,39 @@ class Display:
     
     def gameSummary(self, name_1:str, name_2:str, score_1:list[int], score_2:list[int]):
         roundCount = 1
+        if not isinstance(name_1, str) or not isinstance(name_2, str) or not isinstance(score_1,[int]) or not isinstance(score_2,[int]):
+            raise TypeError('The game summary is not available right now')
+        
         print(f'\nHere is a summary of all the points collected by the players in each round')
-        print(f'\n----------------------------------------------------------------------\n')
+        print(f'\n----------------------------------------------------------------------')
         print(f'Rounds {name_1:>10} {name_2:>10}')
-        for i in self:
+        i = 0
+        for i in name_1 and name_2:
             print(f'Round {roundCount} {score_1[i]:>20} {score_2[i]:>20}')
-            roundCount = roundCount + 1
-        print(f'\n----------------------------------------------------------------------\n')
+            roundCount + 1
+            i += 1
+        print(f'----------------------------------------------------------------------\n')
+        
+        
+    def showPlayers(self, namelist:list[str]):
+        if not isinstance(namelist,[str]):
+            raise TypeError("The list of names could not be found at this moment")
+        
+        print(f'\nHere is the list of current players\n----------------------------------------------------------------------\n')
+        for i,n,m in namelist:
+            print(f'>{namelist[i]}  >{namelist[n]}  >{namelist[m]}\n')
+        print(f'\n----------------------------------------------------------------------\n') 
+    
+    
+    namelist = ["Farah", "Emil", "Alfred", "Kalle", "Tim"]
+    length = 0
+    amountOfNames = 0
+    print(f'Here is the list of current players\n----------------------------------------------------------------------')
+    while length < len(namelist):
+        print("")
+        while (amountOfNames < 4 and length < len(namelist)):
+            print(f'>{namelist[length]:15}', end=" ")
+            length += 1
+            amountOfNames += 1
+        amountOfNames = 0
+    print(f'\n\n----------------------------------------------------------------------\n') 
