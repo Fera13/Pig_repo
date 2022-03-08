@@ -1,6 +1,7 @@
 class Player:
     names = []
-    score = []
+    currentNames = []
+    currentScores = []
 
     def __init__(self):
         return None
@@ -15,16 +16,14 @@ class Player:
 
         # call method to update name in highscore
 
-
-    def updateName(self, oldName:str, newName:str):
-        if not isinstance(oldName,str) or not isinstance(newName,str):
+    def updateName(self, oldName: str, newName: str):
+        if not isinstance(oldName, str) or not isinstance(newName, str):
             raise TypeError("oldName and newName has to be strings")
 
         for i in self.names:
             if i == oldName:
                 self.deleteName(oldName)
                 self.setName(newName)
-
 
     def deleteName(self, name: str):
         if not isinstance(name, str):
@@ -33,26 +32,38 @@ class Player:
             if i == name:
                 self.names.remove(name)
 
+    def addCurrentScore(self, score, name):
+        if len(self.currentScores) < 2:
+            self.currentScores.append([name, score])
+        else:
+            for i in range(2):
+                if self.currentScores[i][0] == name:
+                    self.currentScores[i][1] = score
 
-    def currentPlayer(self):
+    def getCurrentScore(self):
+        return self.currentScores
+
+    def addCurrentNames(self, name1: str, name2: str):
+        self.currentNames.append(name1)
+        self.currentNames.append(name2)
+
+    def getCurrentNames(self):
+        return self.currentNames
+
+    def currentPlayers(self):
         return None
-
 
     def getNames(self):
         return self.names
 
-    # not sure what for
-    def setFinalScore(self, name: str, score: int):
-        if not isinstance(name, str) or not isinstance(score, int):
-            raise TypeError(
-                "name has to be a string, and score has to be an integer")
-
-        if score < 0:
-            raise ValueError("score cant be a negative value")
-
-        self.score.append([name, score])
-        return self.score
-
     def getScore(self):
         return self.score
 
+
+p = Player()
+p.addCurrentScore(3, "name1")
+p.addCurrentScore(4, "name2")
+p.addCurrentScore(7, "name1")
+p.addCurrentScore(10, "name2")
+p.addCurrentScore(15, "name1")
+print(p.getCurrentScore())
