@@ -36,21 +36,19 @@ class dice:
             
             currentPl = self.player.getCurrentNames()
             if turn == 0:
-                self.player.addCurrentScore(roundSum, currentPl[0])
+                self.player.addCurrentScore(self.roundSum, currentPl[0])
                 turn = 1
             else:
-                self.player.addCurrentScore(roundSum, currentPl[1])
+                self.player.addCurrentScore(self.roundSum, currentPl[1])
                 turn = 0
 
-            
-
-            # if total over 100, call winner method from display
+            # if total over 100
             if self.totalSum >= 100:
                 pl = self.player.getCurrentNames()
                 if turn == 0:
-                    winnerName = pl[0]
+                    self.winnerName = pl[0]
                 else:
-                    winnerName = pl[1]
+                    self.winnerName = pl[1]
                 #self.display.winner()
 
             return self.roundSum
