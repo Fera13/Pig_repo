@@ -33,7 +33,7 @@ class Display:
                 print('You can only use numbers to choose an option')
 
 
-    def displayGameRules():
+    def displayGameRules(self):
         notCorrect = True
         while notCorrect:
             print(f'\nThe rules for Pig-Game are as following:\n') 
@@ -64,3 +64,17 @@ class Display:
             print(f'Round {roundCount} {score_1[i]:>20} {score_2[i]:>20}')
             roundCount = roundCount + 1
         print(f'\n----------------------------------------------------------------------\n')
+        
+
+namelist = ["Farah", "Emil", "Alfred", "Kalle", "Tim", "ran", "how", "hi", "play"]
+n = 0
+print(f'Here is the list of current players\n----------------------------------------------------------------------\n')
+    #while i < len(namelist):
+for i in namelist:
+    if n < len(namelist)-3:
+        print(f'>{namelist[n]}  >{namelist[n+1]}  >{namelist[n+2]}\n')
+        n += 3
+while (len(namelist) > n):
+    print(f'>{namelist[n]}  >{namelist[n+1]}')
+    n += 2
+print(f'\n----------------------------------------------------------------------\n')

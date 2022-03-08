@@ -1,24 +1,15 @@
 from High_score import *
+from display import *
+from player import *
+
 currentPlayer = "player1's turn"
 currentPlayer1 = "player1's turn"
 
 hs = High_score()
+disp = Display()
+playr = Player()
 
 class Game_functionality:
-    def view_Start_Menu():
-        notCorrect = True
-        while notCorrect:
-            print("Welcome to Pig!\n")
-            print("1. Start one player game\n2. Start two player game\n3. Update player name\n4. Delete player\n5. View highscores\n6. rules\n7. Exit\n")
-            try:
-                choice = input("Please enter a choice here: ")
-                if choice in [1, 2, 3, 4, 5, 6, 7]:
-                    return choice
-                else:
-                    print("Please enter a number from the available options")
-            except TypeError:
-                print("Please use numbers only")
-    
     
     def handleMenuChoice(self, choice: int):
         if choice == 1:
@@ -32,15 +23,16 @@ class Game_functionality:
             name = input("Enter the name you want to update: ")
             newName = input("Enter the new updated name: ")
             # method to switch names(name, newName)
+            hs.update_High_Score(name, newName)
         elif choice == 4:
             name = input("Enter the name you want to delete: ")
             #method of deleting a name from the list (name)
         elif choice == 5:
             hsDic = {}
-            hsDic == hs.getHighScoreDic()
+            hsDic == hs.get_HighScore_Dic()
             hs.view_HighScores(hsDic)
         elif choice == 6:
-            pass
+            disp.displayGameRules()
         else:
             quit()
     
@@ -52,11 +44,13 @@ class Game_functionality:
     
     def enter_Names2(self):
         print("Existing players:")
-        # need a view player list method
+        names = playr.getNames()
+        
         name = input("Enter the name of player1(note: if you already have your name in the list, enter it): ")
         name2 = input("Enter the name of player2(note: if you already have your name in the list, enter it): ")
-        # method of saving names if they are new
-        # method of entering names into current player list
+        playr.setName(name)
+        playr.setName(name2)
+        playr.addCurrentNames(name, name2)
         # curent points for both players 0
     
     

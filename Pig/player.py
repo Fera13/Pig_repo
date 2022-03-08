@@ -1,7 +1,8 @@
 class Player:
     names = []
     score = []
-
+    currentNames = []
+    
     def __init__(self):
         return None
 
@@ -14,7 +15,17 @@ class Player:
         return len(self.names)
 
         # call method to update name in highscore
-
+    
+    
+    def addCurrentNames(self, name1: str, name2: str):
+        self.currentNames.append(name1)
+        self.currentNames.append(name2)
+    
+    
+    def getCurrentNames(self):
+        return self.currentNames
+    
+    
     def getNames(self):
         return self.names
 
