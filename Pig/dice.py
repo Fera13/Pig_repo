@@ -34,7 +34,7 @@ class dice:
             currentPl = self.player.getCurrentNames()
             if self.turn == 0:
                 self.amountOfRolls[0] = + 1
-                self.player.addCurrentScore(self.roundSum, currentPl[0])
+                self.player.addCurrentScore(self.roundSum/2, currentPl[0])
                 self.turn = 1
             else:
                 self.amountOfRolls[1] = + 1

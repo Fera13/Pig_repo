@@ -2,13 +2,14 @@ from High_score import *
 from display import *
 from player import *
 from dice import *
-
+from file_handling import *
 
 
 hs = High_score()
 disp = Display()
 playr = Player()
 dise = dice()
+fh = File_handling()
 
 class Game_functionality:
     currentPlayer = "player1's turn"
@@ -22,28 +23,41 @@ class Game_functionality:
         elif choice == 2:
             self.enter_Names2p()
             self.startGame2p()
+        
         elif choice == 3:
-            names = playr.getNames()
+            names = fh.readNameFiles("name_file.txt")
             disp.showPlayers(names)
             name = input("Enter the name you want to update: ")
             newName = input("Enter the new updated name: ")
             playr.updateName(name, newName)
-            hs.update_High_Score(name, newName)
+            newDic = hs.update_High_Score(name, newName)
+            names2 = playr.getNames()
+            fh.writeNameFiles("name_file.txt", names2)
+            fh.writeDicFiles("high_score.txt", newDic)
+            choice = disp.gameMenu()
+            self.handleMenuChoice(choice)
+        
         elif choice == 4:
-            names = playr.getNames()
+            names = fh.readNameFiles("name_file.txt")
             disp.showPlayers(names)
             name = input("\nEnter the name you want to delete: ")
             playr.deleteName(name)
+            names2 = playr.getNames()
+            fh.writeNameFiles("name_file.txt", names2)
+            choice = disp.gameMenu()
+            self.handleMenuChoice(choice)
+        
         elif choice == 5:
             hsDic = {}
             hsDic = hs.get_HighScore_Dic()
             hs.view_HighScores(hsDic)
-            back = input("\nWhen you are done reading the rules press and button to go back: ")
+            back = input("\nWhen you are done reading the high scores press any button to go back: ")
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
+
         elif choice == 6:
             disp.displayGameRules()
-            back = input("When you are done reading the rules press and button to go back: ")
+            back = input("When you are done reading the rules press any button to go back: ")
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
         else:
@@ -57,6 +71,9 @@ class Game_functionality:
         name2 = input("Enter the name of player2(note: if you already have your name in the list, enter it): ")
         playr.setName(name)
         playr.setName(name2)
+        names2 = playr.getNames()
+        fh.writeNameFiles("name_file.txt", names2)
+        
         playr.addCurrentScore(0, name)
         playr.addCurrentScore(0, name2)
         playr.addCurrentNames(name, name2)
@@ -77,6 +94,7 @@ class Game_functionality:
             whichPlayer = playr.getAmountOfRolls(winnerName)
             rollAmount = dise.amountOfRolls(whichPlayer)
             disp.gameSummary(winnerName, rollAmount)
+            hs.add_Compare_Highscores(winnerName, rollAmount)
             disp.gameMenu()
             
     
@@ -107,11 +125,7 @@ class Game_functionality:
             self.cheat()
         elif rollNum.upper() == "R":
             self.restart()
-        elif not isinstance(rollNum, int):
-            print("\nYou know that the number of rolls is a NUMBER right?")
-        else:
-            isInt = True
-        if isInt:
+        elif rollNum.isdigit():
             intRollNum = int(rollNum)
             roundPoints = dise.roll(intRollNum)
             if self.currentPlayer == "player1's turn":
@@ -120,6 +134,9 @@ class Game_functionality:
             else:
                 playr.addCurrentScore(roundPoints, player2)
                 self.currentPlayer = "player1's turn"
+        elif not isinstance(rollNum, int):
+            print("\nYou know that the number of rolls is a NUMBER right?")
+            
 
         
         

@@ -10,7 +10,6 @@ class File_handling:
         return names
     
     def writeNameFiles(self, filename:str, names:list[str]):
-        
         writing = open(filename, "w")
         for name in names:
             writing.write(name + "\n")
