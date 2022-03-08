@@ -2,23 +2,25 @@ from random import randrange
 from player import Player
 from display import *
 
+
 class dice:
     roundSum = 0
     amountOfRolls = 0
-
     display = Display()
-
-    # SHOULD MAYBE BE IN PLAYER CLASS? RETURN FROM ROLL ROUND SUM AND ADD TO TOTAL IN PLAYER?
     totalSum = 0
 
+    def __init__(self):
+        return None
 
     def roll(self, timesToRoll: int):
         if not isinstance(timesToRoll, int):
             raise TypeError("timesToRoll must be an integer")
+        if timesToRoll <= 0:
+            raise ValueError("times to roll has to be more than 0")
         else:
             self.roundSum = 0
-            self.amountOfRolls =+ 1
-
+            self.amountOfRolls = + 1
+            
             for i in range(timesToRoll):
                 rollNumber = randrange(1, 7)
                 if rollNumber == 1:
@@ -35,12 +37,9 @@ class dice:
                 self.display.winner()
 
             return self.roundSum
-        
-
-    def testmethod(self, numberToAdd:int):
-        self.roundSum += numberToAdd
-        return self.roundSum
-    
 
     def getTotalSum(self):
         return self.totalSum
+
+    def getAmountOfRolls(self):
+        return self.amountOfRolls
