@@ -5,7 +5,7 @@ from display import *
 
 class dice:
     roundSum = 0
-    winner = ""
+    winnerName = ""
     amountOfRolls = 0
     display = Display()
     player = Player()
@@ -46,9 +46,18 @@ class dice:
 
             # if total over 100, call winner method from display
             if self.totalSum >= 100:
-                self.display.winner()
+                pl = self.player.getCurrentNames()
+                if turn == 0:
+                    winnerName = pl[0]
+                else:
+                    winnerName = pl[1]
+                #self.display.winner()
 
             return self.roundSum
+
+
+    def getWinnerName(self):
+        return self.winnerName
 
 
     def getAmountOfRolls(self):
