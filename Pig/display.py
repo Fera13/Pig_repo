@@ -1,4 +1,4 @@
-from Game_functionality import *
+import Game_functionality
 
 gameFunc = Game_functionality()
 class Display:
