@@ -5,17 +5,17 @@ dsplay = Display()
 
 class TestDisplay(unittest.TestCase):
     
-    def testWinnerWrongType(self):
-        with self.assertRaises(TypeError): dsplay.winner('Alfred')
+    def test_winner_wrong_type(self):
+        with self.assertRaises(TypeError): dsplay.winner(5)
         
-    def testGameMenuWrongType(self):
-        with self.assertRaises(TypeError): dsplay.gameMenu(5)
+    def test_game_menu_wrong_type(self):
+        with self.assertRaises(TypeError): dsplay.gameMenu('2')
         
-    def testRulesWrongType(self):
-        with self.assertRaises(TypeError): dsplay.displayGameRules('s')
+    def test_rules_wrong_type(self):
+        with self.assertRaises(TypeError): dsplay.displayGameRules(5)
         
-    def testGameSummaryWrongType(self):
-        with self.assertRaises(TypeError): dsplay.gameSummary('Farah', 'Emil', [3,2,6,8,9], [8,2,0,6,5])
+    def test_game_summary_wrong_type(self):
+        with self.assertRaises(TypeError): dsplay.gameSummary(3, 4, '[3,2,6,8,9]', '[8,2,0,6,5]')
     
-    if __name__ == '__main__':
-        unittest.main()
+if __name__ == '__main__':
+    unittest.main()

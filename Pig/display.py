@@ -59,6 +59,6 @@ class Display:
         print(f'\n----------------------------------------------------------------------\n')
         print(f'Rounds {name_1:>10} {name_2:>10}')
         for i in self:
-            print(f'Round {roundCount} {score_1[i]:>10} {score_2[i]:>10}')
+            print(f'Round {roundCount} {score_1[i]:>20} {score_2[i]:>20}')
             roundCount = roundCount + 1
         print(f'\n----------------------------------------------------------------------\n')
