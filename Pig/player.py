@@ -16,8 +16,14 @@ class Player:
         # call method to update name in highscore
 
 
-    def updateName(self, oldName, newName):
-        return None
+    def updateName(self, oldName:str, newName:str):
+        if not isinstance(oldName,str) or not isinstance(newName,str):
+            raise TypeError("oldName and newName has to be strings")
+
+        for i in self.names:
+            if i == oldName:
+                self.deleteName(oldName)
+                self.setName(newName)
 
 
     def deleteName(self, name: str):
@@ -49,3 +55,4 @@ class Player:
 
     def getScore(self):
         return self.score
+
