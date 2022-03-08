@@ -8,14 +8,14 @@ class Display:
     def winner(self, name:str):
         if not isinstance(name,str):
             raise TypeError("Something went wrong while trying to retrieve the winning players' name")
-            
+
         print(f'\n----------------------------------------------------------------------')
         print(f'\n          Congratulations {name}, you have won the game!')
         print(f'\n----------------------------------------------------------------------\n')
-       
-        
-    
-    
+
+
+
+
     def gameMenu(self):
         notCorrect = True
         while notCorrect:
@@ -32,7 +32,7 @@ class Display:
                 choice = input('Please enter your choice here: ')
                 if choice in [1,2,3,4,5,6,7]:
                     return choice
-                else: 
+                else:
                     print('Please enter a number from the available options')
             except TypeError:
                 print('You can only use numbers to choose an option')
@@ -41,7 +41,7 @@ class Display:
     def displayGameRules(self):
         notCorrect = True
         while notCorrect:
-            print(f'\nThe rules for Pig-Game are as following:\n') 
+            print(f'\nThe rules for Pig-Game are as following:\n')
             print('-  The player begins each turn by rolling the dice.')
             print('-  The player may roll as many times as they want in a round.')
             print('-  If the dice lands on a 1, the round ends and all points from the current round will be deducted.')
@@ -57,63 +57,37 @@ class Display:
                     print('Please enter a letter to get back to the main menu')
             except TypeError:
                 print('You can only use letters in the alphabet to get back to the main menu')
-            
-                
-    
+
+
+
     def gameSummary(self, name_1:str, name_2:str, score_1:list[int], score_2:list[int]):
         roundCount = 1
         if not isinstance(name_1, str) or not isinstance(name_2, str) or not isinstance(score_1,[int]) or not isinstance(score_2,[int]):
             raise TypeError('The game summary is not available right now')
-        
+
         print(f'\nHere is a summary of all the points collected by the players in each round')
         print(f'\n----------------------------------------------------------------------')
         print(f'Rounds {name_1:>10} {name_2:>10}')
         i = 0
         for i in name_1 and name_2:
             print(f'Round {roundCount} {score_1[i]:>20} {score_2[i]:>20}')
-<<<<<<< HEAD
-            roundCount + 1
+            roundCount += 1
             i += 1
         print(f'----------------------------------------------------------------------\n')
-        
-        
+
+
     def showPlayers(self, namelist:list[str]):
         if not isinstance(namelist,[str]):
             raise TypeError("The list of names could not be found at this moment")
-        
-        print(f'\nHere is the list of current players\n----------------------------------------------------------------------\n')
-        for i,n,m in namelist:
-            print(f'>{namelist[i]}  >{namelist[n]}  >{namelist[m]}\n')
-        print(f'\n----------------------------------------------------------------------\n') 
-    
-    
-    namelist = ["Farah", "Emil", "Alfred", "Kalle", "Tim"]
-    length = 0
-    amountOfNames = 0
-    print(f'Here is the list of current players\n----------------------------------------------------------------------')
-    while length < len(namelist):
-        print("")
-        while (amountOfNames < 4 and length < len(namelist)):
-            print(f'>{namelist[length]:15}', end=" ")
-            length += 1
-            amountOfNames += 1
-        amountOfNames = 0
-    print(f'\n\n----------------------------------------------------------------------\n') 
-=======
-            roundCount = roundCount + 1
-        print(f'\n----------------------------------------------------------------------\n')
-        
 
-namelist = ["Farah", "Emil", "Alfred", "Kalle", "Tim", "ran", "how", "hi", "play"]
-n = 0
-print(f'Here is the list of current players\n----------------------------------------------------------------------\n')
-    #while i < len(namelist):
-for i in namelist:
-    if n < len(namelist)-3:
-        print(f'>{namelist[n]}  >{namelist[n+1]}  >{namelist[n+2]}\n')
-        n += 3
-while (len(namelist) > n):
-    print(f'>{namelist[n]}  >{namelist[n+1]}')
-    n += 2
-print(f'\n----------------------------------------------------------------------\n')
->>>>>>> 2a9fb9c0e2fdfa8cb8de7efe8203723677395433
+        length = 0
+        amountOfNames = 0
+        print(f'Here is the list of current players\n----------------------------------------------------------------------')
+        while length < len(namelist):
+            print("")
+            while (amountOfNames < 4 and length < len(namelist)):
+                print(f'>{namelist[length]:15}', end=" ")
+                length += 1
+                amountOfNames += 1
+            amountOfNames = 0
+    print(f'\n\n----------------------------------------------------------------------\n')
