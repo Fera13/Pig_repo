@@ -1,13 +1,11 @@
 from random import randrange
 from player import Player
-from display import *
 
 
 class dice:
     roundSum = 0
     winnerName = ""
     amountOfRolls = [0, 0]
-    display = Display()
     player = Player()
     totalSum = 0
     turn = 0
