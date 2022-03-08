@@ -1,8 +1,8 @@
 class Player:
     names = []
-    currentNames = ["",""]
-    currentScores = [["", 0],["",0]]
-    
+    currentNames = ["", ""]
+    currentScores = [["", 0], ["", 0]]
+
     def __init__(self):
         return None
 
@@ -15,17 +15,15 @@ class Player:
         return len(self.names)
 
         # call method to update name in highscore
-    
 
-    def updateName(self, oldName:str, newName:str):
-        if not isinstance(oldName,str) or not isinstance(newName,str):
+    def updateName(self, oldName: str, newName: str):
+        if not isinstance(oldName, str) or not isinstance(newName, str):
             raise TypeError("oldName and newName has to be strings")
 
         for i in self.names:
             if i == oldName:
                 self.deleteName(oldName)
                 self.setName(newName)
-
 
     def deleteName(self, name: str):
         if not isinstance(name, str):
@@ -34,7 +32,7 @@ class Player:
             if i == name:
                 self.names.remove(name)
 
-    def addCurrentScore(self, score:int, name:str):
+    def addCurrentScore(self, score: int, name: str):
         if not isinstance(score, int) or not isinstance(name, str):
             raise TypeError("score has to be int and name has to be string")
 
@@ -62,12 +60,18 @@ class Player:
 
     def currentPlayers(self):
         return None
+
     def currentPlayer(self):
         return None
 
-
     def getNames(self):
         return self.names
+
+    def getAmountOfRolls(self, winnerName: str):
+        if self.currentNames[0] == winnerName:
+            return 0
+        else:
+            return 1
 
     # not sure what for
     def setFinalScore(self, name: str, score: int):
@@ -83,4 +87,3 @@ class Player:
 
     def getScore(self):
         return self.score
-
