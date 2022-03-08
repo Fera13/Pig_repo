@@ -6,7 +6,7 @@ dsplay = Display()
 class TestDisplay(unittest.TestCase):
     
     def test_winner_wrong_type(self):
-        with self.assertRaises(TypeError): dsplay.winner(5)
+        with self.assertRaises(TypeError): dsplay.winner([])
         
     def test_game_menu_wrong_type(self):
         with self.assertRaises(TypeError): dsplay.gameMenu('2')
