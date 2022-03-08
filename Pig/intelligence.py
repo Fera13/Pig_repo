@@ -2,12 +2,11 @@ import random
 
 class Intelligence:
     
-    def rollAmountNorHar(self):
+    def rollAmountNorHar():
         n = random.randint(1,6)
-
         return n
     
-    def rollAmountEasy(self):
+    def rollAmountEasy():
         n = random.randint(1,2)
         if n == 1:
             n = random.randint(1,2)
@@ -16,10 +15,10 @@ class Intelligence:
             n = 10
             return n
     
-    def nameOfAi(self):
+    def nameOfAi():
         aiName = 'Weird Ai Yankovic'
         return aiName
     
     def aiScore(self):
         #not really sure what was intended with this one, is it the score as in the score for the current round or is it like the highscore part?
-        return self
+        pass
