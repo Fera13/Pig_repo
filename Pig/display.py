@@ -1,6 +1,3 @@
-from ctypes import sizeof
-from html.entities import name2codepoint
-from queue import Empty
 
 
 class Display:
