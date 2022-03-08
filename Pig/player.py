@@ -15,6 +15,20 @@ class Player:
 
         # call method to update name in highscore
 
+
+    def updateName(self, oldName, newName):
+        return None
+
+
+    def deleteName(self, name: str):
+        if not isinstance(name, str):
+            raise TypeError("name has to be a string")
+        for i in self.names:
+            if i == name:
+                self.names.remove(name)
+
+
+
     def getNames(self):
         return self.names
 
