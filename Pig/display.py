@@ -88,14 +88,8 @@ class Display:
                 amountOfNames += 1
             amountOfNames = 0
         print(f'\n\n----------------------------------------------------------------------\n')
-        
+
+
     def viewGameProg2(player1: str, points1: int, player2: str, points2: int):
         print(f"Player1: {player1:60} Player2: {player2}")
         print(f"Points: {points1:<61} Points: {points2}\n")
-        
-player1 = "Alfred"
-player2 = "Farah"
-points1 = 60
-points2 = 70
-print(f"Player1: {player1:60} Player2: {player2}")
-print(f"Points: {points1:<61} Points: {points2}\n")
