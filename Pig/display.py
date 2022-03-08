@@ -1,12 +1,14 @@
 class Display:
 
     def winner(self, name:str):
-        try:
-            print(f'\n----------------------------------------------------------------------')
-            print(f'\n          Congratulations {name}, you have won the game!')
-            print(f'\n----------------------------------------------------------------------\n')
-        except TypeError:
-            print("Something went wrong while trying to retrieve the winning players' name")
+        if not isinstance(name,str):
+            raise TypeError("Something went wrong while trying to retrieve the winning players' name")
+            
+        print(f'\n----------------------------------------------------------------------')
+        print(f'\n          Congratulations {name}, you have won the game!')
+        print(f'\n----------------------------------------------------------------------\n')
+       
+        
     
     
     def gameMenu(self):
