@@ -11,8 +11,6 @@ class Display:
         print(f'\n----------------------------------------------------------------------\n')
 
 
-
-
     def gameMenu(self):
         notCorrect = True
         while notCorrect:
