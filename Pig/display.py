@@ -9,7 +9,7 @@ class Display:
             print("Something went wrong while trying to retrieve the winning players' name")
     
     
-    def gameMenu():
+    def gameMenu(self):
         notCorrect = True
         while notCorrect:
             print(f'\n----------------------------------------------------------------------\n')
@@ -53,7 +53,7 @@ class Display:
             
                 
     
-    def gameSummary(self, name_1:str, name_2:str, score_1:list, score_2:list):
+    def gameSummary(self, name_1:str, name_2:str, score_1:list[int], score_2:list[int]):
         roundCount = 1
         print(f'\nHere is a summary of all the points collected by the players in each round')
         print(f'\n----------------------------------------------------------------------\n')
