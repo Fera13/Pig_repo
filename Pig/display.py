@@ -1,5 +1,6 @@
+from Game_functionality import *
 
-
+gameFunc = Game_functionality()
 class Display:
 
     def winner(self, name:str):
@@ -26,7 +27,7 @@ class Display:
             try:
                 choice = input('Please enter your choice here: ')
                 if choice in [1,2,3,4,5,6,7]:
-                    return choice
+                    gameFunc.handleMenuChoice(choice)
                 else:
                     print('Please enter a number from the available options')
             except TypeError:
