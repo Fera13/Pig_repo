@@ -1,5 +1,4 @@
-import rlcompleter
-from high_score import *
+from High_score import *
 from display import *
 from player import *
 from dice import *
