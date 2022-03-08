@@ -71,6 +71,7 @@ class Game_functionality:
             whichPlayer = playr.getAmountOfRolls(winnerName)
             rollAmount = dise.amountOfRolls(whichPlayer)
             disp.gameSummary(winnerName, rollAmount)
+            disp.gameMenu()
             
     
     
