@@ -1,10 +1,12 @@
 class Display:
 
     def winner(self, name:str):
-        
-        print(f'\n----------------------------------------------------------------------')
-        print(f'\n          Congratulations {name}, you have won the game!')
-        print(f'\n----------------------------------------------------------------------\n')
+        try:
+            print(f'\n----------------------------------------------------------------------')
+            print(f'\n          Congratulations {name}, you have won the game!')
+            print(f'\n----------------------------------------------------------------------\n')
+        except TypeError:
+            print("Something went wrong while trying to retrieve the winning players' name")
     
     
     def gameMenu():
