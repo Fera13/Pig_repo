@@ -1,6 +1,3 @@
-from ctypes import sizeof
-from html.entities import name2codepoint
-from queue import Empty
 
 
 class Display:
@@ -90,4 +87,4 @@ class Display:
                 length += 1
                 amountOfNames += 1
             amountOfNames = 0
-    print(f'\n\n----------------------------------------------------------------------\n')
+        print(f'\n\n----------------------------------------------------------------------\n')
