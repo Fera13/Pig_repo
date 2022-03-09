@@ -44,16 +44,6 @@ class High_score:
         else:
             sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1], reverse=True)
             self.sorted_dict = {k: v for k, v in sorted_tuples}
-            # for key, value in self.sorted_dict.items():
-            #     if name == key:
-            #         if value < score:
-            #             pass
-                    
-            # for keyName, valueScore in self.sorted_dict.items():
-            #     if score < valueScore:
-            #         self.sorted_dict[name] = self.sorted_dict.pop(keyName)
-            #         self.sorted_dict[name] = score
-            #         break
             for key, value in self.sorted_dict.items():
                 if name == key:
                     if value < score:

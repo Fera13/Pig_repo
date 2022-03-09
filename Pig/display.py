@@ -93,7 +93,7 @@ class Display:
             print(f'2:  Normal Mode')
             print(f'3:  Hard Mode')
             try:
-                choice = input(int(f'Please enter the number of the challenge you dare to try today. It is okay to be a coward. '))
+                choice = int(input(f'Please enter the number of the challenge you dare to try today. It is okay to be a coward. '))
                 if choice in [1,2,3]:
                     return choice
                 else:

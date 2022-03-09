@@ -1,4 +1,4 @@
-from random import randrange
+from random import *
 from player import Player
 from display import *
 
@@ -86,6 +86,29 @@ class dice:
             # if total over 100
             
                 # self.display.winner()
+    def hardAiRoll(self, rollNum: int):
+        roundSum = 0
+        names = player.getCurrentNames()
+        for i in range(rollNum):
+            num = [1, 2, 3, 4, 4, 5, 5, 6, 6]
+            rollResult = choice(num)
+            if rollResult == 1:
+                roundSum = 0
+                print("Even geniuses roll a 1, Weird Ai Yankovic got 0 points this round")
+                break
+            else:
+                print("Rolled a " + str(rollResult))
+                roundSum += rollResult
+        self.totalSum2 += roundSum
+        self.amountOfRolls[1] += 1
+        self.turn = 0
+        print(self.totalSum2)
+        dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)
+
+
+    def resetTotals(self):
+        self.totalSum1 = 0
+        self.totalSum2 = 0
 
 
     def getWinnerName(self):
@@ -106,3 +129,9 @@ class dice:
             return self.amountOfRolls[0]
         else:
             return self.amountOfRolls[1]
+    
+    
+    def cheatDice(self):
+        self.totalSum1 = 99
+        return self.totalSum1
+

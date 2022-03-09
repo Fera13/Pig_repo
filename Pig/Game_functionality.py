@@ -3,27 +3,33 @@ from display import *
 from player import *
 from dice import *
 from file_handling import *
-
+from intelligence import *
 
 hs = High_score()
 disp = Display()
 playr = Player()
 dise = dice()
 fh = File_handling()
+intel = Intelligence()
 
 class Game_functionality:
     currentPlayer = "player1's turn"
     currentPlayer1 = "player1's turn"
-
+    difficulty = 0
 
     def handleMenuChoice(self, choice: int):
         if choice == 1:
-            self.enter_Names1()
-            # start game
+            self.difficulty = disp.viewDifficulties()
+            self.enter_Names1p()
+            playerNames = playr.getCurrentNames()
+            disp.viewGameProg2(playerNames[0], 0, playerNames[1], 0)
+            dise.resetTotals()
+            self.startGame1p()
         elif choice == 2:
             self.enter_Names2p()
             playerNames = playr.getCurrentNames()
             disp.viewGameProg2(playerNames[0], 0, playerNames[1], 0)
+            dise.resetTotals()
             self.startGame2p()
 
         elif choice == 3:
@@ -110,11 +116,34 @@ class Game_functionality:
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
 
+    
+    def startGame1p(self):
+        score1 = dise.getTotalSum1()
+        score2 = dise.getTotalSum2()
+        while score1 < 100 and score2 < 100:
+            self.ask_For_Rolls1p()
+            self.aiRoll()
+            score1 = dise.getTotalSum1()
+            score2 = dise.getTotalSum2()
+        else:
+            winnerName = dise.getWinnerName()
+            disp.winner(winnerName)
+            rollAmount = dise.getAmountOfRolls(winnerName)
+            disp.gameSummary(winnerName, rollAmount)
+            hs.add_Compare_Highscores(winnerName, rollAmount)
+            choice = disp.gameMenu()
+            self.handleMenuChoice(choice)
 
-    def enter_Names1(self):
-        print("Existing players:")
-        # need a view player list method
+    def enter_Names1p(self):
+        names = playr.getNames()
+        disp.showPlayers(names)
         name = input("Enter your name(note: if you already have your name in the list, enter it): ")
+        playr.setName(name)
+        aiName = intel.nameOfAi()
+        names2 = playr.getNames()
+        fh.writeNameFiles("name_file.txt", names2)
+        playr.resetCurrentScores()
+        playr.addCurrentNames(name, aiName)
         # method of saving name if it's new
         # method of entering names into current player list with Ai
         # curent points for both 0
@@ -125,8 +154,6 @@ class Game_functionality:
         rollNum = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): ")
         if rollNum.upper() == "Q":
             quit()
-        elif rollNum.upper() == "CHEAT":
-            self.cheat()
         elif rollNum.upper() == "R":
             self.restart()
         elif rollNum.isdigit():
@@ -142,27 +169,31 @@ class Game_functionality:
 
     def ask_For_Rolls1p(self):
         print(self.currentPlayer1,"\n")
-        roll_num = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): ")
-        if roll_num.upper() == "Q":
+        rollNum = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): ")
+        if rollNum.upper() == "Q":
             quit()
-        elif roll_num.upper() == "CHEAT":
+        elif rollNum.upper() == "CHEAT":
             self.cheat()
-        elif roll_num.upper() == "R":
+        elif rollNum.upper() == "R":
             self.restart()
-        elif not isinstance(roll_num, int):
+        elif rollNum.isdigit():
+            intRollNum = int(rollNum)
+            dise.roll(intRollNum)
+        elif not isinstance(rollNum, int):
             print("You know that the number of rolls is a NUMBER right?")
+        
+    def aiRoll(self):
+        if self.difficulty == 1:
+            intel.rollAmountEasy()
+        elif self.difficulty == 2:
+            intel.rollAmountNorHar()
+        elif self.difficulty == 3:
+            rollAmount = intel.rollAmountNorHar()
+            print(f"Weird Ai Yankovic rolled {rollAmount} times")
+            dise.hardAiRoll(rollAmount)
         else:
-            # call for the roll method (get back numbers)
-            # if number returned == 1 break the rolls and bring current points to 0
-            print("You rolled a 1 so your points for this turn are 0. Your current total points are: ")
-            # else add number to current points
-            print("You rolled a ", "Your total points are: ")
-            # view roll number and points collected
-            if self.currentPlayer1 == "player1's turn":
-                self.currentPlayer1 = "AI's turn"
-            else:
-                self.currentPlayer1 = "player1's turn"
-
+            choice = disp.gameMenu()
+            self.handleMenuChoice(choice)
 
     def show_Ai_roll(self):
         print(self.currentPlayer1,"\n")
@@ -178,11 +209,9 @@ class Game_functionality:
             self.currentPlayer1 = "player1's turn"
 
 
-    def cheat():
-        #calculate difference from 100 returns amount of times to roll
-        print("You just had to cheat, didn't you :(\nJust choose to roll {num} times")
-        roll_num = input("Enter the number of dice-rolls you would like to do (q to quit, you already cheated!): ")
-        #cheating method with 16 times rolling 6 and one time rolling 4
+    def cheat(self):
+        dise.cheatDice()
+        print("\nYou just had to cheat, didn't you :(\nAnyway, your score has now been set to 99\n")
 
 
     def restart(self):
