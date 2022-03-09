@@ -1,24 +1,27 @@
 import unittest
 from display import *
 
-dsplay = Display()
+dplay = Display()
+
 
 class TestDisplay(unittest.TestCase):
 
+
     def test_winner_wrong_type(self):
-        with self.assertRaises(TypeError): dsplay.winner([])
-
-
-    def test_game_menu_wrong_type(self):
-        with self.assertRaises(TypeError): dsplay.gameMenu('2')
-
-
-    def test_rules_wrong_type(self):
-        with self.assertRaises(TypeError): dsplay.displayGameRules(5)
+        with self.assertRaises(TypeError): dplay.winner(3)
 
 
     def test_game_summary_wrong_type(self):
-        with self.assertRaises(TypeError): dsplay.gameSummary(3, 4, '[3,2,6,8,9]', '[8,2,0,6,5]')
+        with self.assertRaises(TypeError): dplay.gameSummary(3, 'hajhaj')
+
+
+    def test_show_players(self):
+        with self.assertRaises(TypeError): dplay.showPlayers(3)
+
+
+    def test_view_game_prog(self):
+        with self.assertRaises(TypeError): dplay.viewGameProg2(3, "k", 5, "o")
+
 
 if __name__ == '__main__':
     unittest.main()
