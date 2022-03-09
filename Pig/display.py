@@ -16,7 +16,8 @@ class Display:
     def gameMenu(self):
         notCorrect = True
         while notCorrect:
-            print(f'\n----------------------------------------------------------------------')
+            print(f'                           THE PIG GAME')
+            print(f'----------------------------------------------------------------------')
             print('1:  Start a one player game')
             print('2:  Start a two player game')
             print('3:  Update existing player name')
@@ -82,3 +83,20 @@ class Display:
 
         print(f"\n\nPlayer1: {player1:60} Player2: {player2}")
         print(f"Points: {points1:<61} Points: {points2}\n")
+        
+
+    def viewDifficulties(self):
+        notCorrect = True
+        while notCorrect:
+            print(f'Here are the difficulties, which one do you dare to oppose?\n')
+            print(f'1:  Easy Mode')
+            print(f'2:  Normal Mode')
+            print(f'3:  Hard Mode')
+            try:
+                choice = input(int(f'Please enter the number of the challenge you dare to try today. It is okay to be a coward. '))
+                if choice in [1,2,3]:
+                    return choice
+                else:
+                    print('Please enter a number from the available options')
+            except TypeError:
+                print('You can only use numbers to choose an option')
