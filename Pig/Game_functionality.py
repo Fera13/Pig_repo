@@ -20,11 +20,10 @@ class Game_functionality:
     currentPlayer1 = "player1's turn"
     difficulty = 0
 
-
     def handleMenuChoice(self, choice: int):
         if not isinstance(choice, int):
             raise ValueError("Please enter numbers only")
-        
+
         if choice == 1:
             self.difficulty = disp.viewDifficulties()
             self.enter_Names1p()
@@ -59,7 +58,9 @@ class Game_functionality:
             hsDic = {}
             hsDic = hs.get_HighScore_Dic()
             hs.view_HighScores(hsDic)
-            input("\nWhen you are done reading the high scores press any button to go back: ")
+            input(
+                "\nWhen you are done reading the high scores press any button to go back: "
+            )
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
             return 4
@@ -72,7 +73,6 @@ class Game_functionality:
         else:
             quit()
 
-
     def startSetup(self):
         playerNames = playr.getCurrentNames()
         disp.viewGameProg2(playerNames[0], 0, playerNames[1], 0)
@@ -80,18 +80,20 @@ class Game_functionality:
         dise.resetRoundNum()
         playr.resetCurrentScores()
 
-
     def enter_Names2p(self):
         names = playr.getNames()
         disp.showPlayers(names)
-        name = input("Enter the name of player1(note: if you already have your name in the list, enter it): ")
-        name2 = input("Enter the name of player2(note: if you already have your name in the list, enter it): ")
+        name = input(
+            "Enter the name of player1(note: if you already have your name in the list, enter it): "
+        )
+        name2 = input(
+            "Enter the name of player2(note: if you already have your name in the list, enter it): "
+        )
         playr.setName(name.capitalize())
         playr.setName(name2.capitalize())
         names2 = playr.getNames()
         fh.writeNameFiles("text_name_file.txt", names2)
         playr.addCurrentNames(name, name2)
-
 
     def startGame2p(self):
         score1 = dise.getTotalSum1()
@@ -110,7 +112,6 @@ class Game_functionality:
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
 
-
     def startGame1p(self):
         score1 = dise.getTotalSum1()
         score2 = dise.getTotalSum2()
@@ -128,21 +129,23 @@ class Game_functionality:
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
 
-
     def enter_Names1p(self):
         names = playr.getNames()
         disp.showPlayers(names)
-        name = input("Enter your name(note: if you already have your name in the list, enter it): ")
+        name = input(
+            "Enter your name(note: if you already have your name in the list, enter it): "
+        )
         playr.setName(name.capitalize())
         aiName = intel.nameOfAi()
         names2 = playr.getNames()
         fh.writeNameFiles("text_name_file.txt", names2)
         playr.addCurrentNames(name, aiName)
 
-
     def ask_For_Rolls(self):
-        print(self.currentPlayer,"\n")
-        rollNum = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): ")
+        print(self.currentPlayer, "\n")
+        rollNum = input(
+            "Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): "
+        )
         if rollNum.upper() == "Q":
             quit()
         elif rollNum.upper() == "R":
@@ -155,11 +158,12 @@ class Game_functionality:
             else:
                 self.currentPlayer = "player1's turn"
         elif not isinstance(rollNum, int):
-            print("\nYou know that the number of rolls is a NUMBER right?")  
-
+            print("\nYou know that the number of rolls is a NUMBER right?")
 
     def ask_For_Rolls1p(self):
-        rollNum = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): ")
+        rollNum = input(
+            "Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): "
+        )
         if rollNum.upper() == "Q":
             quit()
         elif rollNum.upper() == "CHEAT":
@@ -171,7 +175,6 @@ class Game_functionality:
             dise.roll(intRollNum)
         elif not isinstance(rollNum, int):
             print("You know that the number of rolls is a positive NUMBER right?")
-
 
     def aiRoll(self):
         if self.difficulty == 1:
@@ -190,11 +193,11 @@ class Game_functionality:
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
 
-
     def cheat(self):
         dise.cheatDice()
-        print("\nYou just had to cheat, didn't you :(\nAnyway, your score has now been set to 99\n")
-
+        print(
+            "\nYou just had to cheat, didn't you :(\nAnyway, your score has now been set to 99\n"
+        )
 
     def restart(self):
         choice = disp.gameMenu()
