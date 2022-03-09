@@ -26,15 +26,16 @@ class Game_functionality:
 
         if choice == 1:
             self.difficulty = disp.viewDifficulties()
+            if self.difficulty == 4:
+                self.restart()
+            self.handleMenuChoice(choice)
             self.enter_Names1p()
             self.startSetup()
             self.startGame1p()
-            return 0
         elif choice == 2:
             self.enter_Names2p()
             self.startSetup()
             self.startGame2p()
-            return 1
         elif choice == 3:
             names = fh.readNameFiles("text_name_file.txt")
             disp.showPlayers(names)
@@ -43,17 +44,13 @@ class Game_functionality:
             playr.updateName(name, newName)
             newHighScore = hs.update_High_Score(name, newName)
             fh.writeDicFiles("text_high_score.txt", newHighScore)
-            choice = disp.gameMenu()
-            self.handleMenuChoice(choice)
-            return 2
+            self.restart()
         elif choice == 4:
             names = fh.readNameFiles("text_name_file.txt")
             disp.showPlayers(names)
             name = input("\nEnter the name you want to delete: ")
             playr.deleteName(name)
-            choice = disp.gameMenu()
-            self.handleMenuChoice(choice)
-            return 3
+            self.restart()
         elif choice == 5:
             hsDic = {}
             hsDic = hs.get_HighScore_Dic()
@@ -61,15 +58,11 @@ class Game_functionality:
             input(
                 "\nWhen you are done reading the high scores press any button to go back: "
             )
-            choice = disp.gameMenu()
-            self.handleMenuChoice(choice)
-            return 4
+            self.restart()
         elif choice == 6:
             disp.displayGameRules()
             input("When you are done reading the rules press any button to go back: ")
-            choice = disp.gameMenu()
-            self.handleMenuChoice(choice)
-            return 5
+            self.restart()
         else:
             quit()
 
@@ -109,8 +102,7 @@ class Game_functionality:
             disp.gameSummary(winnerName, roundAmount)
             newDic = hs.add_Compare_Highscores(winnerName, roundAmount)
             fh.writeDicFiles("text_high_score.txt", newDic)
-            choice = disp.gameMenu()
-            self.handleMenuChoice(choice)
+            self.restart()
 
     def startGame1p(self):
         score1 = dise.getTotalSum1()
@@ -126,8 +118,7 @@ class Game_functionality:
             roundAmount = dise.getAmountOfRounds(winnerName)
             disp.gameSummary(winnerName, roundAmount)
             hs.add_Compare_Highscores(winnerName, roundAmount)
-            choice = disp.gameMenu()
-            self.handleMenuChoice(choice)
+            self.restart()
 
     def enter_Names1p(self):
         names = playr.getNames()
@@ -189,9 +180,6 @@ class Game_functionality:
             rollAmount = intel.rollAmountNorHar()
             print(f"Weird Ai Yankovic rolled {rollAmount} times")
             dise.hardAiRoll(rollAmount)
-        else:
-            choice = disp.gameMenu()
-            self.handleMenuChoice(choice)
 
     def cheat(self):
         dise.cheatDice()
