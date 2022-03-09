@@ -18,7 +18,6 @@ class Dice:
     score1 = 0
     score2 = 0
 
-
     def roll(self, timesToRoll: int):
         roundSum = 0
         if not isinstance(timesToRoll, int):
@@ -51,7 +50,6 @@ class Dice:
                     self.winnerName = names[1]
             dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)
 
-
     def hardAiRoll(self, rollNum: int):
         if not isinstance(rollNum, int):
             raise TypeError("rollNum has be to an int")
@@ -64,7 +62,9 @@ class Dice:
             rollResult = choice(num)
             if rollResult == 1:
                 roundSum = 0
-                print("Even geniuses roll a 1, Weird Ai Yankovic got 0 points this round")
+                print(
+                    "Even geniuses roll a 1, Weird Ai Yankovic got 0 points this round"
+                )
                 break
             else:
                 print("Rolled a " + str(rollResult))
@@ -76,7 +76,6 @@ class Dice:
             self.winnerName = names[1]
             self.turn = 0
         dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)
-
 
     def easyAiRoll(self, rollNum: int):
         if not isinstance(rollNum, int):
@@ -90,7 +89,9 @@ class Dice:
             rollResult = choice(num)
             if rollResult == 1:
                 roundSum = 0
-                print("Even geniuses roll a 1, Weird Ai Yankovic got 0 points this round")
+                print(
+                    "Even geniuses roll a 1, Weird Ai Yankovic got 0 points this round"
+                )
                 break
             else:
                 print("Rolled a " + str(rollResult))
@@ -103,13 +104,11 @@ class Dice:
             self.turn = 0
         dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)
 
-
     def resetTotals(self):
         self.totalSum1 = 0
         self.totalSum2 = 0
         return self.totalSum1
 
-    
     def resetRoundNum(self):
         self.amountOfRounds[0] = 0
         self.amountOfRounds[1] = 0
@@ -117,14 +116,11 @@ class Dice:
     def getWinnerName(self):
         return self.winnerName
 
-
     def getTotalSum1(self):
         return self.totalSum1
 
-
     def getTotalSum2(self):
         return self.totalSum2
-
 
     def getAmountOfRounds(self, winnerName: str):
         names = player.getCurrentNames()
@@ -132,7 +128,6 @@ class Dice:
             return self.amountOfRounds[0]
         else:
             return self.amountOfRounds[1]
-
 
     def cheatDice(self):
         self.totalSum1 = 99

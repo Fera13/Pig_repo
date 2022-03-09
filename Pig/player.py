@@ -8,8 +8,7 @@ class Player:
 
     names = fh.readNameFiles("text_name_file.txt")
     currentNames = ["", ""]
-    currentScores = [ 0, 0]
-
+    currentScores = [0, 0]
 
     def setName(self, name: str):
         if name in self.names:
@@ -17,7 +16,6 @@ class Player:
         else:
             self.names.append(name)
         return len(self.names)
-
 
     def updateName(self, oldName: str, newName: str):
         if not isinstance(oldName, str) or not isinstance(newName, str):
@@ -27,7 +25,6 @@ class Player:
                 self.names[index] = newName
         fh.writeNameFiles("text_name_file.txt", self.names)
 
-
     def deleteName(self, name: str):
         if not isinstance(name, str):
             raise TypeError("name has to be a string")
@@ -36,14 +33,11 @@ class Player:
                 self.names.remove(name)
         fh.writeNameFiles("text_name_file.txt", self.names)
 
-
     def resetCurrentScores(self):
         self.currentScores = [0, 0]
 
-
     def getCurrentScore(self):
         return self.currentScores
-
 
     def addCurrentNames(self, name1: str, name2: str):
         if not isinstance(name1, str) or not isinstance(name2, str):
@@ -55,7 +49,5 @@ class Player:
     def getCurrentNames(self):
         return self.currentNames
 
-
     def getNames(self):
         return self.names
-
