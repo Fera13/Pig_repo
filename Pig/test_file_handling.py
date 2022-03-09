@@ -16,7 +16,7 @@ class TestFileHandling(unittest.TestCase):
 
     def test_write_name_files(self):
         with self.assertRaises(ValueError):
-            fh.writeNameFiles("text_name_file.txt", 3)
+            fh.writeNameFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name_file.txt", 3)
         with self.assertRaises(ValueError):
             fh.writeNameFiles(8, ["Kalle", "Anna"])
 
@@ -24,7 +24,7 @@ class TestFileHandling(unittest.TestCase):
         with self.assertRaises(ValueError):
             fh.writeDicFiles(4, {"Kalle": 7})
         with self.assertRaises(ValueError):
-            fh.writeDicFiles("text_name_file.txt", 7)
+            fh.writeDicFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name_file.txt", 7)
 
 
 if __name__ == "__main__":

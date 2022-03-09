@@ -3,7 +3,7 @@ from player import *
 
 
 player = Player()
-length = len(fh.readNameFiles("text_name_file.txt"))
+length = len(fh.readNameFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name_file.txt"))
 
 
 class testPlayer(unittest.TestCase):
