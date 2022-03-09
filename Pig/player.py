@@ -50,7 +50,7 @@ class Player:
             raise TypeError("both names has to be string")
         self.currentNames[0] = name1
         self.currentNames[1] = name2
-
+        return self.currentNames[0]
 
     def getCurrentNames(self):
         return self.currentNames
