@@ -23,7 +23,7 @@ class testGameFunctionality(unittest.TestCase):
         self.assertDictEqual(hs.add_Compare_Highscores("suha", 4), d5)
 
     def test_get_HighScore_Dic(self):
-        d1 = {"kamil": 1, "saby": 2, "shhh": 3, "suha": 4, "maha": 7}
+        d1 = {'kamil': 1, 'shhh': 3, 'suha': 4, 'maha': 7, 'Farah': 13}
         self.assertDictEqual(hs.get_HighScore_Dic(), d1)
 
     def test_add_Compare_Highscores_wrongName(self):
@@ -35,7 +35,7 @@ class testGameFunctionality(unittest.TestCase):
             hs.add_Compare_Highscores("hi", "world")
 
     def test_update_High_Score(self):
-        d1 = {"kamil": 1, "saby": 2, "Fera": 3, "suha": 4, "maha": 7}
+        d1 = {"kamil": 1, "Fera": 3, "suha": 4, "maha": 7, "Farah": 13}
         self.assertDictEqual(hs.update_High_Score("shhh", "Fera"), d1)
 
     def test_update_High_Score_wrongType(self):
