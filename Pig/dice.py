@@ -51,7 +51,7 @@ class dice:
                 if self.totalSum1 >= 100:
                     self.winnerName = names[0]
                     print(self.winnerName)
-                    dis.winner(self.winnerName)
+                    #dis.winner(self.winnerName)
                     self.turn = 1
             else:
                 self.totalSum2 += roundSum
@@ -63,7 +63,7 @@ class dice:
                 if self.totalSum2 >= 100:
                     self.winnerName = names[1]
                     print(self.winnerName)
-                    dis.winner(self.winnerName)
+                    #dis.winner(self.winnerName)
                     self.turn = 1
             dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)
                 
