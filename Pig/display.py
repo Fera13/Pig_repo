@@ -54,7 +54,7 @@ class Display:
         if not isinstance(name, str) or not isinstance(rolls, int):
             raise TypeError('The game summary is not available right now')
 
-        amountOfRolls = 'Amount of rolls'
+        amountOfRolls = 'Amount of rounds'
         print(f'\nHere is the amount of rolls for the player to reach 100 points\n')
         print(f'Name {amountOfRolls:>35}')
         print(f'----------------------------------------------------------------------')
@@ -68,7 +68,8 @@ class Display:
 
         length = 0
         amountOfNames = 0
-        print(f'Here is the list of current players\n----------------------------------------------------------------------')
+        print(f'Here is the list of current players\n')
+        print(f'-'*35)
         while length < len(namelist):
             print("")
             while (amountOfNames < 4 and length < len(namelist)):
@@ -76,7 +77,9 @@ class Display:
                 length += 1
                 amountOfNames += 1
             amountOfNames = 0
-        print(f'\n\n----------------------------------------------------------------------\n')
+        print(f'\n\n')
+        print(f'-'*35)
+        print("\n")
 
 
     def viewGameProg2(self, player1: str, points1: int, player2: str, points2: int):
@@ -94,9 +97,10 @@ class Display:
             print(f'1:  Easy Mode')
             print(f'2:  Normal Mode')
             print(f'3:  Hard Mode')
+            print(f'4:  Go back to the main menu')
             try:
                 choice = int(input(f'Please enter the number of the challenge you dare to try today. It is okay to be a coward. '))
-                if choice in [1,2,3]:
+                if choice in [1,2,3,4]:
                     return choice
                 else:
                     print('Please enter a number from the available options')
