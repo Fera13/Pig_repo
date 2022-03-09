@@ -100,6 +100,10 @@ class Dice:
         self.totalSum1 = 0
         self.totalSum2 = 0
 
+    
+    def resetRoundNum(self):
+        self.amountOfRounds[0] = 0
+        self.amountOfRounds[1] = 0
 
     def getWinnerName(self):
         return self.winnerName

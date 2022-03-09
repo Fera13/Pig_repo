@@ -1,3 +1,4 @@
+from typing import Dict
 from file_handling import *
 
 
@@ -14,6 +15,8 @@ class High_score:
 
 
     def view_HighScores(self, highScoreDic: dict[str: int]):
+        if not isinstance(highScoreDic, dict):
+            raise ValueError("Please enter a dictionary with strings as keys and integers as values!")
         i = 1
         print("High scores:\n")
         for keyName, valueScore in highScoreDic.items():
@@ -23,7 +26,7 @@ class High_score:
 
     def update_High_Score(self, oldName: str, newName: str):
         if not isinstance(oldName, str) or not isinstance(newName, str):
-            raise TypeError("The name should be a string and the score should be an integer")
+            raise ValueError("The name should be a string and the score should be an integer")
         change = False
         for keyName in self.sorted_dict.keys():
             if keyName == oldName:
@@ -32,16 +35,14 @@ class High_score:
             self.sorted_dict[newName] = self.sorted_dict.pop(oldName)
         sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1])  
         self.sorted_dict = {k: v for k, v in sorted_tuples}
-        fh.writeDicFiles("text_high_score.txt", self.sorted_dict)
         return self.sorted_dict
 
 
     def add_Compare_Highscores(self, name: str, score: int):
         if not isinstance(name, str) or not isinstance(score, int):
-            raise TypeError("The name should be a string and the score should be an integer")
+            raise ValueError("The name should be a string and the score should be an integer")
         if len(self.sorted_dict.keys()) < 5:
             self.sorted_dict[name] = score
-            fh.writeDicFiles("text_high_score.txt", self.sorted_dict)
         else:
             sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1], reverse=True)
             self.sorted_dict = {k: v for k, v in sorted_tuples}
@@ -60,5 +61,4 @@ class High_score:
                         break 
         sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1])  
         self.sorted_dict = {k: v for k, v in sorted_tuples}
-        fh.writeDicFiles("text_high_score.txt", self.sorted_dict)
         return self.sorted_dict

@@ -22,26 +22,31 @@ class Game_functionality:
 
 
     def handleMenuChoice(self, choice: int):
+        if not isinstance(choice, int):
+            raise ValueError("Please enter numbers only")
+        
         if choice == 1:
             self.difficulty = disp.viewDifficulties()
             self.enter_Names1p()
             self.startSetup()
             self.startGame1p()
-            
+            return 0
         elif choice == 2:
             self.enter_Names2p()
             self.startSetup()
             self.startGame2p()
-
+            return 1
         elif choice == 3:
             names = fh.readNameFiles("text_name_file.txt")
             disp.showPlayers(names)
             name = input("Enter the name you want to update: ")
             newName = input("Enter the new updated name: ")
             playr.updateName(name, newName)
+            newHighScore = hs.update_High_Score(name, newName)
+            fh.writeDicFiles("text_high_score.txt", newHighScore)
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
-
+            return 2
         elif choice == 4:
             names = fh.readNameFiles("text_name_file.txt")
             disp.showPlayers(names)
@@ -49,7 +54,7 @@ class Game_functionality:
             playr.deleteName(name)
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
-
+            return 3
         elif choice == 5:
             hsDic = {}
             hsDic = hs.get_HighScore_Dic()
@@ -57,13 +62,13 @@ class Game_functionality:
             input("\nWhen you are done reading the high scores press any button to go back: ")
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
-
+            return 4
         elif choice == 6:
             disp.displayGameRules()
             input("When you are done reading the rules press any button to go back: ")
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
-
+            return 5
         else:
             quit()
 
@@ -72,6 +77,7 @@ class Game_functionality:
         playerNames = playr.getCurrentNames()
         disp.viewGameProg2(playerNames[0], 0, playerNames[1], 0)
         dise.resetTotals()
+        dise.resetRoundNum()
         playr.resetCurrentScores()
 
 
@@ -99,7 +105,8 @@ class Game_functionality:
             disp.winner(winnerName)
             roundAmount = dise.getAmountOfRounds(winnerName)
             disp.gameSummary(winnerName, roundAmount)
-            hs.add_Compare_Highscores(winnerName, roundAmount)
+            newDic = hs.add_Compare_Highscores(winnerName, roundAmount)
+            fh.writeDicFiles("text_high_score.txt", newDic)
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
 
@@ -130,7 +137,6 @@ class Game_functionality:
         aiName = intel.nameOfAi()
         names2 = playr.getNames()
         fh.writeNameFiles("text_name_file.txt", names2)
-        
         playr.addCurrentNames(name, aiName)
 
 

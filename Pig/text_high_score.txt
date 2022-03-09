@@ -1,14 +1,2 @@
-Milo
-6
-Weird Ai Yankovic
-9
-Farah
-9
-Alfred
-13
-Fera
-13
-Cameron
-14
-Email
-15
+Developer
+9000
