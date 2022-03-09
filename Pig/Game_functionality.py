@@ -22,6 +22,8 @@ class Game_functionality:
             # start game
         elif choice == 2:
             self.enter_Names2p()
+            playerNames = playr.getCurrentNames()
+            disp.viewGameProg2(playerNames[0], 0, playerNames[1], 0)
             self.startGame2p()
         
         elif choice == 3:
@@ -73,9 +75,9 @@ class Game_functionality:
         playr.setName(name2)
         names2 = playr.getNames()
         fh.writeNameFiles("name_file.txt", names2)
-        
-        playr.addCurrentScore(0, name)
-        playr.addCurrentScore(0, name2)
+        playr.resetCurrentScores()
+        # playr.addCurrentScore(0, name)
+        # playr.addCurrentScore(0, name2)
         playr.addCurrentNames(name, name2)
         
         #method 
@@ -83,19 +85,30 @@ class Game_functionality:
     
     
     def startGame2p(self):
-        currentScores = playr.getCurrentScore()
-        score1 = currentScores[0]
-        score2 = currentScores[1]
-        while score1 != 100 and score2 != 100:
+        # currentScores = playr.getCurrentScore()
+        score1 = dise.getTotalSum1()
+        score2 = dise.getTotalSum2()
+        while score1 < 100 and score2 < 100:
+            # currentNames = playr.getCurrentNames()
+            # player1 = currentNames[0]
+            # player2 = currentNames[1]
+            # currentScores = playr.getCurrentScore()
+            # print(currentScores)
+            # score1 = currentScores[0]
+            # score2 = currentScores[1]
+            # disp.viewGameProg2(player1, score1, player2, score2)
             self.ask_For_Rolls()
+            score1 = dise.getTotalSum1()
+            score2 = dise.getTotalSum2()
         else:
             winnerName = dise.getWinnerName()
             disp.winner(winnerName)
-            whichPlayer = playr.getAmountOfRolls(winnerName)
-            rollAmount = dise.amountOfRolls(whichPlayer)
+            # whichPlayer = playr.getAmountOfRolls(winnerName)
+            rollAmount = dise.getAmountOfRolls(winnerName)
             disp.gameSummary(winnerName, rollAmount)
             hs.add_Compare_Highscores(winnerName, rollAmount)
-            disp.gameMenu()
+            choice = disp.gameMenu()
+            self.handleMenuChoice(choice)
             
     
     
@@ -109,14 +122,6 @@ class Game_functionality:
 
     
     def ask_For_Rolls(self):
-        isInt = False
-        currentNames = playr.getCurrentNames()
-        player1 = currentNames[0]
-        player2 = currentNames[1]
-        currentScores = playr.getCurrentScore()
-        score1 = currentScores[0]
-        score2 = currentScores[1]
-        disp.viewGameProg2(player1, score1, player2, score2)
         print(self.currentPlayer,"\n")
         rollNum = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): ")
         if rollNum.upper() == "Q":
@@ -127,12 +132,10 @@ class Game_functionality:
             self.restart()
         elif rollNum.isdigit():
             intRollNum = int(rollNum)
-            roundPoints = dise.roll(intRollNum)
+            dise.roll(intRollNum)
             if self.currentPlayer == "player1's turn":
-                playr.addCurrentScore(roundPoints, player1)
                 self.currentPlayer = "player2's turn"
             else:
-                playr.addCurrentScore(roundPoints, player2)
                 self.currentPlayer = "player1's turn"
         elif not isinstance(rollNum, int):
             print("\nYou know that the number of rolls is a NUMBER right?")

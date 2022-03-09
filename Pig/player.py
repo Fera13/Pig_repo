@@ -46,11 +46,15 @@ class Player:
         if score < 0:
             raise ValueError("score can be less than zero")
         if name == self.currentNames[0]:
-            self.currentScores[0] += score
+            self.currentScores[0] = score
         else:
-            self.currentScores[1] += score
+            self.currentScores[1] = score
 
 
+    def resetCurrentScores(self):
+        self.currentScores = [ 0, 0]
+    
+    
     def getCurrentScore(self):
         return self.currentScores
 
@@ -78,11 +82,12 @@ class Player:
         return self.names
 
 
-    def getAmountOfRolls(self, winnerName: str):
-        if self.currentNames[0] == winnerName:
-            return 0
-        else:
-            return 1
+    # def getAmountOfRolls(self, winnerName: str):
+    #     if self.currentNames[0] == winnerName:
+    #         num = 0
+    #         return num
+    #     else:
+    #         return 1
 
 
     def getScore(self):

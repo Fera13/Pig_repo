@@ -1,3 +1,6 @@
+from player import *
+
+playr = Player()
 
 class Display:
 
