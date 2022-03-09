@@ -3,7 +3,6 @@ class File_handling:
 
     def readNameFiles(self, filename:str):
         names = []
-
         with open(filename, 'r') as chatReader:
             for line in chatReader:
                 name = line.rstrip("\n")

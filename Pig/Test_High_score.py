@@ -1,5 +1,5 @@
 import unittest
-from High_score import *
+from high_score import *
 
 
 hs = High_score()

@@ -1,24 +1,23 @@
 from player import *
 
+
 playr = Player()
+
 
 class Display:
 
     def winner(self, name:str):
-        if not isinstance(name,str):
+        if not isinstance(name, str):
             raise TypeError("Something went wrong while trying to retrieve the winning players' name")
-
-        print('\n')
-        print('-'*80)
+        print('\n', '-'*80)
         print(f'\n          Congratulations {name}, you have won the game!\n')
-        print('-'*80)
-        print('\n')
+        print('-'*80, '\n')
 
 
     def gameMenu(self):
         notCorrect = True
         while notCorrect:
-            print(f'                           THE PIG GAME')
+            print(f'\n                           THE PIG GAME')
             print(f'----------------------------------------------------------------------')
             print('1:  Start a one player game')
             print('2:  Start a two player game')
@@ -34,42 +33,35 @@ class Display:
                     return choice
                 else:
                     print('Please enter a number from the available options')
-            except TypeError:
+            except ValueError:
                 print('You can only use numbers to choose an option')
+                continue
 
 
     def displayGameRules(self):
-        print(f'\nThe rules for Pig-Game are as following:\n')
+        print('\nThe rules for Pig-Game are as following:\n')
         print('-  The player begins each turn by rolling the dice.')
         print('-  The player may roll as many times as they want in a round.')
         print('-  If the dice lands on a 1, the round ends and all points from the current round will be deducted.')
-        print('-  As long as the dice does not land on a 1, the player may continue playing.')
         print('-  For every other number on the dice the points relevant to the dice surface will add up to a round total')
-        print('-  The player may quit their round before each roll, with an exception of the first roll')
-        print(f'-  The first player to reach 100 points will be the victor!\n')
+        print('-  The first player to reach 100 points will be the victor!\n')
 
 
     def gameSummary(self, name:str, rolls:int):
-        roundCount = 1
         if not isinstance(name, str) or not isinstance(rolls, int):
             raise TypeError('The game summary is not available right now')
-
-        amountOfRolls = 'Amount of rounds'
         print(f'\nHere is the amount of rolls for the player to reach 100 points\n')
-        print(f'Name {amountOfRolls:>35}')
+        print(f'Name {"Amount of rounds":>35}')
         print(f'----------------------------------------------------------------------')
         print(f'{name:25}  {rolls:>6}')
         print(f'----------------------------------------------------------------------\n')
 
 
     def showPlayers(self, namelist: list[str]):
-        # if not isinstance(namelist[0], str):
-        #     raise TypeError("The list of names could not be found at this moment")
-
         length = 0
         amountOfNames = 0
         print(f'Here is the list of current players\n')
-        print(f'-'*35)
+        print(f'-'*70)
         while length < len(namelist):
             print("")
             while (amountOfNames < 4 and length < len(namelist)):
@@ -78,7 +70,7 @@ class Display:
                 amountOfNames += 1
             amountOfNames = 0
         print(f'\n\n')
-        print(f'-'*35)
+        print(f'-'*70)
         print("\n")
 
 
@@ -88,12 +80,12 @@ class Display:
 
         print(f"\n\nPlayer1: {player1:60} Player2: {player2}")
         print(f"Points: {points1:<61} Points: {points2}\n")
-        
+
 
     def viewDifficulties(self):
         notCorrect = True
         while notCorrect:
-            print(f'Here are the difficulties, which one do you dare to oppose?\n')
+            print(f'\nHere are the difficulties, which one do you dare to oppose?\n')
             print(f'1:  Easy Mode')
             print(f'2:  Normal Mode')
             print(f'3:  Hard Mode')
@@ -104,5 +96,6 @@ class Display:
                     return choice
                 else:
                     print('Please enter a number from the available options')
-            except TypeError:
+            except ValueError:
                 print('You can only use numbers to choose an option')
+                continue

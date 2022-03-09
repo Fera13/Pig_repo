@@ -16,18 +16,18 @@ class testPlayer(unittest.TestCase):
 
     def test_addCurrentScore_wrongType(self):
         with self.assertRaises(TypeError):
-            player.addCurrentScore("2", "Emil")
+            player.addCurrentNames("2", "Emil")
         with self.assertRaises(TypeError):
-            player.addCurrentScore("Emil", 2)
+            player.addCurrentNames("Emil", 2)
         with self.assertRaises(TypeError):
-            player.addCurrentScore(2, 2)
+            player.addCurrentNames(2, 2)
 
 
     def test_addCurrentScore_negativeValue(self):
         with self.assertRaises(ValueError):
-            player.addCurrentScore(-2, "Emil")
+            player.addCurrentNames(-2, "Emil")
         with self.assertRaises(ValueError):
-            player.addCurrentScore(-1, "Emil")
+            player.addCurrentNames(-1, "Emil")
 
 
     def test_updateName_wrongType(self):

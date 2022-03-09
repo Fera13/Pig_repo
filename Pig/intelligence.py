@@ -1,10 +1,12 @@
 import random
 from secrets import choice
 
+
 class Intelligence:
 
+
     def rollAmountNorHar(self):
-        n = random.randint(1,6)
+        n = random.randint(1,7)
         return n
 
 

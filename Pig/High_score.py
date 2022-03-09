@@ -1,12 +1,12 @@
 from file_handling import *
 
+
 fh = File_handling()
 
-class High_score:
-    sorted_dict = fh.readDicFiles("high_score.txt")
 
-    def __init__(self):
-        pass
+class High_score:
+
+    sorted_dict = fh.readDicFiles("text_high_score.txt")
 
 
     def get_HighScore_Dic(self):
@@ -32,15 +32,16 @@ class High_score:
             self.sorted_dict[newName] = self.sorted_dict.pop(oldName)
         sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1])  
         self.sorted_dict = {k: v for k, v in sorted_tuples}
+        fh.writeDicFiles("text_high_score.txt", self.sorted_dict)
         return self.sorted_dict
 
 
     def add_Compare_Highscores(self, name: str, score: int):
         if not isinstance(name, str) or not isinstance(score, int):
             raise TypeError("The name should be a string and the score should be an integer")
-        if len(self.sorted_dict.keys()) <= 5:
+        if len(self.sorted_dict.keys()) < 5:
             self.sorted_dict[name] = score
-            fh.writeDicFiles("high_score.txt", self.sorted_dict)
+            fh.writeDicFiles("text_high_score.txt", self.sorted_dict)
         else:
             sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1], reverse=True)
             self.sorted_dict = {k: v for k, v in sorted_tuples}
@@ -59,5 +60,5 @@ class High_score:
                         break 
         sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1])  
         self.sorted_dict = {k: v for k, v in sorted_tuples}
-        fh.writeDicFiles("high_score.txt", self.sorted_dict)
+        fh.writeDicFiles("text_high_score.txt", self.sorted_dict)
         return self.sorted_dict
