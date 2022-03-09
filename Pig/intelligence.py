@@ -6,6 +6,7 @@ class Intelligence:
         n = random.randint(1,6)
         return n
 
+
     def rollAmountEasy(self):
         n = random.randint(1,2)
         if n == 1:
@@ -14,6 +15,7 @@ class Intelligence:
         else:
             n = 10
             return n
+
 
     def nameOfAi(self):
         aiName = 'Weird Ai Yankovic'

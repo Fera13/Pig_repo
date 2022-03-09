@@ -2,10 +2,9 @@ from file_handling import *
 
 fh = File_handling()
 
-
 class High_score:
     sorted_dict = fh.readDicFiles("high_score.txt")
-    
+
     def __init__(self):
         pass
 
@@ -34,26 +33,41 @@ class High_score:
         sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1])  
         self.sorted_dict = {k: v for k, v in sorted_tuples}
         return self.sorted_dict
-    
-    
+
+
     def add_Compare_Highscores(self, name: str, score: int):
         if not isinstance(name, str) or not isinstance(score, int):
             raise TypeError("The name should be a string and the score should be an integer")
-        if len(self.sorted_dict.keys()) < 5:
+        if len(self.sorted_dict.keys()) <= 5:
             self.sorted_dict[name] = score
             fh.writeDicFiles("high_score.txt", self.sorted_dict)
         else:
             sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1], reverse=True)
             self.sorted_dict = {k: v for k, v in sorted_tuples}
-            for keyName, valueScore in self.sorted_dict.items():
-                if score < valueScore:
-                    self.sorted_dict[name] = self.sorted_dict.pop(keyName)
-                    self.sorted_dict[name] = score
-                    break
+            # for key, value in self.sorted_dict.items():
+            #     if name == key:
+            #         if value < score:
+            #             pass
+                    
+            # for keyName, valueScore in self.sorted_dict.items():
+            #     if score < valueScore:
+            #         self.sorted_dict[name] = self.sorted_dict.pop(keyName)
+            #         self.sorted_dict[name] = score
+            #         break
+            for key, value in self.sorted_dict.items():
+                if name == key:
+                    if value < score:
+                        break
+                    else:
+                        self.sorted_dict[name] = self.sorted_dict.pop(key)
+                        self.sorted_dict[name] = score
+                        break
+                else:
+                    if score < value:
+                        self.sorted_dict[name] = self.sorted_dict.pop(key)
+                        self.sorted_dict[name] = score
+                        break 
         sorted_tuples = sorted(self.sorted_dict.items(), key=lambda item: item[1])  
         self.sorted_dict = {k: v for k, v in sorted_tuples}
         fh.writeDicFiles("high_score.txt", self.sorted_dict)
         return self.sorted_dict
-
-    
-    

@@ -4,8 +4,8 @@ from display import *
 
 player = Player()
 dis = Display()
+
 class dice:
-    
     winnerName = ""
     amountOfRolls = [0, 0]
     scores = player.getCurrentScore()
@@ -15,8 +15,10 @@ class dice:
     score1 = 0
     score2 = 0
 
+
     def __init__(self):
         return None
+
 
     def roll(self, timesToRoll: int):
         roundSum = 0
@@ -85,18 +87,19 @@ class dice:
             
                 # self.display.winner()
 
+
     def getWinnerName(self):
         return self.winnerName
 
 
     def getTotalSum1(self):
         return self.totalSum1
-    
+
 
     def getTotalSum2(self):
         return self.totalSum2
 
-    
+
     def getAmountOfRolls(self, playerName: str):
         names = player.getCurrentNames()
         if playerName == names[0]:

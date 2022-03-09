@@ -46,7 +46,6 @@ class Display:
         print(f'-  The first player to reach 100 points will be the victor!\n')
 
 
-
     def gameSummary(self, name:str, rolls:int):
         roundCount = 1
         if not isinstance(name, str) or not isinstance(rolls, int):

@@ -53,8 +53,8 @@ class Player:
 
     def resetCurrentScores(self):
         self.currentScores = [ 0, 0]
-    
-    
+
+
     def getCurrentScore(self):
         return self.currentScores
 

@@ -1,5 +1,6 @@
 
 class File_handling:
+
     def readNameFiles(self, filename:str):
         names = []
 
@@ -8,13 +9,15 @@ class File_handling:
                 name = line.rstrip("\n")
                 names.append((name))
         return names
-    
+
+
     def writeNameFiles(self, filename:str, names:list[str]):
         writing = open(filename, "w")
         for name in names:
             writing.write(name + "\n")
         writing.close()
-    
+
+
     def readDicFiles(self, filename:str):
         highScoreDic = {}
         name = ""
@@ -26,7 +29,8 @@ class File_handling:
                 intValue = int(score)
                 highScoreDic[name] = intValue
         return highScoreDic
-    
+
+
     def writeDicFiles(self, filename:str, highScoreDic: dict[str: int]):
         writing = open(filename, "w")
         for key, value in highScoreDic.items():

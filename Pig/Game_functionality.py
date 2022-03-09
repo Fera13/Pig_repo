@@ -14,8 +14,8 @@ fh = File_handling()
 class Game_functionality:
     currentPlayer = "player1's turn"
     currentPlayer1 = "player1's turn"
-    
-    
+
+
     def handleMenuChoice(self, choice: int):
         if choice == 1:
             self.enter_Names1()
@@ -25,7 +25,7 @@ class Game_functionality:
             playerNames = playr.getCurrentNames()
             disp.viewGameProg2(playerNames[0], 0, playerNames[1], 0)
             self.startGame2p()
-        
+
         elif choice == 3:
             names = fh.readNameFiles("name_file.txt")
             disp.showPlayers(names)
@@ -38,7 +38,7 @@ class Game_functionality:
             fh.writeDicFiles("high_score.txt", newDic)
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
-        
+
         elif choice == 4:
             names = fh.readNameFiles("name_file.txt")
             disp.showPlayers(names)
@@ -48,7 +48,7 @@ class Game_functionality:
             fh.writeNameFiles("name_file.txt", names2)
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
-        
+
         elif choice == 5:
             hsDic = {}
             hsDic = hs.get_HighScore_Dic()
@@ -62,10 +62,11 @@ class Game_functionality:
             back = input("When you are done reading the rules press any button to go back: ")
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
+
         else:
             quit()
-    
-    
+
+
     def enter_Names2p(self):
         names = playr.getNames()
         disp.showPlayers(names)
@@ -79,11 +80,10 @@ class Game_functionality:
         # playr.addCurrentScore(0, name)
         # playr.addCurrentScore(0, name2)
         playr.addCurrentNames(name, name2)
-        
         #method 
         # curent points for both players 0
-    
-    
+
+
     def startGame2p(self):
         # currentScores = playr.getCurrentScore()
         score1 = dise.getTotalSum1()
@@ -109,9 +109,8 @@ class Game_functionality:
             hs.add_Compare_Highscores(winnerName, rollAmount)
             choice = disp.gameMenu()
             self.handleMenuChoice(choice)
-            
-    
-    
+
+
     def enter_Names1(self):
         print("Existing players:")
         # need a view player list method
@@ -120,7 +119,7 @@ class Game_functionality:
         # method of entering names into current player list with Ai
         # curent points for both 0
 
-    
+
     def ask_For_Rolls(self):
         print(self.currentPlayer,"\n")
         rollNum = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): ")
@@ -138,15 +137,10 @@ class Game_functionality:
             else:
                 self.currentPlayer = "player1's turn"
         elif not isinstance(rollNum, int):
-            print("\nYou know that the number of rolls is a NUMBER right?")
-            
+            print("\nYou know that the number of rolls is a NUMBER right?")  
 
-        
-        
 
     def ask_For_Rolls1p(self):
-        
-        
         print(self.currentPlayer1,"\n")
         roll_num = input("Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): ")
         if roll_num.upper() == "Q":
@@ -182,14 +176,15 @@ class Game_functionality:
             self.currentPlayer1 = "AI's turn"
         else:
             self.currentPlayer1 = "player1's turn"
-    
+
+
     def cheat():
         #calculate difference from 100 returns amount of times to roll
         print("You just had to cheat, didn't you :(\nJust choose to roll {num} times")
         roll_num = input("Enter the number of dice-rolls you would like to do (q to quit, you already cheated!): ")
         #cheating method with 16 times rolling 6 and one time rolling 4
-    
-    
+
+
     def restart(self):
         choice = disp.gameMenu()
         self.handleMenuChoice(choice)
