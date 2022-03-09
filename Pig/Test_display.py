@@ -21,6 +21,14 @@ class TestDisplay(unittest.TestCase):
 
     def test_view_game_prog(self):
         with self.assertRaises(TypeError): dplay.viewGameProg2(3, "k", 5, "o")
+        
+
+    def test_view_difficulties(self):
+        with self.assertRaises(ValueError): dplay.viewDifficulties()
+
+
+    def test_game_menu(self):
+        with self.assertRaises(ValueError): dplay.gameMenu()
 
 
 if __name__ == '__main__':
