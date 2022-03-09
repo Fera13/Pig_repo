@@ -160,4 +160,3 @@ class dice:
     def cheatDice(self):
         self.totalSum1 = 99
         return self.totalSum1
-
