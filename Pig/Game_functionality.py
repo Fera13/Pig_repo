@@ -184,9 +184,12 @@ class Game_functionality:
         
     def aiRoll(self):
         if self.difficulty == 1:
-            intel.rollAmountEasy()
+            rollAmount = intel.rollAmountEasy()
+            print(f"Weird Ai Yankovic rolled {rollAmount} times")
+            dise.easyAiRoll(rollAmount)
         elif self.difficulty == 2:
-            intel.rollAmountNorHar()
+            rollAmount = intel.rollAmountNorHar()
+            dise.roll(rollAmount)
         elif self.difficulty == 3:
             rollAmount = intel.rollAmountNorHar()
             print(f"Weird Ai Yankovic rolled {rollAmount} times")

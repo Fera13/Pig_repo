@@ -8,9 +8,11 @@ class Display:
         if not isinstance(name,str):
             raise TypeError("Something went wrong while trying to retrieve the winning players' name")
 
-        print(f'\n----------------------------------------------------------------------')
-        print(f'\n          Congratulations {name}, you have won the game!')
-        print(f'\n----------------------------------------------------------------------\n')
+        print('\n')
+        print('-'*80)
+        print(f'\n          Congratulations {name}, you have won the game!\n')
+        print('-'*80)
+        print('\n')
 
 
     def gameMenu(self):
@@ -56,7 +58,7 @@ class Display:
         print(f'\nHere is the amount of rolls for the player to reach 100 points\n')
         print(f'Name {amountOfRolls:>35}')
         print(f'----------------------------------------------------------------------')
-        print(f'{name}  {rolls:>25}')
+        print(f'{name:25}  {rolls:>6}')
         print(f'----------------------------------------------------------------------\n')
 
 

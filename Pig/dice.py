@@ -51,7 +51,6 @@ class dice:
                 if self.totalSum1 >= 100:
                     self.winnerName = names[0]
                     print(self.winnerName)
-                    dis.winner(self.winnerName)
                     self.turn = 1
             else:
                 self.totalSum2 += roundSum
@@ -63,8 +62,7 @@ class dice:
                 if self.totalSum2 >= 100:
                     self.winnerName = names[1]
                     print(self.winnerName)
-                    dis.winner(self.winnerName)
-                    self.turn = 1
+                    self.turn = 0
             dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)
                 
             # if self.totalSum >= 100:
@@ -101,6 +99,34 @@ class dice:
                 roundSum += rollResult
         self.totalSum2 += roundSum
         self.amountOfRolls[1] += 1
+        if self.totalSum2 >= 100:
+            self.winnerName = names[1]
+            print(self.winnerName)
+            self.turn = 0
+        self.turn = 0
+        print(self.totalSum2)
+        dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)
+    
+    
+    def easyAiRoll(self, rollNum: int):
+        roundSum = 0
+        names = player.getCurrentNames()
+        for i in range(rollNum):
+            num = [1, 2, 3, 4, 5, 6, 1, 1]
+            rollResult = choice(num)
+            if rollResult == 1:
+                roundSum = 0
+                print("Even geniuses roll a 1, Weird Ai Yankovic got 0 points this round")
+                break
+            else:
+                print("Rolled a " + str(rollResult))
+                roundSum += rollResult
+        self.totalSum2 += roundSum
+        self.amountOfRolls[1] += 1
+        if self.totalSum2 >= 100:
+            self.winnerName = names[1]
+            print(self.winnerName)
+            self.turn = 0
         self.turn = 0
         print(self.totalSum2)
         dis.viewGameProg2(names[0], self.totalSum1, names[1], self.totalSum2)

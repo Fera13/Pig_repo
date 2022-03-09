@@ -1,4 +1,5 @@
 import random
+from secrets import choice
 
 class Intelligence:
 
@@ -8,13 +9,9 @@ class Intelligence:
 
 
     def rollAmountEasy(self):
-        n = random.randint(1,2)
-        if n == 1:
-            n = random.randint(1,2)
-            return n
-        else:
-            n = 10
-            return n
+        nums = [1, 2, 6, 5, 7]
+        n = choice(nums)
+        return n
 
 
     def nameOfAi(self):
