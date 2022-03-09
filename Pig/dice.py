@@ -53,6 +53,10 @@ class Dice:
 
 
     def hardAiRoll(self, rollNum: int):
+        if not isinstance(rollNum, int):
+            raise TypeError("rollNum has be to an int")
+        if rollNum <= 0:
+            raise ValueError("rollNum has to be more than 0")
         roundSum = 0
         names = player.getCurrentNames()
         for i in range(rollNum):
@@ -75,6 +79,10 @@ class Dice:
 
 
     def easyAiRoll(self, rollNum: int):
+        if not isinstance(rollNum, int):
+            raise TypeError("rollNum has be to an int")
+        if rollNum <= 0:
+            raise ValueError("rollNum has to be more than 0")
         roundSum = 0
         names = player.getCurrentNames()
         for i in range(rollNum):
@@ -99,6 +107,7 @@ class Dice:
     def resetTotals(self):
         self.totalSum1 = 0
         self.totalSum2 = 0
+        return self.totalSum1
 
     
     def resetRoundNum(self):
@@ -127,3 +136,4 @@ class Dice:
 
     def cheatDice(self):
         self.totalSum1 = 99
+        return self.totalSum1

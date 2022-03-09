@@ -27,15 +27,13 @@ class Display:
             print('6:  Show rules')
             print('7:  Exit game')
             print(f'----------------------------------------------------------------------\n')
-            try:
-                choice = int(input('Please enter your choice here: '))
-                if choice in [1,2,3,4,5,6,7]:
-                    return choice
-                else:
-                    print('Please enter a number from the available options')
-            except ValueError:
-                print('You can only use numbers to choose an option')
-                continue
+            choice = int(input('Please enter your choice here: '))
+            if not isinstance(choice, int):
+                raise ValueError('You can only use numbers to choose an option')
+            if choice in [1,2,3,4,5,6,7]:
+                return choice
+            else:
+                print('Please enter a number from the available options')
 
 
     def displayGameRules(self):
@@ -90,12 +88,12 @@ class Display:
             print(f'2:  Normal Mode')
             print(f'3:  Hard Mode')
             print(f'4:  Go back to the main menu')
-            try:
-                choice = int(input(f'Please enter the number of the challenge you dare to try today. It is okay to be a coward. '))
-                if choice in [1,2,3,4]:
+            choice = int(input(f'Please enter the number of the challenge you dare to try today. It is okay to be a coward. '))
+            if not isinstance(choice, int):
+                raise ValueError('You can only use numbers to choose an option')
+            if choice in [1,2,3,4]:
                     return choice
-                else:
+                    
+            else:
                     print('Please enter a number from the available options')
-            except ValueError:
-                print('You can only use numbers to choose an option')
-                continue
+

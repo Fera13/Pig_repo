@@ -3,6 +3,8 @@ class File_handling:
 
     def readNameFiles(self, filename:str):
         names = []
+        if not isinstance(filename, str):
+                raise ValueError('The file was not correct')
         with open(filename, 'r') as chatReader:
             for line in chatReader:
                 name = line.rstrip("\n")
@@ -11,6 +13,8 @@ class File_handling:
 
 
     def writeNameFiles(self, filename:str, names:list[str]):
+        if not isinstance(filename, str) or not isinstance(names[str]):
+                raise ValueError('The file or the list was not correct')
         writing = open(filename, "w")
         for name in names:
             writing.write(name + "\n")
@@ -21,6 +25,8 @@ class File_handling:
         highScoreDic = {}
         name = ""
         score = 0
+        if not isinstance(filename, str):
+                raise ValueError('The file was not correct')
         with open(filename, 'r') as chatReader:
             for line in chatReader:
                 name = line.rstrip("\n")
@@ -31,6 +37,8 @@ class File_handling:
 
 
     def writeDicFiles(self, filename:str, highScoreDic: dict[str: int]):
+        if not isinstance(filename, str) or not isinstance(highScoreDic[str: int]):
+                raise ValueError('The file or the dictionary was not correct')
         writing = open(filename, "w")
         for key, value in highScoreDic.items():
             stringvalue = str(value)

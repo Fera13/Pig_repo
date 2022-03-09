@@ -1,33 +1,20 @@
 import unittest
 from player import *
 
+
 player = Player()
+length = len(fh.readNameFiles("text_name_file.txt"))
 
 
 class testPlayer(unittest.TestCase):
 
+
     def test_setName_duplicates(self):
-        self.assertEqual(player.setName("name1"), 1)
-        self.assertEqual(player.setName("name1"), 1)
-        self.assertEqual(player.setName("name2"), 2)
-        self.assertEqual(player.setName("name3"), 3)
-        self.assertEqual(player.setName("name2"), 3)
-
-
-    def test_addCurrentScore_wrongType(self):
-        with self.assertRaises(TypeError):
-            player.addCurrentNames("2", "Emil")
-        with self.assertRaises(TypeError):
-            player.addCurrentNames("Emil", 2)
-        with self.assertRaises(TypeError):
-            player.addCurrentNames(2, 2)
-
-
-    def test_addCurrentScore_negativeValue(self):
-        with self.assertRaises(ValueError):
-            player.addCurrentNames(-2, "Emil")
-        with self.assertRaises(ValueError):
-            player.addCurrentNames(-1, "Emil")
+        self.assertEqual(player.setName("name1"), length)
+        self.assertEqual(player.setName("name1"), length)
+        self.assertEqual(player.setName("name2"), length)
+        self.assertEqual(player.setName("name3"), length)
+        self.assertEqual(player.setName("name2"), length)
 
 
     def test_updateName_wrongType(self):
@@ -45,6 +32,11 @@ class testPlayer(unittest.TestCase):
         with self.assertRaises(TypeError):
             player.addCurrentNames("player1", 2)
             player.addCurrentNames(2, "player2")
+
+
+    def test_addCurrentNames_result(self):
+        self.assertEqual(player.addCurrentNames("name1", "name2"), "name1")
+
 
 if __name__ == "__main__":
     unittest.main()
