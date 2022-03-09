@@ -100,13 +100,12 @@ class Display:
             print(f"4:  Go back to the main menu")
             choice = int(
                 input(
-                    f"Please enter the number of the challenge you dare to try today. It is okay to be a coward. "
+                    f"\nPlease enter the number of the challenge you dare to try today. It is okay to be a coward: "
                 )
             )
             if not isinstance(choice, int):
                 raise ValueError("You can only use numbers to choose an option")
             if choice in [1, 2, 3, 4]:
                 return choice
-
             else:
                 print("Please enter a number from the available options")

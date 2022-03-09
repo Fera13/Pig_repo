@@ -1,9 +1,9 @@
-Python development project template
+Pig dice game
 ==========================
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A template for a Python development project.
+A dice game called Pig
 
 [[_TOC_]]
 
@@ -78,11 +78,11 @@ Read more on [Python PIP](https://pypi.org/project/pip/).
 
 ### Run the code
 
-The example program can be started like this.
+The game can be started like this.
 
 ```
 # Execute the main program
-python guess/main.py
+python Pig_repo/Pig/main.py
 ```
 
 All code is stored below the directory `guess/`.
