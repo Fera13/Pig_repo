@@ -1,9 +1,11 @@
 import unittest
-from player import *
+from player import Player
+from file_handling import file_handling
 
 
+fh = file_handling()
 player = Player()
-length = len(fh.readNameFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name_file.txt"))
+length = len(fh.readNameFiles("text_name_file.txt"))
 
 
 class testPlayer(unittest.TestCase):

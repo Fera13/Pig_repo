@@ -1,8 +1,8 @@
 import unittest
-from file_handling import *
+from file_handling import file_handling
 
 
-fh = File_handling()
+fh = file_handling()
 
 
 class TestFileHandling(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestFileHandling(unittest.TestCase):
             Checking if a ValueError is raised.
         '''
         with self.assertRaises(ValueError):
-            fh.writeNameFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name_file.txt", 3)
+            fh.writeNameFiles("text_name_file.txt", 3)
         with self.assertRaises(ValueError):
             fh.writeNameFiles(8, ["Kalle", "Anna"])
 
@@ -38,7 +38,7 @@ class TestFileHandling(unittest.TestCase):
         with self.assertRaises(ValueError):
             fh.writeDicFiles(4, {"Kalle": 7})
         with self.assertRaises(ValueError):
-            fh.writeDicFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name_file.txt", 7)
+            fh.writeDicFiles("text_name_file.txt", 7)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 import unittest
-from intelligence import *
+from intelligence import Intelligence
 
 
 intell = Intelligence()
