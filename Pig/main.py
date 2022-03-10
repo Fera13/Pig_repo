@@ -1,4 +1,4 @@
-from game_functionality import *
+from game_functionality import Game_functionality
 
 
 gf = Game_functionality()
