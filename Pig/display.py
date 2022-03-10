@@ -1,4 +1,4 @@
-from player import *
+from player import Player
 
 
 playr = Player()
@@ -13,7 +13,8 @@ class Display:
         '''
         if not isinstance(name, str):
             raise TypeError(
-                "Something went wrong while trying to retrieve the winning players' name"
+                "Something went wrong while trying to\
+                    retrieve the winning players' name"
             )
         print("\n", "-" * 80)
         print(f"\n          Congratulations {name}, you have won the game!\n")
@@ -26,9 +27,9 @@ class Display:
         '''
         notCorrect = True
         while notCorrect:
-            print(f"\n                           THE PIG GAME")
+            print("\n                           THE PIG GAME")
             print(
-                f"----------------------------------------------------------------------"
+                "-"*70
             )
             print("1:  Start a one player game")
             print("2:  Start a two player game")
@@ -38,11 +39,12 @@ class Display:
             print("6:  Show rules")
             print("7:  Exit game")
             print(
-                f"----------------------------------------------------------------------\n"
+                "-"*70, "\n"
             )
             choice = int(input("Please enter your choice here: "))
             if not isinstance(choice, int):
-                raise ValueError("You can only use numbers to choose an option")
+                raise ValueError("You can only use numbers\
+                    to choose an option")
             if choice in [1, 2, 3, 4, 5, 6, 7]:
                 return choice
             else:
@@ -56,10 +58,12 @@ class Display:
         print("-  The player begins each turn by rolling the dice.")
         print("-  The player may roll as many times as they want in a round.")
         print(
-            "-  If the dice lands on a 1, the round ends and all points from the current round will be deducted."
+            "-  If the dice lands on a 1, the round ends and all \
+                points from the current round will be deducted."
         )
         print(
-            "-  For every other number on the dice the points relevant to the dice surface will add up to a round total"
+            "-  For every other number on the dice the points relevant\
+                to the dice surface will add up to a round total"
         )
         print("-  The first player to reach 100 points will be the victor!\n")
 
@@ -69,12 +73,13 @@ class Display:
         '''
         if not isinstance(name, str) or not isinstance(rounds, int):
             raise TypeError("The game summary is not available right now")
-        print(f"\nHere is the amount of rolls for the player to reach 100 points\n")
+        print("\nHere is the amount of rolls for\
+            the player to reach 100 points\n")
         print(f'Name {"Amount of rounds":>35}')
-        print(f"----------------------------------------------------------------------")
+        print("-"*70)
         print(f"{name:25}  {rounds:>6}")
         print(
-            f"----------------------------------------------------------------------\n"
+            "-"*70, "\n"
         )
 
     def showPlayers(self, namelist: list[str]):
@@ -83,8 +88,8 @@ class Display:
         '''
         length = 0
         amountOfNames = 0
-        print(f"Here is the list of current players\n")
-        print(f"-" * 70)
+        print("Here is the list of current players\n")
+        print("-" * 70)
         while length < len(namelist):
             print("")
             while amountOfNames < 4 and length < len(namelist):
@@ -92,12 +97,12 @@ class Display:
                 length += 1
                 amountOfNames += 1
             amountOfNames = 0
-        print(f"\n\n")
-        print(f"-" * 70)
+        print("\n\n")
+        print("-" * 70)
         print("\n")
 
-    def viewGameProg2(self, player1: str, points1: int, player2: str, points2: int):
-        '''Takes 2 different parameters for names and 2 different parameters for points.
+    def viewProg(self, player1: str, points1: int, player2: str, points2: int):
+        '''Takes 2 parameters for names and 2 parameters for points.
             Shows the player names and how much points they currently have.
         '''
         if (
@@ -118,18 +123,21 @@ class Display:
         '''
         notCorrect = True
         while notCorrect:
-            print(f"\nHere are the difficulties, which one do you dare to oppose?\n")
-            print(f"1:  Easy Mode")
-            print(f"2:  Normal Mode")
-            print(f"3:  Hard Mode")
-            print(f"4:  Go back to the main menu")
+            print("\nHere are the difficulties, which\
+                one do you dare to oppose?\n")
+            print("1:  Easy Mode")
+            print("2:  Normal Mode")
+            print("3:  Hard Mode")
+            print("4:  Go back to the main menu")
             choice = int(
                 input(
-                    f"\nPlease enter the number of the challenge you dare to try today. It is okay to be a coward: "
+                    "\nPlease enter the number of the challenge you\
+                        dare to try today. It is okay to be a coward: "
                 )
             )
             if not isinstance(choice, int):
-                raise ValueError("You can only use numbers to choose an option")
+                raise ValueError("You can only use numbers\
+                    to choose an option")
             if choice in [1, 2, 3, 4]:
                 return choice
             else:

@@ -1,14 +1,15 @@
 import random
-from secrets import choice
+from random import choice
 
 
 class Intelligence:
     '''The class for the AI.
     '''
-    
+
     def rollAmountNorHar(self):
         '''Takes no parameters.
-            Determines how many rolls the hard and normal AI should do each round.
+            Determines how many rolls the hard and\
+                normal AI should do each round.
             Returns the amount.
         '''
         n = random.randint(1, 7)
