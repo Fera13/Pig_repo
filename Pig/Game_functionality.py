@@ -21,6 +21,7 @@ class Game_functionality:
     difficulty = 0
 
     def handleMenuChoice(self, choice: int):
+        '''Takes a choice in the form of an integer and depending on it connects to the right methods'''
         if not isinstance(choice, int):
             raise ValueError("Please enter numbers only")
 
@@ -67,6 +68,7 @@ class Game_functionality:
             quit()
 
     def startSetup(self):
+        '''Does the necessary resetings of values before each game'''
         playerNames = playr.getCurrentNames()
         disp.viewGameProg2(playerNames[0], 0, playerNames[1], 0)
         dise.resetTotals()
@@ -74,6 +76,7 @@ class Game_functionality:
         playr.resetCurrentScores()
 
     def enter_Names2p(self):
+        '''Asks for players' names, adds the names in the names list and the current player list then saves the names list in a txt file'''
         names = playr.getNames()
         disp.showPlayers(names)
         name = input(
@@ -89,6 +92,7 @@ class Game_functionality:
         playr.addCurrentNames(name, name2)
 
     def startGame2p(self):
+        '''Starts the game for 2 players in a loop that would check if there are winners so it can display the end screen'''
         score1 = dise.getTotalSum1()
         score2 = dise.getTotalSum2()
         while score1 < 100 and score2 < 100:
@@ -105,6 +109,7 @@ class Game_functionality:
             self.restart()
 
     def startGame1p(self):
+        '''Starts the game for 1 players in a loop that would check if there are winners so it can display the end screen'''
         score1 = dise.getTotalSum1()
         score2 = dise.getTotalSum2()
         while score1 < 100 and score2 < 100:
@@ -121,6 +126,7 @@ class Game_functionality:
             self.restart()
 
     def enter_Names1p(self):
+        '''Asks for the player name, adds the name in the names list and the current player list then saves the names list in a txt file'''
         names = playr.getNames()
         disp.showPlayers(names)
         name = input(
@@ -133,6 +139,7 @@ class Game_functionality:
         playr.addCurrentNames(name, aiName)
 
     def ask_For_Rolls(self):
+        '''Asks the player for the number of rolls he wants and handles the answer if it's a number or in case it was a command to manipulate the game'''
         print(self.currentPlayer, "\n")
         rollNum = input(
             "Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart): "
@@ -152,6 +159,7 @@ class Game_functionality:
             print("\nYou know that the number of rolls is a NUMBER right?")
 
     def ask_For_Rolls1p(self):
+        '''Asks the player for the number of rolls he wants and handles the answer if it's a number or in case it was a command to manipulate the game'''
         rollNum = input(
             "Enter the number of dice-rolls you would like to do ('q' to quit, 'r' to restart, 'cheat' to cheat): "
         )
@@ -168,6 +176,7 @@ class Game_functionality:
             print("You know that the number of rolls is a positive NUMBER right?")
 
     def aiRoll(self):
+        '''Connects to the AI roll methods depending on the dificulty choosen'''
         if self.difficulty == 1:
             rollAmount = intel.rollAmountEasy()
             print(f"Weird Ai Yankovic rolled {rollAmount} times\n")
@@ -182,11 +191,13 @@ class Game_functionality:
             dise.hardAiRoll(rollAmount)
 
     def cheat(self):
+        '''Changes the score of the player in 99 as a cheat option'''
         dise.cheatDice()
         print(
             "\nYou just had to cheat, didn't you :(\nAnyway, your score has now been set to 99\n"
         )
 
     def restart(self):
+        '''Gets you back to the main menu no matter where you are'''
         choice = disp.gameMenu()
         self.handleMenuChoice(choice)

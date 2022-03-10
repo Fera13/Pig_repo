@@ -82,10 +82,12 @@ The game can be started like this.
 
 ```
 # Execute the main program
-python Pig_repo/Pig/main.py
+Use "cd {the right directory}" and you should reach /Pig
+When in the correct directory, type "python main.py"
+
 ```
 
-All code is stored below the directory `guess/`.
+All code is stored below the directory `Pig/`.
 
 
 

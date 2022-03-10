@@ -10,9 +10,11 @@ class High_score:
     sorted_dict = fh.readDicFiles("text_high_score.txt")
 
     def get_HighScore_Dic(self):
+        '''Returns the current high score dictionary'''
         return self.sorted_dict
 
     def view_HighScores(self, highScoreDic: dict[str:int]):
+        '''Takes a high score dictionary and iterates through it, showing the high scores on the screen'''
         if not isinstance(highScoreDic, dict):
             raise ValueError(
                 "Please enter a dictionary with strings as keys and integers as values!"
@@ -24,6 +26,7 @@ class High_score:
             i += 1
 
     def update_High_Score(self, oldName: str, newName: str):
+        '''Takes the name that needs to be updated as well as the new name (2 strings) then iterates through the high score dictionary to update the old name'''
         if not isinstance(oldName, str) or not isinstance(newName, str):
             raise ValueError(
                 "The name should be a string and the score should be an integer"
@@ -39,6 +42,7 @@ class High_score:
         return self.sorted_dict
 
     def add_Compare_Highscores(self, name: str, score: int):
+        '''Takes the name and the score of the winner (string, int) then iterates through the high score dictionary to enter the new name/score if it breaks the old scores'''
         if not isinstance(name, str) or not isinstance(score, int):
             raise ValueError(
                 "The name should be a string and the score should be an integer"
