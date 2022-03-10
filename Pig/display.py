@@ -16,7 +16,7 @@ class Display:
         if not isinstance(name, str):
             raise TypeError(
                 "Something went wrong while trying to\
-                    retrieve the winning players' name"
+ retrieve the winning players' name"
             )
         print("\n", "-" * 80)
         print(f"\n          Congratulations {name}, you have won the game!\n")
@@ -40,7 +40,7 @@ class Display:
             if not isinstance(choice, int):
                 raise ValueError(
                     "You can only use numbers\
-                    to choose an option"
+ to choose an option"
                 )
             if choice in [1, 2, 3, 4, 5, 6, 7]:
                 return choice
@@ -53,11 +53,11 @@ class Display:
         print("-  The player may roll as many times as they want in a round.")
         print(
             "-  If the dice lands on a 1, the round ends and all \
-                points from the current round will be deducted."
+ points from the current round will be deducted."
         )
         print(
             "-  For every other number on the dice the points relevant\
-                to the dice surface will add up to a round total"
+ to the dice surface will add up to a round total"
         )
         print("-  The first player to reach 100 points will be the victor!\n")
 
@@ -113,7 +113,7 @@ class Display:
         while not_correct:
             print(
                 "\nHere are the difficulties, which\
-                one do you dare to oppose?\n"
+one do you dare to oppose?\n"
             )
             print("1:  Easy Mode")
             print("2:  Normal Mode")
@@ -122,13 +122,13 @@ class Display:
             choice = int(
                 input(
                     "\nPlease enter the number of the challenge you\
-                        dare to try today. It is okay to be a coward: "
+ dare to try today. It is okay to be a coward: "
                 )
             )
             if not isinstance(choice, int):
                 raise ValueError(
                     "You can only use numbers\
-                    to choose an option"
+ to choose an option"
                 )
             if choice in [1, 2, 3, 4]:
                 return choice

@@ -12,7 +12,7 @@ fh = FileHandling()
 class HighScore:
     """Do operation to compare, add, and update highscore."""
 
-    sorted_dic = fh.read_dic_files("text_high_score.txt")
+    sorted_dic = fh.read_dic_files("Pig/text_high_score.txt")
 
     def get_high_score_dic(self):
         """Return the current high score dictionary."""

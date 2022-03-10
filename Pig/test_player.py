@@ -10,7 +10,7 @@ from file_handling import FileHandling
 
 fh = FileHandling()
 player = Player()
-LENGTH = len(fh.read_name_files("text_name_file.txt"))
+LENGTH = len(fh.read_name_files("Pig/text_name_file.txt"))
 
 
 class TestPlayer(unittest.TestCase):

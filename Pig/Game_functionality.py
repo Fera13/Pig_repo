@@ -44,16 +44,16 @@ class GameFunctionality:
             self.start_setup()
             self.start_game2p()
         elif choice == 3:
-            names = fh.read_name_files("text_name_file.txt")
+            names = fh.read_name_files("Pig/text_high_score.txt")
             disp.show_players(names)
             name = input("Enter the name you want to update: ")
             new_name = input("Enter the new updated name: ")
             playr.update_name(name, new_name)
             new_high_score = hs.update_high_score(name, new_name)
-            fh.write_dic_files("text_high_score.txt", new_high_score)
+            fh.write_dic_files("Pig/text_high_score.txt", new_high_score)
             self.restart()
         elif choice == 4:
-            names = fh.read_name_files("text_name_file.txt")
+            names = fh.read_name_files("Pig/text_high_score.txt")
             disp.show_players(names)
             name = input("\nEnter the name you want to delete: ")
             playr.delete_name(name)
@@ -101,7 +101,7 @@ class GameFunctionality:
         playr.set_name(name.capitalize())
         playr.set_name(name2.capitalize())
         names2 = playr.get_names()
-        fh.write_name_files("text_name_file.txt", names2)
+        fh.write_name_files("Pig/text_high_score.txt", names2)
         playr.add_current_names(name, name2)
 
     def start_game2p(self):
@@ -118,7 +118,7 @@ class GameFunctionality:
         round_amount = dise.get_amount_of_rounds(winner_name)
         disp.game_summary(winner_name, round_amount)
         new_dic = hs.add_compare_high_scores(winner_name, round_amount)
-        fh.write_dic_files("text_high_score.txt", new_dic)
+        fh.write_dic_files("Pig/text_high_score.txt", new_dic)
         self.restart()
 
     def start_game1p(self):
@@ -150,7 +150,7 @@ class GameFunctionality:
         playr.set_name(name.capitalize())
         ai_name = intel.name_of_ai()
         names2 = playr.get_names()
-        fh.write_name_files("text_name_file.txt", names2)
+        fh.write_name_files("Pig/text_high_score.txt", names2)
         playr.add_current_names(name, ai_name)
 
     def ask_for_rolls(self):

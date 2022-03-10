@@ -29,7 +29,7 @@ class TestFileHandling(unittest.TestCase):
         """Testing the writeNameFiles method\
         Checking if a ValueError is raised."""
         with self.assertRaises(ValueError):
-            fh.write_name_files("text_name_file.txt", 3)
+            fh.write_name_files("Pig/text_name_file.txt", 3)
         with self.assertRaises(ValueError):
             fh.write_name_files(8, ["Kalle", "Anna"])
 
@@ -39,7 +39,7 @@ class TestFileHandling(unittest.TestCase):
         with self.assertRaises(ValueError):
             fh.write_dic_files(4, {"Kalle": 7})
         with self.assertRaises(ValueError):
-            fh.write_dic_files("text_name_file.txt", 7)
+            fh.write_dic_files("Pig/text_name_file.txt", 7)
 
 
 if __name__ == "__main__":

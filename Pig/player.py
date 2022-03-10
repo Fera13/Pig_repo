@@ -13,7 +13,7 @@ class Player:
     """This class represents the players. it is responsible for updating, \
         settting, and deleting names, and also setting scores."""
 
-    names = fh.read_name_files("text_name_file.txt")
+    names = fh.read_name_files("Pig/text_name_file.txt")
     current_names = ["", ""]
     current_scores = [0, 0]
 
@@ -33,7 +33,7 @@ class Player:
         for index, item in enumerate(self.names):
             if item == old_name:
                 self.names[index] = new_name
-        fh.write_name_files("text_name_file.txt", self.names)
+        fh.write_name_files("Pig/text_name_file.txt", self.names)
 
     def delete_name(self, name: str):
         """Take one parameter, name: str and delete the name."""
@@ -42,7 +42,7 @@ class Player:
         for i in self.names:
             if i == name:
                 self.names.remove(name)
-        fh.write_name_files("text_name_file.txt", self.names)
+        fh.write_name_files("Pig/text_name_file.txt", self.names)
 
     def reset_current_scores(self):
         """Set current score to zero."""
