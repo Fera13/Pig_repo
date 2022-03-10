@@ -9,10 +9,10 @@ from game_functionality import Game_functionality
 gf = Game_functionality()
 
 
-class testGameFunctionality(unittest.TestCase):
+class TestGameFunctionality(unittest.TestCase):
     """Tests the game functionality class."""
 
-    def test_handleMenuChoice_wrongValue(self):
+    def test_handle_menu_choice_wrong_value(self):
         """Tests that an error will be raised if the wrong type of arguments\
              is entered."""
         with self.assertRaises(ValueError):

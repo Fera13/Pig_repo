@@ -10,7 +10,7 @@ from dice import Dice
 ic = Dice()
 
 
-class testDice(unittest.TestCase):
+class TestDice(unittest.TestCase):
     """Test the dice class."""
 
     def test_roll_TypeError(self):

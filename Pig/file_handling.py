@@ -14,10 +14,11 @@ class File_handling:
         names = []
         if not isinstance(filename, str):
             raise ValueError("The file was not correct")
-        with open(filename, "r") as chatReader:
-            for line in chatReader:
-                name = line.rstrip("\n")
-                names.append((name))
+        reading = open(filename, "r", encoding="utf8")
+        for line in reading:
+            name = line.rstrip("\n")
+            names.append((name))
+        reading.close()
         return names
 
     def writeNameFiles(self, filename: str, names: list[str]):
@@ -25,7 +26,7 @@ class File_handling:
             content in the list to the file, close the file."""
         if not isinstance(filename, str) or not isinstance(names, list):
             raise ValueError("The file or the list was not correct")
-        writing = open(filename, "w")
+        writing = open(filename, "w", encoding="utf8")
         for name in names:
             writing.write(name + "\n")
         writing.close()
@@ -38,12 +39,13 @@ class File_handling:
         score = 0
         if not isinstance(filename, str):
             raise ValueError("The file was not correct")
-        with open(filename, "r") as chatReader:
-            for line in chatReader:
-                name = line.rstrip("\n")
-                score = chatReader.readline().rstrip("\n")
-                intValue = int(score)
-                highScoreDic[name] = intValue
+        reading = open(filename, "r", encoding="utf8")
+        for line in reading:
+            name = line.rstrip("\n")
+            score = reading.readline().rstrip("\n")
+            intValue = int(score)
+            highScoreDic[name] = intValue
+        reading.close()
         return highScoreDic
 
     def writeDicFiles(self, filename: str, highScoreDic: dict[str:int]):
@@ -51,7 +53,7 @@ class File_handling:
             write the content in the dictionary to the file, close the file."""
         if not isinstance(filename, str) or not isinstance(highScoreDic, dict):
             raise ValueError("The file or the dictionary was not correct")
-        writing = open(filename, "w")
+        writing = open(filename, "w", encoding="utf8")
         for key, value in highScoreDic.items():
             stringvalue = str(value)
             writing.write(key + "\n" + stringvalue + "\n")

@@ -44,8 +44,7 @@ class Display:
                 )
             if choice in [1, 2, 3, 4, 5, 6, 7]:
                 return choice
-            else:
-                print("Please enter a number from the available options")
+            print("Please enter a number from the available options")
 
     def displayGameRules(self):
         """Take no parameters, display the rules of the game."""
@@ -133,5 +132,4 @@ class Display:
                 )
             if choice in [1, 2, 3, 4]:
                 return choice
-            else:
-                print("Please enter a number from the available options")
+            print("Please enter a number from the available options")

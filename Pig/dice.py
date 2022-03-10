@@ -30,34 +30,35 @@ class Dice:
             raise TypeError("timesToRoll must be an integer")
         if timesToRoll <= 0:
             raise ValueError("times to roll has to be more than 0")
-        else:
-            names = player.getCurrentNames()
-            for i in range(timesToRoll):
-                rollNumber = randrange(1, 7)
-                if rollNumber == 1:
-                    roundSum = 0
-                    print(
-                        "Rolled a 1, and therefore recieved 0 points \
-                        this round"
-                    )
-                    break
-                else:
-                    print("Rolled a " + str(rollNumber))
-                    roundSum += rollNumber
-            if self.turn == 0:
-                self.totalSum1 += roundSum
-                self.amountOfRounds[0] += 1
-                self.turn = 1
-                if self.totalSum1 >= 100:
-                    self.winnerName = names[0]
-                    self.turn = 0
+        names = player.getCurrentNames()
+        i = 0
+        while i < timesToRoll:
+            rollNumber = randrange(1, 7)
+            if rollNumber != 1:
+                i += 1
+                print("Rolled a " + str(rollNumber))
+                roundSum += rollNumber
             else:
-                self.totalSum2 += roundSum
-                self.amountOfRounds[1] += 1
+                roundSum = 0
+                print(
+                    "Rolled a 1, and therefore recieved 0 points \
+                    this round"
+                )
+                break
+        if self.turn == 0:
+            self.totalSum1 += roundSum
+            self.amountOfRounds[0] += 1
+            self.turn = 1
+            if self.totalSum1 >= 100:
+                self.winnerName = names[0]
                 self.turn = 0
-                if self.totalSum2 >= 100:
-                    self.winnerName = names[1]
-            dis.viewProg(names[0], self.totalSum1, names[1], self.totalSum2)
+        else:
+            self.totalSum2 += roundSum
+            self.amountOfRounds[1] += 1
+            self.turn = 0
+            if self.totalSum2 >= 100:
+                self.winnerName = names[1]
+        dis.viewProg(names[0], self.totalSum1, names[1], self.totalSum2)
 
     def hardAiRoll(self, rollNum: int):
         """Take one parameter: int and roll for the AI."""
@@ -67,19 +68,21 @@ class Dice:
             raise ValueError("rollNum has to be more than 0")
         roundSum = 0
         names = player.getCurrentNames()
-        for i in range(rollNum):
+        i = 0
+        while i < rollNum:
             num = [1, 2, 3, 4, 4, 5, 5, 6, 6]
             rollResult = choice(num)
-            if rollResult == 1:
+            if rollResult != 1:
+                print("Rolled a " + str(rollResult))
+                roundSum += rollResult
+                i += 1
+            else:
                 roundSum = 0
                 print(
                     "Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
                         this round"
                 )
                 break
-            else:
-                print("Rolled a " + str(rollResult))
-                roundSum += rollResult
         self.totalSum2 += roundSum
         self.amountOfRounds[1] += 1
         self.turn = 0
@@ -96,19 +99,21 @@ class Dice:
             raise ValueError("rollNum has to be more than 0")
         roundSum = 0
         names = player.getCurrentNames()
-        for i in range(rollNum):
+        i = 0
+        while i < rollNum:
             num = [1, 2, 3, 4, 5, 6, 1, 1]
             rollResult = choice(num)
-            if rollResult == 1:
+            if rollResult != 1:
+                print("Rolled a " + str(rollResult))
+                roundSum += rollResult
+                i += 1
+            else:
                 roundSum = 0
                 print(
                     "Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
                         this round"
                 )
                 break
-            else:
-                print("Rolled a " + str(rollResult))
-                roundSum += rollResult
         self.totalSum2 += roundSum
         self.amountOfRounds[1] += 1
         self.turn = 0
@@ -145,8 +150,7 @@ class Dice:
         names = player.getCurrentNames()
         if winnerName == names[0]:
             return self.amountOfRounds[0]
-        else:
-            return self.amountOfRounds[1]
+        return self.amountOfRounds[1]
 
     def cheatDice(self):
         """Set the total sum of the first player to 99."""

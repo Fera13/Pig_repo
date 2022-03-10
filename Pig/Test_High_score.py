@@ -9,7 +9,7 @@ from high_score import High_score
 hs = High_score()
 
 
-class testHighScore(unittest.TestCase):
+class TestHighScore(unittest.TestCase):
     """Tests the high score class."""
 
     def test_view_Highscores_wrongType(self):

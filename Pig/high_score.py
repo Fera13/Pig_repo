@@ -45,7 +45,7 @@ class High_score:
                 change = True
         if change is True:
             self.sortedDic[newName] = self.sortedDic.pop(oldName)
-        sorted_tuples = \
+        sorted_tuples =\
             sorted(self.sortedDic.items(), key=lambda item: item[1])
         self.sortedDic = {k: v for k, v in sorted_tuples}
         return self.sortedDic
@@ -69,15 +69,13 @@ class High_score:
                 if name == key:
                     if value < score:
                         break
-                    else:
-                        self.sortedDic[name] = self.sortedDic.pop(key)
-                        self.sortedDic[name] = score
-                        break
-                else:
-                    if score < value:
-                        self.sortedDic[name] = self.sortedDic.pop(key)
-                        self.sortedDic[name] = score
-                        break
+                    self.sortedDic[name] = self.sortedDic.pop(key)
+                    self.sortedDic[name] = score
+                    break
+                if score < value:
+                    self.sortedDic[name] = self.sortedDic.pop(key)
+                    self.sortedDic[name] = score
+                    break
         sorted_tuples = \
             sorted(self.sortedDic.items(), key=lambda item: item[1])
         self.sortedDic = {k: v for k, v in sorted_tuples}
