@@ -1,11 +1,16 @@
+"""
+This script is to read, write text files to get/save highscores and names.
+
+Authors: Farah, Alfred, Emil
+"""
+
+
 class File_handling:
     """Class for handling all files."""
 
     def readNameFiles(self, filename: str):
-        """Takes a file as parameter.
-        Read the contents from the file.
-        Returns a list with the content.
-        """
+        """Take a file as parameter: str, read the contents from the file,\
+            return a list with the content."""
         names = []
         if not isinstance(filename, str):
             raise ValueError("The file was not correct")
@@ -16,10 +21,8 @@ class File_handling:
         return names
 
     def writeNameFiles(self, filename: str, names: list[str]):
-        """Takes a file and a list as parameters.
-        Writes the content in the list to the file.
-        Closes the file.
-        """
+        """Take a file: str and a list: list[str] as parameters, write the\
+            content in the list to the file, close the file."""
         if not isinstance(filename, str) or not isinstance(names, list):
             raise ValueError("The file or the list was not correct")
         writing = open(filename, "w")
@@ -28,10 +31,8 @@ class File_handling:
         writing.close()
 
     def readDicFiles(self, filename: str):
-        """Takes a file as a parameter.
-        Read the content from the file.
-        Returns a dictionary with the content.
-        """
+        """Take a file as a parameter: str, read the content from the file,\
+            return a dictionary with the content."""
         highScoreDic = {}
         name = ""
         score = 0
@@ -46,10 +47,8 @@ class File_handling:
         return highScoreDic
 
     def writeDicFiles(self, filename: str, highScoreDic: dict[str:int]):
-        """Takes a file and a dictionary as parameters.
-        Writes the content in the dictionary to the file.
-        Closes the file.
-        """
+        """Take a file: str and a dictionary: dict[str: int] as parameters,\
+            write the content in the dictionary to the file, close the file."""
         if not isinstance(filename, str) or not isinstance(highScoreDic, dict):
             raise ValueError("The file or the dictionary was not correct")
         writing = open(filename, "w")

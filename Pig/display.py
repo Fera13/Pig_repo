@@ -1,5 +1,9 @@
+"""
+This script is used to display the needed menues and options during the game.
+
+Authors: Farah, Alfred, Emil
+"""
 from player import Player
-""" """
 
 playr = Player()
 
@@ -8,9 +12,7 @@ class Display:
     """Most of the interface in the game is in this class."""
 
     def winner(self, name: str):
-        """Takes a name as a parameter.
-        Displays who won the game.
-        """
+        """Take a parameter: str, display who won the game."""
         if not isinstance(name, str):
             raise TypeError(
                 "Something went wrong while trying to\
@@ -21,10 +23,7 @@ class Display:
         print("-" * 80, "\n")
 
     def gameMenu(self):
-        """Takes no parameters.
-        Displays the main menu.
-        Returns the choice.
-        """
+        """Take no parameter, display the main menu, return the choice."""
         notCorrect = True
         while notCorrect:
             print("\n                           THE PIG GAME")
@@ -49,9 +48,7 @@ class Display:
                 print("Please enter a number from the available options")
 
     def displayGameRules(self):
-        """Takes no parameters.
-        Displays the rules of the game.
-        """
+        """Take no parameters, display the rules of the game."""
         print("\nThe rules for Pig-Game are as following:\n")
         print("-  The player begins each turn by rolling the dice.")
         print("-  The player may roll as many times as they want in a round.")
@@ -66,9 +63,8 @@ class Display:
         print("-  The first player to reach 100 points will be the victor!\n")
 
     def gameSummary(self, name: str, rounds: int):
-        """Takes name and amount of rounds as parameters.
-        Displays a summary with the winner and the amount of rounds.
-        """
+        """Take parameters(name: str, amount of rounds: int), display a \
+            summary of the winner and the amount of rounds."""
         if not isinstance(name, str) or not isinstance(rounds, int):
             raise TypeError("The game summary is not available right now")
         print(
@@ -81,9 +77,7 @@ class Display:
         print("-" * 70, "\n")
 
     def showPlayers(self, namelist: list[str]):
-        """Takes a list of names as parameter.
-        Shows a list of all existing players.
-        """
+        """Take a parameter: list[str], show a list of all existing players."""
         length = 0
         amountOfNames = 0
         print("Here is the list of current players\n")
@@ -100,9 +94,8 @@ class Display:
         print("\n")
 
     def viewProg(self, player1: str, points1: int, player2: str, points2: int):
-        """Takes 2 parameters for names and 2 parameters for points.
-        Shows the player names and how much points they currently have.
-        """
+        """Take parameters(str, int, str, int) for names and points, show the \
+            player names and how much points they currently have."""
         if (
             not isinstance(player1, str)
             or not isinstance(points1, int)
@@ -115,10 +108,8 @@ class Display:
         print(f"Points: {points1:<61} Points: {points2}\n")
 
     def viewDifficulties(self):
-        """Takes no parameters.
-        Shows the different difficulties against the AI.
-        Returns the choice.
-        """
+        """Take no parameters, show the different difficulties of the AI,\
+            return the choice."""
         notCorrect = True
         while notCorrect:
             print(
