@@ -1,22 +1,25 @@
+"""
+This script is used to create and update dictionaries for high scores.
+
+Authors: Farah, Alfred, Emil
+"""
 from file_handling import File_handling
-""" """
+
 
 fh = File_handling()
 
 
 class High_score:
-    """Does operations to compare, add, and update \
-        the high score of the game """
+    """Do operation to compare, add, and update highscore."""
 
     sortedDic = fh.readDicFiles("text_high_score.txt")
 
     def get_HighScore_Dic(self):
-        """Returns the current high score dictionary"""
+        """Return the current high score dictionary."""
         return self.sortedDic
 
     def view_HighScores(self, highScoreDic: dict[str:int]):
-        """Takes a high score dictionary and iterates through it, showing the \
-            high scores on the screen"""
+        """Take high score dictionary and show high score on screen."""
         if not isinstance(highScoreDic, dict):
             raise ValueError(
                 "Please enter a dictionary with strings as keys and integers \
@@ -29,9 +32,8 @@ class High_score:
             i += 1
 
     def update_High_Score(self, oldName: str, newName: str):
-        """Takes the name that needs to be updated as well as \
-            the new name (2 strings) then iterates through the high score\
-            dictionary to update the old name"""
+        """Take name to update the old name to the new name \
+            in the dictionary."""
         if not isinstance(oldName, str) or not isinstance(newName, str):
             raise ValueError(
                 "The name should be a string and the score should be \
@@ -49,9 +51,8 @@ class High_score:
         return self.sortedDic
 
     def add_Compare_Highscores(self, name: str, score: int):
-        """Takes the name and the score of the winner (string, int) then \
-            iterates through the high score dictionary to \
-            enter the new name/score if it breaks the old scores"""
+        """Take name and score of winner to check \
+            if it is a new high score."""
         if not isinstance(name, str) or not isinstance(score, int):
             raise ValueError(
                 "The name should be a string and the score should be \
