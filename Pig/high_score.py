@@ -3,13 +3,13 @@ This script is used to create and update dictionaries for high scores.
 
 Authors: Farah, Alfred, Emil
 """
-from file_handling import File_handling
+from file_handling import FileHandling
 
 
-fh = File_handling()
+fh = FileHandling()
 
 
-class High_score:
+class HighScore:
     """Do operation to compare, add, and update highscore."""
 
     sorted_dic = fh.read_dic_files("text_high_score.txt")
@@ -50,7 +50,7 @@ class High_score:
         self.sorted_dic = {k: v for k, v in sorted_tuples}
         return self.sorted_dic
 
-    def add_compare_highscores(self, name: str, score: int):
+    def add_compare_high_scores(self, name: str, score: int):
         """Take name and score of winner to check \
             if it is a new high score."""
         if not isinstance(name, str) or not isinstance(score, int):

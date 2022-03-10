@@ -5,7 +5,7 @@ Authors: Farah, Alfred, Emil
 """
 
 
-class File_handling:
+class FileHandling:
     """Class for handling all files."""
 
     def read_name_files(self, file_name: str):

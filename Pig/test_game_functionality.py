@@ -4,9 +4,9 @@ This tets the game functionality class.
 Authors: Farah, Alfred, Emil
 """
 import unittest
-from game_functionality import Game_functionality
+from game_functionality import GameFunctionality
 
-gf = Game_functionality()
+gf = GameFunctionality()
 
 
 class TestGameFunctionality(unittest.TestCase):

@@ -4,14 +4,14 @@ This tets the file handing class.
 Authors: Farah, Alfred, Emil
 """
 import unittest
-from file_handling import File_handling
+from file_handling import FileHandling
 
 
-fh = File_handling()
+fh = FileHandling()
 
 
 class TestFileHandling(unittest.TestCase):
-    """Testing the File_Handling class."""
+    """Testing the FileHandling class."""
 
     def test_read_name_files(self):
         """Testing the readNameFiles method\

@@ -3,10 +3,10 @@ This script is used to create lists for handling players and update list.
 
 Authors: Farah, Alfred, Emil
 """
-from file_handling import File_handling
+from file_handling import FileHandling
 
 
-fh = File_handling()
+fh = FileHandling()
 
 
 class Player:

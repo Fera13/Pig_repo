@@ -62,7 +62,7 @@ clean-all: clean clean-doc
 #
 pylint:
 	@$(call MESSAGE,$@)
-	-cd guess && $(PYTHON) -m pylint *.py
+	-cd Pig && $(PYTHON) -m pylint *.py
 
 flake8:
 	@$(call MESSAGE,$@)
@@ -76,7 +76,7 @@ lint: flake8 pylint
 #
 black:
 	@$(call MESSAGE,$@)
-	 $(PYTHON) -m black guess/ test/
+	 $(PYTHON) -m black Pig/ test/
 
 codestyle: black
 
@@ -104,17 +104,17 @@ test: lint coverage
 pydoc:
 	@$(call MESSAGE,$@)
 	install -d doc/pydoc
-	$(PYTHON) -m pydoc -w guess/*.py
+	$(PYTHON) -m pydoc -w Pig/*.py
 	mv *.html doc/pydoc
 
 pdoc:
 	@$(call MESSAGE,$@)
-	pdoc --force --html --output-dir doc/pdoc guess/*.py
+	pdoc --force --html --output-dir doc/pdoc Pig/*.py
 
 pyreverse:
 	@$(call MESSAGE,$@)
 	install -d doc/pyreverse
-	pyreverse guess/*.py
+	pyreverse Pig/*.py
 	dot -Tpng classes.dot -o doc/pyreverse/classes.png
 	dot -Tpng packages.dot -o doc/pyreverse/packages.png
 	rm -f classes.dot packages.dot

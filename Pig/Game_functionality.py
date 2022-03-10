@@ -3,22 +3,22 @@ This script is used as a link to connect all classes to get a funtioning game.
 
 Authors: Farah, Alfred, Emil
 """
-from high_score import High_score
+from high_score import HighScore
 from display import Display
 from player import Player
 from dice import Dice
-from file_handling import File_handling
+from file_handling import FileHandling
 from intelligence import Intelligence
 
-hs = High_score()
+hs = HighScore()
 disp = Display()
 playr = Player()
 dise = Dice()
-fh = File_handling()
+fh = FileHandling()
 intel = Intelligence()
 
 
-class Game_functionality:
+class GameFunctionality:
     """Connect all the other classes together to create a \
         functioning game."""
 
@@ -49,7 +49,7 @@ class Game_functionality:
             name = input("Enter the name you want to update: ")
             new_name = input("Enter the new updated name: ")
             playr.update_name(name, new_name)
-            new_high_score = hs.update_High_Score(name, new_name)
+            new_high_score = hs.update_high_score(name, new_name)
             fh.write_dic_files("text_high_score.txt", new_high_score)
             self.restart()
         elif choice == 4:
@@ -60,8 +60,8 @@ class Game_functionality:
             self.restart()
         elif choice == 5:
             hs_dic = {}
-            hs_dic = hs.get_HighScore_Dic()
-            hs.view_HighScores(hs_dic)
+            hs_dic = hs.get_high_score_dic()
+            hs.view_high_scores(hs_dic)
             input(
                 "\nWhen you are done reading the high scores press any \
                     button to go back: "
@@ -117,7 +117,7 @@ class Game_functionality:
         disp.winner(winner_name)
         round_amount = dise.get_amount_of_rounds(winner_name)
         disp.game_summary(winner_name, round_amount)
-        new_dic = hs.add_Compare_Highscores(winner_name, round_amount)
+        new_dic = hs.add_compare_high_scores(winner_name, round_amount)
         fh.write_dic_files("text_high_score.txt", new_dic)
         self.restart()
 
@@ -135,7 +135,7 @@ class Game_functionality:
         disp.winner(winner_name)
         round_amount = dise.get_amount_of_rounds(winner_name)
         disp.game_summary(winner_name, round_amount)
-        hs.add_Compare_Highscores(winner_name, round_amount)
+        hs.add_compare_high_scores(winner_name, round_amount)
         self.restart()
 
     def enter_names1p(self):

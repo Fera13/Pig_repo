@@ -5,24 +5,24 @@ Authors: Farah, Alfred, Emil
 """
 import unittest
 from player import Player
-from file_handling import File_handling
+from file_handling import FileHandling
 
 
-fh = File_handling()
+fh = FileHandling()
 player = Player()
-length = len(fh.read_name_files("text_name_file.txt"))
+LENGTH = len(fh.read_name_files("text_name_file.txt"))
 
 
-class testPlayer(unittest.TestCase):
+class TestPlayer(unittest.TestCase):
     """Tests the player class."""
 
     def test_set_name_duplicates(self):
         """Testing if you can add duplicate names."""
-        self.assertEqual(player.set_name("name1"), length + 1)
-        self.assertEqual(player.set_name("name1"), length + 1)
-        self.assertEqual(player.set_name("name2"), length + 2)
-        self.assertEqual(player.set_name("name3"), length + 3)
-        self.assertEqual(player.set_name("name2"), length + 3)
+        self.assertEqual(player.set_name("name1"), LENGTH + 1)
+        self.assertEqual(player.set_name("name1"), LENGTH + 1)
+        self.assertEqual(player.set_name("name2"), LENGTH + 2)
+        self.assertEqual(player.set_name("name3"), LENGTH + 3)
+        self.assertEqual(player.set_name("name2"), LENGTH + 3)
 
     def test_update_name_wrong_type(self):
         """Testing for wrong type entered."""

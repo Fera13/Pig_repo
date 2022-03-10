@@ -3,10 +3,10 @@ This script is used to start the game.
 
 Authors: Farah, Alfred, Emil
 """
-from game_functionality import Game_functionality
+from game_functionality import GameFunctionality
 
 
-gf = Game_functionality()
+gf = GameFunctionality()
 
 
 def main():
