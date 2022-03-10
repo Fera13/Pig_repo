@@ -5,6 +5,7 @@ fh = File_handling()
 
 
 class Player:
+    '''This class represents the players. it is responsible for updating, settting, and deleting names, and also setting scores.'''
 
     names = fh.readNameFiles("text_name_file.txt")
     currentNames = ["", ""]

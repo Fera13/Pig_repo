@@ -8,6 +8,7 @@ dis = Display()
 
 
 class Dice:
+    '''This class is responsible for rolling, both for the player and the AI. It also has the ability to reset scores and return winner'''
 
     winnerName = ""
     amountOfRounds = [0, 0]
