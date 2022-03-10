@@ -10,18 +10,18 @@ from random import choice
 class Intelligence:
     """The class for the AI."""
 
-    def rollAmountNorHar(self):
+    def roll_amount_nor_har(self):
         """Determine roll amount for normal and hard AI."""
-        n = random.randint(1, 7)
-        return n
+        roll_amount = random.randint(1, 7)
+        return roll_amount
 
-    def rollAmountEasy(self):
+    def roll_amount_easy(self):
         """Determine roll amount for easy AI."""
         nums = [1, 2, 6, 5, 7]
-        n = choice(nums)
-        return n
+        roll_amount = choice(nums)
+        return roll_amount
 
-    def nameOfAi(self):
+    def name_of_ai(self):
         """Get name of AI."""
-        aiName = "Weird Ai Yankovic"
-        return aiName
+        ai_name = "Weird Ai Yankovic"
+        return ai_name

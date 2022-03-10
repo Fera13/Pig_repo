@@ -22,10 +22,10 @@ class Display:
         print(f"\n          Congratulations {name}, you have won the game!\n")
         print("-" * 80, "\n")
 
-    def gameMenu(self):
+    def game_menu(self):
         """Take no parameter, display the main menu, return the choice."""
-        notCorrect = True
-        while notCorrect:
+        not_correct = True
+        while not_correct:
             print("\n                           THE PIG GAME")
             print("-" * 70)
             print("1:  Start a one player game")
@@ -46,7 +46,7 @@ class Display:
                 return choice
             print("Please enter a number from the available options")
 
-    def displayGameRules(self):
+    def display_game_rules(self):
         """Take no parameters, display the rules of the game."""
         print("\nThe rules for Pig-Game are as following:\n")
         print("-  The player begins each turn by rolling the dice.")
@@ -61,7 +61,7 @@ class Display:
         )
         print("-  The first player to reach 100 points will be the victor!\n")
 
-    def gameSummary(self, name: str, rounds: int):
+    def game_summary(self, name: str, rounds: int):
         """Take parameters(name: str, amount of rounds: int), display a \
             summary of the winner and the amount of rounds."""
         if not isinstance(name, str) or not isinstance(rounds, int):
@@ -75,42 +75,42 @@ class Display:
         print(f"{name:25}  {rounds:>6}")
         print("-" * 70, "\n")
 
-    def showPlayers(self, namelist: list[str]):
+    def show_players(self, name_list: list[str]):
         """Take a parameter: list[str], show a list of all existing players."""
         length = 0
-        amountOfNames = 0
+        amount_of_names = 0
         print("Here is the list of current players\n")
         print("-" * 70)
-        while length < len(namelist):
+        while length < len(name_list):
             print("")
-            while amountOfNames < 4 and length < len(namelist):
-                print(f">{namelist[length]:15}", end=" ")
+            while amount_of_names < 4 and length < len(name_list):
+                print(f">{name_list[length]:15}", end=" ")
                 length += 1
-                amountOfNames += 1
-            amountOfNames = 0
+                amount_of_names += 1
+            amount_of_names = 0
         print("\n\n")
         print("-" * 70)
         print("\n")
 
-    def viewProg(self, player1: str, points1: int, player2: str, points2: int):
+    def view_prog(self, player: str, points: int, player2: str, points2: int):
         """Take parameters(str, int, str, int) for names and points, show the \
             player names and how much points they currently have."""
         if (
-            not isinstance(player1, str)
-            or not isinstance(points1, int)
+            not isinstance(player, str)
+            or not isinstance(points, int)
             or not isinstance(player2, str)
             or not isinstance(points2, int)
         ):
             raise TypeError("The game progress is not available right now")
 
-        print(f"\n\nPlayer1: {player1:60} Player2: {player2}")
-        print(f"Points: {points1:<61} Points: {points2}\n")
+        print(f"\n\nPlayer1: {player:60} Player2: {player2}")
+        print(f"Points: {points:<61} Points: {points2}\n")
 
-    def viewDifficulties(self):
+    def view_difficulties(self):
         """Take no parameters, show the different difficulties of the AI,\
             return the choice."""
-        notCorrect = True
-        while notCorrect:
+        not_correct = True
+        while not_correct:
             print(
                 "\nHere are the difficulties, which\
                 one do you dare to oppose?\n"
