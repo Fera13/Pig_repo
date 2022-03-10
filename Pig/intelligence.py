@@ -1,5 +1,6 @@
 import random
 from random import choice
+""" """
 
 
 class Intelligence:

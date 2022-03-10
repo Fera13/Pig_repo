@@ -1,7 +1,7 @@
 import unittest
 from player import Player
 from file_handling import File_handling
-
+""" """
 
 fh = File_handling()
 player = Player()
@@ -9,6 +9,8 @@ length = len(fh.readNameFiles("text_name_file.txt"))
 
 
 class testPlayer(unittest.TestCase):
+    """Tests the player class"""
+
     def test_setName_duplicates(self):
         """Testing if you can add duplicate names"""
         self.assertEqual(player.setName("name1"), length + 1)

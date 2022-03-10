@@ -1,11 +1,13 @@
 import unittest
 from high_score import High_score
-
+""" """
 
 hs = High_score()
 
 
-class testGameFunctionality(unittest.TestCase):
+class testHighScore(unittest.TestCase):
+    """Tests the high score class"""
+
     def test_view_Highscores_wrongType(self):
         """Tests that an error will be raised if the wrong type of arguments \
             is entered"""

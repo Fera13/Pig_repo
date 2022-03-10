@@ -1,11 +1,13 @@
 import unittest
 from dice import Dice
-
+""" """
 
 ic = Dice()
 
 
 class testDice(unittest.TestCase):
+    """Tests the dice class"""
+
     def test_roll_TypeError(self):
         """Testing for type error"""
         with self.assertRaises(TypeError):

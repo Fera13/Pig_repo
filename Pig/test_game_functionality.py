@@ -1,11 +1,13 @@
 import unittest
 from game_functionality import Game_functionality
-
+""" """
 
 gf = Game_functionality()
 
 
 class testGameFunctionality(unittest.TestCase):
+    """Tests the game functionality class"""
+
     def test_handleMenuChoice_wrongValue(self):
         """Tests that an error will be raised if the wrong type of arguments\
              is entered"""

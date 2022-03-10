@@ -1,6 +1,6 @@
 import unittest
 from intelligence import Intelligence
-
+""" """
 
 intell = Intelligence()
 

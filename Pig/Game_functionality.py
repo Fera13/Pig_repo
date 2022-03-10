@@ -4,6 +4,7 @@ from player import Player
 from dice import Dice
 from file_handling import File_handling
 from intelligence import Intelligence
+""" """
 
 
 hs = High_score()
@@ -15,6 +16,8 @@ intel = Intelligence()
 
 
 class Game_functionality:
+    """Connects all the other classes together to create a \
+        functioning game"""
 
     currentPlayer = "player1's turn"
     currentPlayer1 = "player1's turn"

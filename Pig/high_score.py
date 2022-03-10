@@ -1,10 +1,12 @@
 from file_handling import File_handling
-
+""" """
 
 fh = File_handling()
 
 
 class High_score:
+    """Does operations to compare, add, and update \
+        the high score of the game """
 
     sortedDic = fh.readDicFiles("text_high_score.txt")
 
