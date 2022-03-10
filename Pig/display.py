@@ -5,7 +5,12 @@ playr = Player()
 
 
 class Display:
+    '''Most of the interface in the game is in this class.
+    '''
     def winner(self, name: str):
+        '''Takes a name as a parameter.
+            Displays who won the game.
+        '''
         if not isinstance(name, str):
             raise TypeError(
                 "Something went wrong while trying to retrieve the winning players' name"
@@ -15,6 +20,10 @@ class Display:
         print("-" * 80, "\n")
 
     def gameMenu(self):
+        '''Takes no parameters.
+            Displays the main menu.
+            Returns the choice.
+        '''
         notCorrect = True
         while notCorrect:
             print(f"\n                           THE PIG GAME")
@@ -40,6 +49,9 @@ class Display:
                 print("Please enter a number from the available options")
 
     def displayGameRules(self):
+        '''Takes no parameters.
+            Displays the rules of the game.
+        '''
         print("\nThe rules for Pig-Game are as following:\n")
         print("-  The player begins each turn by rolling the dice.")
         print("-  The player may roll as many times as they want in a round.")
@@ -51,18 +63,24 @@ class Display:
         )
         print("-  The first player to reach 100 points will be the victor!\n")
 
-    def gameSummary(self, name: str, rolls: int):
-        if not isinstance(name, str) or not isinstance(rolls, int):
+    def gameSummary(self, name: str, rounds: int):
+        '''Takes name and amount of rounds as parameters.
+            Displays a summary with the winner and the amount of rounds.
+        '''
+        if not isinstance(name, str) or not isinstance(rounds, int):
             raise TypeError("The game summary is not available right now")
         print(f"\nHere is the amount of rolls for the player to reach 100 points\n")
         print(f'Name {"Amount of rounds":>35}')
         print(f"----------------------------------------------------------------------")
-        print(f"{name:25}  {rolls:>6}")
+        print(f"{name:25}  {rounds:>6}")
         print(
             f"----------------------------------------------------------------------\n"
         )
 
     def showPlayers(self, namelist: list[str]):
+        '''Takes a list of names as parameter.
+            Shows a list of all existing players.
+        '''
         length = 0
         amountOfNames = 0
         print(f"Here is the list of current players\n")
@@ -79,6 +97,9 @@ class Display:
         print("\n")
 
     def viewGameProg2(self, player1: str, points1: int, player2: str, points2: int):
+        '''Takes 2 different parameters for names and 2 different parameters for points.
+            Shows the player names and how much points they currently have.
+        '''
         if (
             not isinstance(player1, str)
             or not isinstance(points1, int)
@@ -91,6 +112,10 @@ class Display:
         print(f"Points: {points1:<61} Points: {points2}\n")
 
     def viewDifficulties(self):
+        '''Takes no parameters.
+            Shows the different difficulties against the AI.
+            Returns the choice.
+        '''
         notCorrect = True
         while notCorrect:
             print(f"\nHere are the difficulties, which one do you dare to oppose?\n")
