@@ -16,7 +16,7 @@ class TestGameFunctionality(unittest.TestCase):
         """Tests that an error will be raised if the wrong type of arguments\
              is entered."""
         with self.assertRaises(ValueError):
-            gf.handleMenuChoice("hi")
+            gf.handle_menu_choice("hi")
 
 
 if __name__ == "__main__":
