@@ -6,7 +6,7 @@ gf = Game_functionality()
 
 
 class testGameFunctionality(unittest.TestCase):
-  
+
     def test_handleMenuChoice_wrongValue(self):
         '''Tests that an error will be raised if the wrong type of arguments\
              is entered'''

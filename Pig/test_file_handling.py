@@ -1,8 +1,8 @@
 import unittest
-from file_handling import file_handling
+from file_handling import File_handling
 
 
-fh = file_handling()
+fh = File_handling()
 
 
 class TestFileHandling(unittest.TestCase):
