@@ -8,7 +8,7 @@ length = len(fh.readNameFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name
 
 class testPlayer(unittest.TestCase):
     def test_setName_duplicates(self):
-        '''Testing for duplicates'''
+        '''Testing if you can add duplicate names'''
         self.assertEqual(player.setName("name1"), length + 1)
         self.assertEqual(player.setName("name1"), length + 1)
         self.assertEqual(player.setName("name2"), length + 2)
@@ -33,7 +33,7 @@ class testPlayer(unittest.TestCase):
             player.addCurrentNames(2, "player2")
 
     def test_addCurrentNames_result(self):
-        '''Testing for correct return'''
+        '''Testing that names get set '''
         self.assertEqual(player.addCurrentNames("name1", "name2"), "name1")
 
 

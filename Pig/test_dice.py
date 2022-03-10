@@ -51,11 +51,11 @@ class testDice(unittest.TestCase):
             ic.easyAiRoll(-2)
 
     def test_resetTotal_returnValue(self):
-        '''Testing for correct return value'''
+        '''Testing that the total scores get reset'''
         self.assertEqual(ic.resetTotals(), 0)
 
     def test_cheatDice_returnValue(self):
-        '''Testing for correct return value'''
+        '''Testing that the return value is 99 and the cheat has been activated'''
         self.assertEqual(ic.cheatDice(), 99)
 
 
