@@ -12,7 +12,7 @@ fh = File_handling()
 class High_score:
     """Do operation to compare, add, and update highscore."""
 
-    sorted_dic = fh.readDicFiles("text_high_score.txt")
+    sorted_dic = fh.read_dic_files("text_high_score.txt")
 
     def get_highScore_dic(self):
         """Return the current high score dictionary."""
@@ -44,10 +44,10 @@ class High_score:
             if key_name == old_name:
                 change = True
         if change is True:
-            self.sortedDic[new_name] = self.sortedDic.pop(old_name)
+            self.sorted_dic[new_name] = self.sorted_dic.pop(old_name)
         sorted_tuples =\
             sorted(self.sorted_dic.items(), key=lambda item: item[1])
-        self.sortedDic = {k: v for k, v in sorted_tuples}
+        self.sorted_dic = {k: v for k, v in sorted_tuples}
         return self.sorted_dic
 
     def add_compare_highscores(self, name: str, score: int):
