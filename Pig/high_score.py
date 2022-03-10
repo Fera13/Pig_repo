@@ -12,45 +12,45 @@ fh = File_handling()
 class High_score:
     """Do operation to compare, add, and update highscore."""
 
-    sortedDic = fh.readDicFiles("text_high_score.txt")
+    sorted_dic = fh.readDicFiles("text_high_score.txt")
 
-    def get_HighScore_Dic(self):
+    def get_highScore_dic(self):
         """Return the current high score dictionary."""
-        return self.sortedDic
+        return self.sorted_dic
 
-    def view_HighScores(self, highScoreDic: dict[str:int]):
+    def view_high_scores(self, high_score_dic: dict[str:int]):
         """Take high score dictionary and show high score on screen."""
-        if not isinstance(highScoreDic, dict):
+        if not isinstance(high_score_dic, dict):
             raise ValueError(
                 "Please enter a dictionary with strings as keys and integers \
                     as values!"
             )
         i = 1
         print("High scores:\n")
-        for keyName, valueScore in highScoreDic.items():
-            print(f"{i}. {keyName:30} Score: {valueScore}")
+        for key_name, value_score in high_score_dic.items():
+            print(f"{i}. {key_name:30} Score: {value_score}")
             i += 1
 
-    def update_High_Score(self, oldName: str, newName: str):
+    def update_high_score(self, old_name: str, new_name: str):
         """Take name to update the old name to the new name \
             in the dictionary."""
-        if not isinstance(oldName, str) or not isinstance(newName, str):
+        if not isinstance(old_name, str) or not isinstance(new_name, str):
             raise ValueError(
                 "The name should be a string and the score should be \
                 an integer"
             )
         change = False
-        for keyName in self.sortedDic.keys():
-            if keyName == oldName:
+        for key_name in self.sorted_dic.keys():
+            if key_name == old_name:
                 change = True
         if change is True:
-            self.sortedDic[newName] = self.sortedDic.pop(oldName)
+            self.sortedDic[new_name] = self.sortedDic.pop(old_name)
         sorted_tuples =\
-            sorted(self.sortedDic.items(), key=lambda item: item[1])
+            sorted(self.sorted_dic.items(), key=lambda item: item[1])
         self.sortedDic = {k: v for k, v in sorted_tuples}
-        return self.sortedDic
+        return self.sorted_dic
 
-    def add_Compare_Highscores(self, name: str, score: int):
+    def add_compare_highscores(self, name: str, score: int):
         """Take name and score of winner to check \
             if it is a new high score."""
         if not isinstance(name, str) or not isinstance(score, int):
@@ -58,25 +58,25 @@ class High_score:
                 "The name should be a string and the score should be \
                 an integer"
             )
-        if len(self.sortedDic.keys()) < 5:
-            self.sortedDic[name] = score
+        if len(self.sorted_dic.keys()) < 5:
+            self.sorted_dic[name] = score
         else:
             sorted_tuples = sorted(
-                self.sortedDic.items(), key=lambda item: item[1], reverse=True
+                self.sorted_dic.items(), key=lambda item: item[1], reverse=True
             )
-            self.sortedDic = {k: v for k, v in sorted_tuples}
-            for key, value in self.sortedDic.items():
+            self.sorted_dic = {k: v for k, v in sorted_tuples}
+            for key, value in self.sorted_dic.items():
                 if name == key:
                     if value < score:
                         break
-                    self.sortedDic[name] = self.sortedDic.pop(key)
-                    self.sortedDic[name] = score
+                    self.sorted_dic[name] = self.sorted_dic.pop(key)
+                    self.sorted_dic[name] = score
                     break
                 if score < value:
-                    self.sortedDic[name] = self.sortedDic.pop(key)
-                    self.sortedDic[name] = score
+                    self.sorted_dic[name] = self.sorted_dic.pop(key)
+                    self.sorted_dic[name] = score
                     break
         sorted_tuples = \
-            sorted(self.sortedDic.items(), key=lambda item: item[1])
-        self.sortedDic = {k: v for k, v in sorted_tuples}
-        return self.sortedDic
+            sorted(self.sorted_dic.items(), key=lambda item: item[1])
+        self.sorted_dic = {k: v for k, v in sorted_tuples}
+        return self.sorted_dic

@@ -10,17 +10,17 @@ from dice import Dice
 ic = Dice()
 
 
-class TestDice(unittest.TestCase):
+class Test_Dice(unittest.TestCase):
     """Test the dice class."""
 
-    def test_roll_TypeError(self):
+    def test_roll_type_error(self):
         """Testing for type error."""
         with self.assertRaises(TypeError):
             ic.roll("2")
         with self.assertRaises(TypeError):
             ic.roll(2.2)
 
-    def test_roll_ValueError(self):
+    def test_roll_value_error(self):
         """Testing for value error."""
         with self.assertRaises(ValueError):
             ic.roll(-2)
@@ -29,42 +29,42 @@ class TestDice(unittest.TestCase):
         with self.assertRaises(ValueError):
             ic.roll(0)
 
-    def test_hardAiRoll_TypeError(self):
+    def test_hard_ai_roll_type_error(self):
         """Testing for type error."""
         with self.assertRaises(TypeError):
-            ic.hardAiRoll("2")
+            ic.hard_ai_roll("2")
         with self.assertRaises(TypeError):
-            ic.hardAiRoll(2.2)
+            ic.hard_ai_roll(2.2)
 
-    def test_hardAiRoll_ValueError(self):
+    def test_hard_ai_roll_value_error(self):
         """Testing for value error."""
         with self.assertRaises(ValueError):
-            ic.hardAiRoll(0)
+            ic.hard_ai_roll(0)
         with self.assertRaises(ValueError):
-            ic.hardAiRoll(-2)
+            ic.hard_ai_roll(-2)
 
-    def test_easyAiRoll_TypeError(self):
+    def test_easy_ai_roll_type_error(self):
         """Testing for type error."""
         with self.assertRaises(TypeError):
-            ic.easyAiRoll("2")
+            ic.easy_ai_roll("2")
         with self.assertRaises(TypeError):
-            ic.easyAiRoll(2.2)
+            ic.easy_ai_roll(2.2)
 
-    def test_easyAiRoll_ValueError(self):
+    def test_easy_ai_roll_value_error(self):
         """Testing for value error."""
         with self.assertRaises(ValueError):
-            ic.easyAiRoll(0)
+            ic.easy_ai_roll(0)
         with self.assertRaises(ValueError):
-            ic.easyAiRoll(-2)
+            ic.easy_ai_roll(-2)
 
-    def test_resetTotal_returnValue(self):
+    def test_reset_total_return_value(self):
         """Testing that the total scores get reset."""
-        self.assertEqual(ic.resetTotals(), 0)
+        self.assertEqual(ic.reset_totals(), 0)
 
-    def test_cheatDice_returnValue(self):
+    def test_cheat_dice_return_value(self):
         """Testing that the return value is 99 and the cheat\
             has been activated."""
-        self.assertEqual(ic.cheatDice(), 99)
+        self.assertEqual(ic.cheat_dice(), 99)
 
 
 if __name__ == "__main__":
