@@ -1,5 +1,5 @@
 import unittest
-from dice import *
+from dice import Dice
 
 
 ic = Dice()
@@ -9,9 +9,9 @@ class testDice(unittest.TestCase):
     def test_roll_TypeError(self):
         '''Testing for type error'''
         with self.assertRaises(TypeError):
-            Dice.roll("2")
+            ic.roll("2")
         with self.assertRaises(TypeError):
-            Dice.roll(2.2)
+            ic.roll(2.2)
 
     def test_roll_ValueError(self):
         '''Testing for value error'''
@@ -55,7 +55,8 @@ class testDice(unittest.TestCase):
         self.assertEqual(ic.resetTotals(), 0)
 
     def test_cheatDice_returnValue(self):
-        '''Testing that the return value is 99 and the cheat has been activated'''
+        '''Testing that the return value is 99 and the cheat\
+            has been activated'''
         self.assertEqual(ic.cheatDice(), 99)
 
 
