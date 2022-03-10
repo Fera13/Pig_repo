@@ -10,7 +10,7 @@ from file_handling import File_handling
 
 fh = File_handling()
 player = Player()
-length = len(fh.readNameFiles("text_name_file.txt"))
+length = len(fh.read_name_files("text_name_file.txt"))
 
 
 class testPlayer(unittest.TestCase):
