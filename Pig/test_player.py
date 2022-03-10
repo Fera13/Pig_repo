@@ -1,9 +1,9 @@
 import unittest
 from player import Player
-from file_handling import file_handling
+from file_handling import File_handling
 
 
-fh = file_handling()
+fh = File_handling()
 player = Player()
 length = len(fh.readNameFiles("text_name_file.txt"))
 
