@@ -29,7 +29,6 @@ class Game_functionality:
             self.difficulty = disp.viewDifficulties()
             if self.difficulty == 4:
                 self.restart()
-            self.handleMenuChoice(choice)
             self.enter_Names1p()
             self.startSetup()
             self.startGame1p()
