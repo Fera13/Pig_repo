@@ -8,6 +8,7 @@ length = len(fh.readNameFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name
 
 class testPlayer(unittest.TestCase):
     def test_setName_duplicates(self):
+        '''Testing for duplicates'''
         self.assertEqual(player.setName("name1"), length + 1)
         self.assertEqual(player.setName("name1"), length + 1)
         self.assertEqual(player.setName("name2"), length + 2)
@@ -15,20 +16,24 @@ class testPlayer(unittest.TestCase):
         self.assertEqual(player.setName("name2"), length + 3)
 
     def test_updateName_wrongType(self):
+        '''Testing for wrong type entered'''
         with self.assertRaises(TypeError):
             player.updateName(2, "newName")
 
     def test_deleteName_wrongType(self):
+        '''Testing for wrong type entered'''
         with self.assertRaises(TypeError):
             player.deleteName(2)
             player.deleteName(2.5)
 
     def test_addCurrentNames_wrongType(self):
+        '''Testing for wrong type entered'''
         with self.assertRaises(TypeError):
             player.addCurrentNames("player1", 2)
             player.addCurrentNames(2, "player2")
 
     def test_addCurrentNames_result(self):
+        '''Testing for correct return'''
         self.assertEqual(player.addCurrentNames("name1", "name2"), "name1")
 
 
