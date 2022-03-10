@@ -3,16 +3,16 @@ from player import *
 
 
 player = Player()
-length = len(fh.readNameFiles("text_name_file.txt"))
+length = len(fh.readNameFiles("C:\Me\Programing projects\Pig_repo\Pig\\text_name_file.txt"))
 
 
 class testPlayer(unittest.TestCase):
     def test_setName_duplicates(self):
-        self.assertEqual(player.setName("name1"), length)
-        self.assertEqual(player.setName("name1"), length)
-        self.assertEqual(player.setName("name2"), length)
-        self.assertEqual(player.setName("name3"), length)
-        self.assertEqual(player.setName("name2"), length)
+        self.assertEqual(player.setName("name1"), length + 1)
+        self.assertEqual(player.setName("name1"), length + 1)
+        self.assertEqual(player.setName("name2"), length + 2)
+        self.assertEqual(player.setName("name3"), length + 3)
+        self.assertEqual(player.setName("name2"), length + 3)
 
     def test_updateName_wrongType(self):
         with self.assertRaises(TypeError):
