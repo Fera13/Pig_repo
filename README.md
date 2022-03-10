@@ -30,6 +30,16 @@ How to install the game
 In order to install the game you first need to clone the repo from https://github.com/Fera13/Pig_repo. Once you have downloaded all the files you can check that you have the correct version of python by following the steps below. Once you have python installed, you can either use this through your command line, through an IDE like Visual Studio Code or by using Git Bash. When you want to run the game through the command line you need to enter the directory where you downloaded the game files and then enter the folder "Pig". Once you are in "Pig" you can write "python main.py" and the game should start. If the game is not running, make sure you are in the "Pig" folder and not the "Pig_Repo" folder. May the odds ever be in your favor!
 
 
+How to regenerate the UML
+---------------------------
+In order to regenerate the UML part you need to be in the virtual enviroment. When you have activated the enviroment with ". .venv/Scripts/activate" inside the bash commandline in the correct directory you need to install graphviz and let it use path unless you already have it installed. After you have installed graphviz you should enter first "dot -Tpng classes.dot -o doc/pyreverse/classes.png" and then "dot -Tpng packages.dot -o doc/pyreverse/packages.png". Now you should have the class diagram and the package diagram inside of the Pig_repo\doc\pyreverse folder.
+
+
+How to regenerate the documentation
+-------------------------------------
+In order to regenerate the documentation part you need to be in the virtual enviroment. When you have activated the enviroment with ". .venv/Scripts/activate" inside the bash commandline in the correct directory you write "make doc" and a document with a bunch of htmls should appear in Pig_repo\doc\pdoc. There you can choose the documentation of all the classes.
+
+
 Get going
 --------------------------
 
