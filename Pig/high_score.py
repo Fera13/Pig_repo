@@ -14,7 +14,7 @@ class High_score:
 
     sorted_dic = fh.read_dic_files("text_high_score.txt")
 
-    def get_highScore_dic(self):
+    def get_high_score_dic(self):
         """Return the current high score dictionary."""
         return self.sorted_dic
 
