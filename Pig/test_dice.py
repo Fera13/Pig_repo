@@ -1,5 +1,5 @@
 """
-This tets the dice class.
+This tests the dice class.
 
 Authors: Farah, Alfred, Emil
 """
