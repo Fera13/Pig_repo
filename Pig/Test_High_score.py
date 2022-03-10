@@ -1,4 +1,8 @@
-"""This class tests highscore class."""
+"""
+This class tests highscore class.
+
+Authors: Farah, Alfred, Emil
+"""
 import unittest
 from high_score import High_score
 
