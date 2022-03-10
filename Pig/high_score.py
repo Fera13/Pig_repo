@@ -75,7 +75,7 @@ class High_score:
                         self.sortedDic[name] = self.sortedDic.pop(key)
                         self.sortedDic[name] = score
                         break
-        sorted_tuples =\
+        sorted_tuples = \
             sorted(self.sortedDic.items(), key=lambda item: item[1])
         self.sortedDic = {k: v for k, v in sorted_tuples}
         return self.sortedDic
