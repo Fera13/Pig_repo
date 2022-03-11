@@ -204,15 +204,15 @@ right?"
 dificulty choosen."""
         if self.difficulty == 1:
             roll_amount = intel.roll_amount_easy()
-            print(f"Weird Ai Yankovic rolled {roll_amount} times\n")
+            print(f"\nWeird Ai Yankovic rolled {roll_amount} times\n")
             dise.easy_ai_roll(roll_amount)
         elif self.difficulty == 2:
             roll_amount = intel.roll_amount_nor_har()
-            print(f"Weird Ai Yankovic rolled {roll_amount} times")
+            print(f"\nWeird Ai Yankovic rolled {roll_amount} times")
             dise.roll(roll_amount)
         elif self.difficulty == 3:
             roll_amount = intel.roll_amount_nor_har()
-            print(f"Weird Ai Yankovic rolled {roll_amount} times")
+            print(f"\nWeird Ai Yankovic rolled {roll_amount} times")
             dise.hard_ai_roll(roll_amount)
 
     def cheat(self):

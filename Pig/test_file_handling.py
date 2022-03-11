@@ -41,6 +41,18 @@ Checking if a ValueError is raised."""
         with self.assertRaises(ValueError):
             fh.write_dic_files("Pig/text_high_score.txt", 7)
 
+    def test_write_dic_files_true(self):
+        """Testing the writeDicFiles method \
+Checking if a ValueError is raised."""
+        self.assertEqual(fh.write_dic_files("Pig/text_high_score.txt",
+                                            {"Kalle": 2}), True)
+
+    def test_write_name_files_true(self):
+        """Testing the writeDicFiles method \
+Checking if a ValueError is raised."""
+        self.assertEqual(fh.write_name_files("Pig/text_name_file.txt",
+                                             ["Kalle", "Peter"]), True)
+
 
 if __name__ == "__main__":
     unittest.main()

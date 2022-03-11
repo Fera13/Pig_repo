@@ -30,6 +30,7 @@ content in the list to the file, close the file."""
         for name in names:
             writing.write(name + "\n")
         writing.close()
+        return True
 
     def read_dic_files(self, file_name: str):
         """Take a file as a parameter: str, read the content from the file, \
@@ -59,3 +60,4 @@ write the content in the dictionary to the file, close the file."""
             string_value = str(value)
             writing.write(key + "\n" + string_value + "\n")
         writing.close()
+        return True
