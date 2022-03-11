@@ -27,7 +27,7 @@ When a player starts the round, he first enters how many times he/she wants to r
 How to install the game
 --------------------------
 
-In order to install the game you first need to clone the repo from https://github.com/Fera13/Pig_repo. Once you have downloaded all the files you can check that you have the correct version of python by following the steps below. Once you have python installed, you can either use this through your command line, through an IDE like Visual Studio Code or by using Git Bash. When you want to run the game through the command line you need to enter the directory where you downloaded the game files and then enter the folder "Pig". Once you are in "Pig" you can write "python main.py" and the game should start. If the game is not running, make sure you are in the "Pig" folder and not the "Pig_Repo" folder. May the odds ever be in your favor!
+In order to install the game you first need to clone the repo from https://github.com/Fera13/Pig_repo. Once you have downloaded all the files you can check that you have the correct version of python by following the steps below. Once you have python installed, you can either use this through your command line, through an IDE like Visual Studio Code or by using Git Bash. When you want to run the game through the command line you need to enter the directory where you downloaded the game files and then enter the folder "Pig_Repo". Once you are in "Pig_Repo" you can write "python Pig/main.py" and the game should start. If the game is not running, make sure you are in the "Pig_Repo" folder and not the "Pig" folder. May the odds ever be in your favor!
 
 
 How to regenerate the UML
