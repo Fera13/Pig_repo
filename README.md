@@ -32,7 +32,7 @@ In order to install the game you first need to clone the repo from https://githu
 
 How to regenerate the UML
 ---------------------------
-In order to regenerate the UML part you need to be in the virtual enviroment. When you have activated the enviroment with ". .venv/Scripts/activate" inside the bash commandline in the correct directory you need to install graphviz and let it use path unless you already have it installed. After you have installed graphviz you should enter first "dot -Tpng classes.dot -o doc/pyreverse/classes.png" and then "dot -Tpng packages.dot -o doc/pyreverse/packages.png". Now you should have the class diagram and the package diagram inside of the Pig_repo\doc\pyreverse folder. If you want to remove the diagrams use 
+In order to regenerate the UML part you need to be in the virtual enviroment. When you have activated the enviroment with ". .venv/Scripts/activate" inside the bash commandline in the correct directory you need to install graphviz and let it use path unless you already have it installed. After you have installed graphviz you should enter first "pyreverse Pig/*.py" and then "dot -Tpng classes.dot -o doc/pyreverse/classes.png" and then "dot -Tpng packages.dot -o doc/pyreverse/packages.png". Now you should have the class diagram and the package diagram inside of the Pig_repo\doc\pyreverse folder. If you want to remove the diagrams use "rm -f classes.dot packages.dot"
 
 
 How to regenerate the documentation
