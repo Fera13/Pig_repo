@@ -52,12 +52,14 @@ class Dice:
             if self.total_sum1 >= 100:
                 self.winner_name = names[0]
                 self.turn = 0
+            return round_sum
         else:
             self.total_sum2 += round_sum
             self.amount_Of_rounds[1] += 1
             self.turn = 0
             if self.total_sum2 >= 100:
                 self.winner_name = names[1]
+            return round_sum
         dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)
 
     def hard_ai_roll(self, roll_num: int):
@@ -132,6 +134,7 @@ class Dice:
         """Reset the amount of rounds for both players."""
         self.amount_Of_rounds[0] = 0
         self.amount_Of_rounds[1] = 0
+        return self.amount_Of_rounds[0]
 
     def get_winner_name(self):
         """Return the name of the winner."""
