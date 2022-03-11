@@ -60,7 +60,7 @@ connect to the right methods."""
             self.restart()
         elif choice == 5:
             hs_dic = {}
-            hs_dic = hs.get_high_score_dic()
+            hs_dic = hs.get_high_score_list()
             hs.view_high_scores(hs_dic)
             input(
                 "\nWhen you are done reading the high scores press any \

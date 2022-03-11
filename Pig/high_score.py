@@ -7,7 +7,7 @@ from file_handling import FileHandling
 
 
 fh = FileHandling()
-high_score_list = []
+high_score_list = fh.read_hs_file("Pig/text_high_score.txt")
 
 
 class HighScore:
@@ -23,17 +23,18 @@ class HighScore:
             raise ValueError(
                 "Please enter a list of lists with names and scores"
             )
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
         order = 1
         ind = 0
         h = 0
         print("High scores:\n")
-        while ind < len(high_score_list):
-            name = high_score_list[h][0]
-            score = high_score_list[h][1]
+        while ind < len(sorted_list):
+            name = sorted_list[h][0]
+            score = sorted_list[h][1]
             ind += 1
-            order += 1
             h += 1
             print(f"{order}. {name:30} Score: {score}")
+            order += 1
         return True
 
     def update_high_score(self, old_name: str, new_name: str):
@@ -69,5 +70,8 @@ class HighScore:
                 if lis[1] > score:
                     lis[0] = name
                     lis[1] = score
+                    break
+                break
+            break
         sorted_list = sorted(high_score_list, key=lambda x: x[1])
         return sorted_list

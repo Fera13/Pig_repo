@@ -33,7 +33,8 @@ class FileHandling:
             score = reading.readline().rstrip("\n")
             small_list.append(int(score))
             high_scores.append(small_list)
-            return high_scores
+        sorted_list = sorted(high_scores, key=lambda x: x[1])
+        return sorted_list
 
     def write_hs_files(self, file_name: str,
                        high_scores: list[list[str, int]]):
