@@ -62,9 +62,24 @@ class TestDice(unittest.TestCase):
         self.assertEqual(ic.reset_totals(), 0)
 
     def test_cheat_dice_return_value(self):
-        """Testing that the return value is 99 and the cheat\
-            has been activated."""
+        """Testing that the return value is 99 and the cheat \
+has been activated."""
         self.assertEqual(ic.cheat_dice(), 99)
+    
+    def test_dice_roll_return_value(self):
+        self.assertTrue(0 <= ic.roll(1) <= 7)
+        self.assertTrue(0 <= ic.roll(1) <= 14)
+        self.assertTrue(0 <= ic.roll(1) <= 21)
+        self.assertTrue(0 <= ic.roll(1) <= 28)
+
+    def test_dice_reset_round_num(self):
+        self.assertEqual(ic.reset_round_num(), 0)
+
+    def test_dice_get_total_sum_1_intervall(self):
+        self.assertTrue(0 <= ic.get_total_sum1() <= 100)
+
+    def test_dice_get_total_sum_2_intervall(self):
+        self.assertTrue(0 <= ic.get_total_sum2() <= 100)
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ fh = FileHandling()
 
 class Player:
     """This class represents the players. it is responsible for updating, \
-        settting, and deleting names, and also setting scores."""
+setting, and deleting names, and also setting scores."""
 
     names = fh.read_name_files("Pig/text_name_file.txt")
     current_names = ["", ""]
@@ -27,7 +27,7 @@ class Player:
 
     def update_name(self, old_name: str, new_name: str):
         """Take two parameters, old_name: str and new_name: str and update \
-            the name."""
+the name."""
         if not isinstance(old_name, str) or not isinstance(new_name, str):
             raise TypeError("old_name and new_name has to be strings")
         for index, item in enumerate(self.names):
@@ -54,7 +54,7 @@ class Player:
 
     def add_current_names(self, name1: str, name2: str):
         """Take two parameters, name1: str and name2: str and add them to \
-            list of names."""
+list of names."""
         if not isinstance(name1, str) or not isinstance(name2, str):
             raise TypeError("both names has to be string")
         self.current_names[0] = name1

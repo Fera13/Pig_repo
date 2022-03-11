@@ -42,7 +42,7 @@ class Dice:
                 round_sum = 0
                 print(
                     "Rolled a 1, and therefore recieved 0 points \
-                    this round"
+this round"
                 )
                 break
         if self.turn == 0:
@@ -52,6 +52,7 @@ class Dice:
             if self.total_sum1 >= 100:
                 self.winner_name = names[0]
                 self.turn = 0
+            return round_sum
         else:
             self.total_sum2 += round_sum
             self.amount_Of_rounds[1] += 1
@@ -59,6 +60,7 @@ class Dice:
             if self.total_sum2 >= 100:
                 self.winner_name = names[1]
         dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)
+        return round_sum
 
     def hard_ai_roll(self, roll_num: int):
         """Take one parameter: int and roll for the AI."""
@@ -80,7 +82,7 @@ class Dice:
                 round_sum = 0
                 print(
                     "Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                        this round"
+this round"
                 )
                 break
         self.total_sum2 += round_sum
@@ -111,7 +113,7 @@ class Dice:
                 round_sum = 0
                 print(
                     "Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                        this round"
+this round"
                 )
                 break
         self.total_sum2 += round_sum
@@ -132,6 +134,7 @@ class Dice:
         """Reset the amount of rounds for both players."""
         self.amount_Of_rounds[0] = 0
         self.amount_Of_rounds[1] = 0
+        return self.amount_Of_rounds[0]
 
     def get_winner_name(self):
         """Return the name of the winner."""

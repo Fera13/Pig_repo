@@ -20,7 +20,7 @@ intel = Intelligence()
 
 class GameFunctionality:
     """Connect all the other classes together to create a \
-        functioning game."""
+functioning game."""
 
     current_player = "player1's turn"
     current_player1 = "player1's turn"
@@ -28,7 +28,7 @@ class GameFunctionality:
 
     def handle_menu_choice(self, choice: int):
         """Take a choice: int as a parameter and depending on it \
-            connect to the right methods."""
+connect to the right methods."""
         if not isinstance(choice, int):
             raise ValueError("Please enter numbers only")
 
@@ -44,7 +44,7 @@ class GameFunctionality:
             self.start_setup()
             self.start_game2p()
         elif choice == 3:
-            names = fh.read_name_files("Pig/text_high_score.txt")
+            names = fh.read_name_files("Pig/text_name_file.txt")
             disp.show_players(names)
             name = input("Enter the name you want to update: ")
             new_name = input("Enter the new updated name: ")
@@ -53,7 +53,7 @@ class GameFunctionality:
             fh.write_dic_files("Pig/text_high_score.txt", new_high_score)
             self.restart()
         elif choice == 4:
-            names = fh.read_name_files("Pig/text_high_score.txt")
+            names = fh.read_name_files("Pig/text_name_file.txt")
             disp.show_players(names)
             name = input("\nEnter the name you want to delete: ")
             playr.delete_name(name)
@@ -64,14 +64,14 @@ class GameFunctionality:
             hs.view_high_scores(hs_dic)
             input(
                 "\nWhen you are done reading the high scores press any \
-                    button to go back: "
+button to go back: "
             )
             self.restart()
         elif choice == 6:
             disp.display_game_rules()
             input(
                 "When you are done reading the rules press any button \
-                to go back: "
+to go back: "
             )
             self.restart()
         else:
@@ -87,26 +87,26 @@ class GameFunctionality:
 
     def enter_names2p(self):
         """Ask for players names, add the names in the names list and the \
-            current player list then save the names list in a txt file."""
+current player list then save the names list in a txt file."""
         names = playr.get_names()
         disp.show_players(names)
         name = input(
             "Enter the name of player1(note: if you already have your name in \
-                the list, enter it): "
+the list, enter it): "
         )
         name2 = input(
             "Enter the name of player2(note: if you already have your name in \
-                the list, enter it): "
+the list, enter it): "
         )
         playr.set_name(name.capitalize())
         playr.set_name(name2.capitalize())
         names2 = playr.get_names()
-        fh.write_name_files("Pig/text_high_score.txt", names2)
+        fh.write_name_files("Pig/text_name_file.txt", names2)
         playr.add_current_names(name, name2)
 
     def start_game2p(self):
         """Start the game for 2 players in a loop that would check if there \
-            are winners so it can display the end screen."""
+are winners so it can display the end screen."""
         score1 = dise.get_total_sum1()
         score2 = dise.get_total_sum2()
         while score1 < 100 and score2 < 100:
@@ -123,7 +123,7 @@ class GameFunctionality:
 
     def start_game1p(self):
         """Start the game for 1 player in a loop that would check if there \
-            are winners so it can display the end screen."""
+are winners so it can display the end screen."""
         score1 = dise.get_total_sum1()
         score2 = dise.get_total_sum2()
         while score1 < 100 and score2 < 100:
@@ -140,27 +140,27 @@ class GameFunctionality:
 
     def enter_names1p(self):
         """Ask for the player name, add the name in the names list and the \
-            current player list then save the names list in a txt file."""
+current player list then save the names list in a txt file."""
         names = playr.get_names()
         disp.show_players(names)
         name = input(
             "Enter your name(note: if you already have your name in the list, \
-                enter it): "
+enter it): "
         )
         playr.set_name(name.capitalize())
         ai_name = intel.name_of_ai()
         names2 = playr.get_names()
-        fh.write_name_files("Pig/text_high_score.txt", names2)
+        fh.write_name_files("Pig/text_name_file.txt", names2)
         playr.add_current_names(name, ai_name)
 
     def ask_for_rolls(self):
         """Ask the player for the number of rolls \
-            handle the answer if it's a number \
-            or in case it was a command, manipulate the game."""
+handle the answer if it's a number \
+or in case it was a command, manipulate the game."""
         print(self.current_player, "\n")
         roll_num = input(
-            "Enter the number of dice-rolls you would like to do ('q' to quit,\
-                'r' to restart): "
+            "Enter the number of dice-rolls you would like to do ('q' to quit, \
+'r' to restart): "
         )
         if roll_num.upper() == "Q":
             quit()
@@ -178,11 +178,11 @@ class GameFunctionality:
 
     def ask_for_rolls1p(self):
         """Ask the player for the number of rolls and \
-            handle the answer if it's a number or in case it was a command,\
-            manipulate the game."""
+handle the answer if it's a number or in case it was a command, \
+manipulate the game."""
         roll_num = input(
-            "Enter the number of dice-rolls you would like to do ('q' to quit,\
-                'r' to restart, 'cheat' to cheat): "
+            "Enter the number of dice-rolls you would like to do ('q' to quit, \
+'r' to restart, 'cheat' to cheat): "
         )
         if roll_num.upper() == "Q":
             quit()
@@ -196,12 +196,12 @@ class GameFunctionality:
         elif not isinstance(roll_num, int):
             print(
                 "You know that the number of rolls is a positive NUMBER \
-                right?"
+right?"
             )
 
     def ai_roll(self):
         """Connect to the AI roll methods depending on the \
-            dificulty choosen."""
+dificulty choosen."""
         if self.difficulty == 1:
             roll_amount = intel.roll_amount_easy()
             print(f"Weird Ai Yankovic rolled {roll_amount} times\n")
@@ -220,7 +220,7 @@ class GameFunctionality:
         dise.cheat_dice()
         print(
             "\nYou just had to cheat, didn't you :(\nAnyway, your score has \
-                now been set to 99\n"
+now been set to 99\n"
         )
 
     def restart(self):

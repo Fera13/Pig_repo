@@ -23,7 +23,7 @@ class HighScore:
         if not isinstance(high_score_dic, dict):
             raise ValueError(
                 "Please enter a dictionary with strings as keys and integers \
-                    as values!"
+as values!"
             )
         i = 1
         print("High scores:\n")
@@ -33,11 +33,11 @@ class HighScore:
 
     def update_high_score(self, old_name: str, new_name: str):
         """Take name to update the old name to the new name \
-            in the dictionary."""
+in the dictionary."""
         if not isinstance(old_name, str) or not isinstance(new_name, str):
             raise ValueError(
                 "The name should be a string and the score should be \
-                an integer"
+an integer"
             )
         change = False
         for key_name in self.sorted_dic.keys():
@@ -52,11 +52,11 @@ class HighScore:
 
     def add_compare_high_scores(self, name: str, score: int):
         """Take name and score of winner to check \
-            if it is a new high score."""
+if it is a new high score."""
         if not isinstance(name, str) or not isinstance(score, int):
             raise ValueError(
                 "The name should be a string and the score should be \
-                an integer"
+an integer"
             )
         if len(self.sorted_dic.keys()) < 5:
             self.sorted_dic[name] = score
