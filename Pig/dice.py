@@ -59,7 +59,6 @@ this round"
             self.turn = 0
             if self.total_sum2 >= 100:
                 self.winner_name = names[1]
-            return round_sum
         dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)
         return round_sum
 
