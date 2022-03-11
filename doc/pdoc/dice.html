@@ -72,7 +72,7 @@ class Dice:
                 round_sum = 0
                 print(
                     &#34;Rolled a 1, and therefore recieved 0 points \
-                    this round&#34;
+this round&#34;
                 )
                 break
         if self.turn == 0:
@@ -82,13 +82,14 @@ class Dice:
             if self.total_sum1 &gt;= 100:
                 self.winner_name = names[0]
                 self.turn = 0
-        else:
-            self.total_sum2 += round_sum
-            self.amount_Of_rounds[1] += 1
-            self.turn = 0
-            if self.total_sum2 &gt;= 100:
-                self.winner_name = names[1]
+            return round_sum
+        self.total_sum2 += round_sum
+        self.amount_Of_rounds[1] += 1
+        self.turn = 0
+        if self.total_sum2 &gt;= 100:
+            self.winner_name = names[1]
         dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)
+        return round_sum
 
     def hard_ai_roll(self, roll_num: int):
         &#34;&#34;&#34;Take one parameter: int and roll for the AI.&#34;&#34;&#34;
@@ -110,7 +111,7 @@ class Dice:
                 round_sum = 0
                 print(
                     &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                        this round&#34;
+this round&#34;
                 )
                 break
         self.total_sum2 += round_sum
@@ -141,7 +142,7 @@ class Dice:
                 round_sum = 0
                 print(
                     &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                        this round&#34;
+this round&#34;
                 )
                 break
         self.total_sum2 += round_sum
@@ -162,6 +163,7 @@ class Dice:
         &#34;&#34;&#34;Reset the amount of rounds for both players.&#34;&#34;&#34;
         self.amount_Of_rounds[0] = 0
         self.amount_Of_rounds[1] = 0
+        return self.amount_Of_rounds[0]
 
     def get_winner_name(self):
         &#34;&#34;&#34;Return the name of the winner.&#34;&#34;&#34;
@@ -237,7 +239,7 @@ class Dice:
                 round_sum = 0
                 print(
                     &#34;Rolled a 1, and therefore recieved 0 points \
-                    this round&#34;
+this round&#34;
                 )
                 break
         if self.turn == 0:
@@ -247,13 +249,14 @@ class Dice:
             if self.total_sum1 &gt;= 100:
                 self.winner_name = names[0]
                 self.turn = 0
-        else:
-            self.total_sum2 += round_sum
-            self.amount_Of_rounds[1] += 1
-            self.turn = 0
-            if self.total_sum2 &gt;= 100:
-                self.winner_name = names[1]
+            return round_sum
+        self.total_sum2 += round_sum
+        self.amount_Of_rounds[1] += 1
+        self.turn = 0
+        if self.total_sum2 &gt;= 100:
+            self.winner_name = names[1]
         dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)
+        return round_sum
 
     def hard_ai_roll(self, roll_num: int):
         &#34;&#34;&#34;Take one parameter: int and roll for the AI.&#34;&#34;&#34;
@@ -275,7 +278,7 @@ class Dice:
                 round_sum = 0
                 print(
                     &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                        this round&#34;
+this round&#34;
                 )
                 break
         self.total_sum2 += round_sum
@@ -306,7 +309,7 @@ class Dice:
                 round_sum = 0
                 print(
                     &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                        this round&#34;
+this round&#34;
                 )
                 break
         self.total_sum2 += round_sum
@@ -327,6 +330,7 @@ class Dice:
         &#34;&#34;&#34;Reset the amount of rounds for both players.&#34;&#34;&#34;
         self.amount_Of_rounds[0] = 0
         self.amount_Of_rounds[1] = 0
+        return self.amount_Of_rounds[0]
 
     def get_winner_name(self):
         &#34;&#34;&#34;Return the name of the winner.&#34;&#34;&#34;
@@ -413,36 +417,36 @@ class Dice:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def easy_ai_roll(self, roll_num: int):
-    &#34;&#34;&#34;Take one parameter: int and roll for the AI.&#34;&#34;&#34;
-    if not isinstance(roll_num, int):
-        raise TypeError(&#34;roll_num has be to an int&#34;)
-    if roll_num &lt;= 0:
-        raise ValueError(&#34;roll_num has to be more than 0&#34;)
-    round_sum = 0
-    names = player.get_current_names()
-    i = 0
-    while i &lt; roll_num:
-        num = [1, 2, 3, 4, 5, 6, 1, 1]
-        roll_result = choice(num)
-        if roll_result != 1:
-            print(&#34;Rolled a &#34; + str(roll_result))
-            round_sum += roll_result
-            i += 1
-        else:
-            round_sum = 0
-            print(
-                &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                    this round&#34;
-            )
-            break
-    self.total_sum2 += round_sum
-    self.amount_Of_rounds[1] += 1
-    self.turn = 0
-    if self.total_sum2 &gt;= 100:
-        self.winner_name = names[1]
+<pre><code class="python">    def easy_ai_roll(self, roll_num: int):
+        &#34;&#34;&#34;Take one parameter: int and roll for the AI.&#34;&#34;&#34;
+        if not isinstance(roll_num, int):
+            raise TypeError(&#34;roll_num has be to an int&#34;)
+        if roll_num &lt;= 0:
+            raise ValueError(&#34;roll_num has to be more than 0&#34;)
+        round_sum = 0
+        names = player.get_current_names()
+        i = 0
+        while i &lt; roll_num:
+            num = [1, 2, 3, 4, 5, 6, 1, 1]
+            roll_result = choice(num)
+            if roll_result != 1:
+                print(&#34;Rolled a &#34; + str(roll_result))
+                round_sum += roll_result
+                i += 1
+            else:
+                round_sum = 0
+                print(
+                    &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
+this round&#34;
+                )
+                break
+        self.total_sum2 += round_sum
+        self.amount_Of_rounds[1] += 1
         self.turn = 0
-    dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)</code></pre>
+        if self.total_sum2 &gt;= 100:
+            self.winner_name = names[1]
+            self.turn = 0
+        dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)</code></pre>
 </details>
 </dd>
 <dt id="dice.Dice.get_amount_of_rounds"><code class="name flex">
@@ -513,36 +517,36 @@ class Dice:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def hard_ai_roll(self, roll_num: int):
-    &#34;&#34;&#34;Take one parameter: int and roll for the AI.&#34;&#34;&#34;
-    if not isinstance(roll_num, int):
-        raise TypeError(&#34;roll_num has be to an int&#34;)
-    if roll_num &lt;= 0:
-        raise ValueError(&#34;roll_num has to be more than 0&#34;)
-    round_sum = 0
-    names = player.get_current_names()
-    i = 0
-    while i &lt; roll_num:
-        num = [1, 2, 3, 4, 4, 5, 5, 6, 6]
-        roll_result = choice(num)
-        if roll_result != 1:
-            print(&#34;Rolled a &#34; + str(roll_result))
-            round_sum += roll_result
-            i += 1
-        else:
-            round_sum = 0
-            print(
-                &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-                    this round&#34;
-            )
-            break
-    self.total_sum2 += round_sum
-    self.amount_Of_rounds[1] += 1
-    self.turn = 0
-    if self.total_sum2 &gt;= 100:
-        self.winner_name = names[1]
+<pre><code class="python">    def hard_ai_roll(self, roll_num: int):
+        &#34;&#34;&#34;Take one parameter: int and roll for the AI.&#34;&#34;&#34;
+        if not isinstance(roll_num, int):
+            raise TypeError(&#34;roll_num has be to an int&#34;)
+        if roll_num &lt;= 0:
+            raise ValueError(&#34;roll_num has to be more than 0&#34;)
+        round_sum = 0
+        names = player.get_current_names()
+        i = 0
+        while i &lt; roll_num:
+            num = [1, 2, 3, 4, 4, 5, 5, 6, 6]
+            roll_result = choice(num)
+            if roll_result != 1:
+                print(&#34;Rolled a &#34; + str(roll_result))
+                round_sum += roll_result
+                i += 1
+            else:
+                round_sum = 0
+                print(
+                    &#34;Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
+this round&#34;
+                )
+                break
+        self.total_sum2 += round_sum
+        self.amount_Of_rounds[1] += 1
         self.turn = 0
-    dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)</code></pre>
+        if self.total_sum2 &gt;= 100:
+            self.winner_name = names[1]
+            self.turn = 0
+        dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)</code></pre>
 </details>
 </dd>
 <dt id="dice.Dice.reset_round_num"><code class="name flex">
@@ -557,7 +561,8 @@ class Dice:
 <pre><code class="python">def reset_round_num(self):
     &#34;&#34;&#34;Reset the amount of rounds for both players.&#34;&#34;&#34;
     self.amount_Of_rounds[0] = 0
-    self.amount_Of_rounds[1] = 0</code></pre>
+    self.amount_Of_rounds[1] = 0
+    return self.amount_Of_rounds[0]</code></pre>
 </details>
 </dd>
 <dt id="dice.Dice.reset_totals"><code class="name flex">
@@ -585,42 +590,43 @@ class Dice:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def roll(self, times_to_roll: int):
-    &#34;&#34;&#34;Take one parameter: int, do roll for the times entered.&#34;&#34;&#34;
-    round_sum = 0
-    if not isinstance(times_to_roll, int):
-        raise TypeError(&#34;times_to_roll must be an integer&#34;)
-    if times_to_roll &lt;= 0:
-        raise ValueError(&#34;times to roll has to be more than 0&#34;)
-    names = player.get_current_names()
-    i = 0
-    while i &lt; times_to_roll:
-        roll_number = randrange(1, 7)
-        if roll_number != 1:
-            i += 1
-            print(&#34;Rolled a &#34; + str(roll_number))
-            round_sum += roll_number
-        else:
-            round_sum = 0
-            print(
-                &#34;Rolled a 1, and therefore recieved 0 points \
-                this round&#34;
-            )
-            break
-    if self.turn == 0:
-        self.total_sum1 += round_sum
-        self.amount_Of_rounds[0] += 1
-        self.turn = 1
-        if self.total_sum1 &gt;= 100:
-            self.winner_name = names[0]
-            self.turn = 0
-    else:
+<pre><code class="python">    def roll(self, times_to_roll: int):
+        &#34;&#34;&#34;Take one parameter: int, do roll for the times entered.&#34;&#34;&#34;
+        round_sum = 0
+        if not isinstance(times_to_roll, int):
+            raise TypeError(&#34;times_to_roll must be an integer&#34;)
+        if times_to_roll &lt;= 0:
+            raise ValueError(&#34;times to roll has to be more than 0&#34;)
+        names = player.get_current_names()
+        i = 0
+        while i &lt; times_to_roll:
+            roll_number = randrange(1, 7)
+            if roll_number != 1:
+                i += 1
+                print(&#34;Rolled a &#34; + str(roll_number))
+                round_sum += roll_number
+            else:
+                round_sum = 0
+                print(
+                    &#34;Rolled a 1, and therefore recieved 0 points \
+this round&#34;
+                )
+                break
+        if self.turn == 0:
+            self.total_sum1 += round_sum
+            self.amount_Of_rounds[0] += 1
+            self.turn = 1
+            if self.total_sum1 &gt;= 100:
+                self.winner_name = names[0]
+                self.turn = 0
+            return round_sum
         self.total_sum2 += round_sum
         self.amount_Of_rounds[1] += 1
         self.turn = 0
         if self.total_sum2 &gt;= 100:
             self.winner_name = names[1]
-    dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)</code></pre>
+        dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)
+        return round_sum</code></pre>
 </details>
 </dd>
 </dl>

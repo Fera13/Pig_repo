@@ -50,7 +50,7 @@ connect to the right methods."""
             new_name = input("Enter the new updated name: ")
             playr.update_name(name, new_name)
             new_high_score = hs.update_high_score(name, new_name)
-            fh.write_dic_files("Pig/text_high_score.txt", new_high_score)
+            fh.write_hs_files("Pig/text_high_score.txt", new_high_score)
             self.restart()
         elif choice == 4:
             names = fh.read_name_files("Pig/text_name_file.txt")
@@ -117,8 +117,8 @@ are winners so it can display the end screen."""
         disp.winner(winner_name)
         round_amount = dise.get_amount_of_rounds(winner_name)
         disp.game_summary(winner_name, round_amount)
-        new_dic = hs.add_compare_high_scores(winner_name, round_amount)
-        fh.write_dic_files("Pig/text_high_score.txt", new_dic)
+        new_list = hs.add_compare_high_scores(winner_name, round_amount)
+        fh.write_hs_files("Pig/text_high_score.txt", new_list)
         self.restart()
 
     def start_game1p(self):
@@ -135,7 +135,8 @@ are winners so it can display the end screen."""
         disp.winner(winner_name)
         round_amount = dise.get_amount_of_rounds(winner_name)
         disp.game_summary(winner_name, round_amount)
-        hs.add_compare_high_scores(winner_name, round_amount)
+        new_list = hs.add_compare_high_scores(winner_name, round_amount)
+        fh.write_hs_files("Pig/text_high_score.txt", new_list)
         self.restart()
 
     def enter_names1p(self):

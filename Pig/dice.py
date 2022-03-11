@@ -41,8 +41,8 @@ class Dice:
             else:
                 round_sum = 0
                 print(
-                    "Rolled a 1, and therefore recieved 0 points \
-this round"
+                    "Rolled a 1, and therefore recieved 0 points"
+                    "this round"
                 )
                 break
         if self.turn == 0:
@@ -53,12 +53,11 @@ this round"
                 self.winner_name = names[0]
                 self.turn = 0
             return round_sum
-        else:
-            self.total_sum2 += round_sum
-            self.amount_Of_rounds[1] += 1
-            self.turn = 0
-            if self.total_sum2 >= 100:
-                self.winner_name = names[1]
+        self.total_sum2 += round_sum
+        self.amount_Of_rounds[1] += 1
+        self.turn = 0
+        if self.total_sum2 >= 100:
+            self.winner_name = names[1]
         dis.view_prog(names[0], self.total_sum1, names[1], self.total_sum2)
         return round_sum
 
@@ -81,8 +80,8 @@ this round"
             else:
                 round_sum = 0
                 print(
-                    "Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-this round"
+                    "Even geniuses roll a 1, Weird Ai Yankovic got 0 points"
+                    "this round"
                 )
                 break
         self.total_sum2 += round_sum
@@ -112,8 +111,8 @@ this round"
             else:
                 round_sum = 0
                 print(
-                    "Even geniuses roll a 1, Weird Ai Yankovic got 0 points\
-this round"
+                    "Even geniuses roll a 1, Weird Ai Yankovic got 0 points"
+                    "this round"
                 )
                 break
         self.total_sum2 += round_sum

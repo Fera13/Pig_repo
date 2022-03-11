@@ -15,8 +15,8 @@ class Display:
         """Take a parameter: str, display who won the game."""
         if not isinstance(name, str):
             raise TypeError(
-                "Something went wrong while trying to \
-retrieve the winning players' name"
+                "Something went wrong while trying to"
+                "retrieve the winning players' name"
             )
         print("\n", "-" * 80)
         print(f"\n          Congratulations {name}, you have won the game!\n")
@@ -39,8 +39,8 @@ retrieve the winning players' name"
             choice = int(input("Please enter your choice here: "))
             if not isinstance(choice, int):
                 raise ValueError(
-                    "You can only use numbers \
-to choose an option"
+                    "You can only use numbers"
+                    "to choose an option"
                 )
             if choice in [1, 2, 3, 4, 5, 6, 7]:
                 return choice
@@ -52,12 +52,12 @@ to choose an option"
         print("-  The player begins each turn by rolling the dice.")
         print("-  The player may roll as many times as they want in a round.")
         print(
-            "-  If the dice lands on a 1, the round ends and all \
-points from the current round will be deducted."
+            "-  If the dice lands on a 1, the round ends and all"
+            "points from the current round will be deducted."
         )
         print(
-            "-  For every other number on the dice the points relevant \
-to the dice surface will add up to a round total"
+            "-  For every other number on the dice the points relevant"
+            "to the dice surface will add up to a round total"
         )
         print("-  The first player to reach 100 points will be the victor!\n")
 
@@ -112,8 +112,8 @@ return the choice."""
         not_correct = True
         while not_correct:
             print(
-                "\nHere are the difficulties, which \
-one do you dare to oppose?\n"
+                "\nHere are the difficulties, which"
+                "one do you dare to oppose?\n"
             )
             print("1:  Easy Mode")
             print("2:  Normal Mode")
@@ -121,14 +121,14 @@ one do you dare to oppose?\n"
             print("4:  Go back to the main menu")
             choice = int(
                 input(
-                    "\nPlease enter the number of the challenge you \
-dare to try today. It is okay to be a coward: "
+                    "\nPlease enter the number of the challenge you"
+                    "dare to try today. It is okay to be a coward: "
                 )
             )
             if not isinstance(choice, int):
                 raise ValueError(
-                    "You can only use numbers \
-to choose an option"
+                    "You can only use numbers"
+                    "to choose an option"
                 )
             if choice in [1, 2, 3, 4]:
                 return choice

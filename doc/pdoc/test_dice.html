@@ -92,9 +92,28 @@ class TestDice(unittest.TestCase):
         self.assertEqual(ic.reset_totals(), 0)
 
     def test_cheat_dice_return_value(self):
-        &#34;&#34;&#34;Testing that the return value is 99 and the cheat\
-            has been activated.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing that the return value is 99 and the cheat \
+has been activated.&#34;&#34;&#34;
         self.assertEqual(ic.cheat_dice(), 99)
+
+    def test_dice_roll_return_value(self):
+        &#34;&#34;&#34;Testing that the return value is correct.&#34;&#34;&#34;
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 7)
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 14)
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 21)
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 28)
+
+    def test_dice_reset_round_num(self):
+        &#34;&#34;&#34;Testing if reset round works.&#34;&#34;&#34;
+        self.assertEqual(ic.reset_round_num(), 0)
+
+    def test_dice_get_total_sum_1_intervall(self):
+        &#34;&#34;&#34;Testing if get_total_sum works.&#34;&#34;&#34;
+        self.assertTrue(0 &lt;= ic.get_total_sum1() &lt;= 100)
+
+    def test_dice_get_total_sum_2_intervall(self):
+        &#34;&#34;&#34;Testing if get_total_sum works.&#34;&#34;&#34;
+        self.assertTrue(0 &lt;= ic.get_total_sum2() &lt;= 100)
 
 
 if __name__ == &#34;__main__&#34;:
@@ -175,9 +194,28 @@ not have a method with the specified name.</p></div>
         self.assertEqual(ic.reset_totals(), 0)
 
     def test_cheat_dice_return_value(self):
-        &#34;&#34;&#34;Testing that the return value is 99 and the cheat\
-            has been activated.&#34;&#34;&#34;
-        self.assertEqual(ic.cheat_dice(), 99)</code></pre>
+        &#34;&#34;&#34;Testing that the return value is 99 and the cheat \
+has been activated.&#34;&#34;&#34;
+        self.assertEqual(ic.cheat_dice(), 99)
+
+    def test_dice_roll_return_value(self):
+        &#34;&#34;&#34;Testing that the return value is correct.&#34;&#34;&#34;
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 7)
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 14)
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 21)
+        self.assertTrue(0 &lt;= ic.roll(1) &lt;= 28)
+
+    def test_dice_reset_round_num(self):
+        &#34;&#34;&#34;Testing if reset round works.&#34;&#34;&#34;
+        self.assertEqual(ic.reset_round_num(), 0)
+
+    def test_dice_get_total_sum_1_intervall(self):
+        &#34;&#34;&#34;Testing if get_total_sum works.&#34;&#34;&#34;
+        self.assertTrue(0 &lt;= ic.get_total_sum1() &lt;= 100)
+
+    def test_dice_get_total_sum_2_intervall(self):
+        &#34;&#34;&#34;Testing if get_total_sum works.&#34;&#34;&#34;
+        self.assertTrue(0 &lt;= ic.get_total_sum2() &lt;= 100)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -189,16 +227,74 @@ not have a method with the specified name.</p></div>
 <span>def <span class="ident">test_cheat_dice_return_value</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Testing that the return value is 99 and the cheat
-has been activated.</p></div>
+<div class="desc"><p>Testing that the return value is 99 and the cheat has been activated.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_cheat_dice_return_value(self):
-    &#34;&#34;&#34;Testing that the return value is 99 and the cheat\
-        has been activated.&#34;&#34;&#34;
-    self.assertEqual(ic.cheat_dice(), 99)</code></pre>
+<pre><code class="python">    def test_cheat_dice_return_value(self):
+        &#34;&#34;&#34;Testing that the return value is 99 and the cheat \
+has been activated.&#34;&#34;&#34;
+        self.assertEqual(ic.cheat_dice(), 99)</code></pre>
+</details>
+</dd>
+<dt id="test_dice.TestDice.test_dice_get_total_sum_1_intervall"><code class="name flex">
+<span>def <span class="ident">test_dice_get_total_sum_1_intervall</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Testing if get_total_sum works.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_dice_get_total_sum_1_intervall(self):
+    &#34;&#34;&#34;Testing if get_total_sum works.&#34;&#34;&#34;
+    self.assertTrue(0 &lt;= ic.get_total_sum1() &lt;= 100)</code></pre>
+</details>
+</dd>
+<dt id="test_dice.TestDice.test_dice_get_total_sum_2_intervall"><code class="name flex">
+<span>def <span class="ident">test_dice_get_total_sum_2_intervall</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Testing if get_total_sum works.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_dice_get_total_sum_2_intervall(self):
+    &#34;&#34;&#34;Testing if get_total_sum works.&#34;&#34;&#34;
+    self.assertTrue(0 &lt;= ic.get_total_sum2() &lt;= 100)</code></pre>
+</details>
+</dd>
+<dt id="test_dice.TestDice.test_dice_reset_round_num"><code class="name flex">
+<span>def <span class="ident">test_dice_reset_round_num</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Testing if reset round works.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_dice_reset_round_num(self):
+    &#34;&#34;&#34;Testing if reset round works.&#34;&#34;&#34;
+    self.assertEqual(ic.reset_round_num(), 0)</code></pre>
+</details>
+</dd>
+<dt id="test_dice.TestDice.test_dice_roll_return_value"><code class="name flex">
+<span>def <span class="ident">test_dice_roll_return_value</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Testing that the return value is correct.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_dice_roll_return_value(self):
+    &#34;&#34;&#34;Testing that the return value is correct.&#34;&#34;&#34;
+    self.assertTrue(0 &lt;= ic.roll(1) &lt;= 7)
+    self.assertTrue(0 &lt;= ic.roll(1) &lt;= 14)
+    self.assertTrue(0 &lt;= ic.roll(1) &lt;= 21)
+    self.assertTrue(0 &lt;= ic.roll(1) &lt;= 28)</code></pre>
 </details>
 </dd>
 <dt id="test_dice.TestDice.test_easy_ai_roll_type_error"><code class="name flex">
@@ -336,6 +432,10 @@ has been activated.</p></div>
 <h4><code><a title="test_dice.TestDice" href="#test_dice.TestDice">TestDice</a></code></h4>
 <ul class="">
 <li><code><a title="test_dice.TestDice.test_cheat_dice_return_value" href="#test_dice.TestDice.test_cheat_dice_return_value">test_cheat_dice_return_value</a></code></li>
+<li><code><a title="test_dice.TestDice.test_dice_get_total_sum_1_intervall" href="#test_dice.TestDice.test_dice_get_total_sum_1_intervall">test_dice_get_total_sum_1_intervall</a></code></li>
+<li><code><a title="test_dice.TestDice.test_dice_get_total_sum_2_intervall" href="#test_dice.TestDice.test_dice_get_total_sum_2_intervall">test_dice_get_total_sum_2_intervall</a></code></li>
+<li><code><a title="test_dice.TestDice.test_dice_reset_round_num" href="#test_dice.TestDice.test_dice_reset_round_num">test_dice_reset_round_num</a></code></li>
+<li><code><a title="test_dice.TestDice.test_dice_roll_return_value" href="#test_dice.TestDice.test_dice_roll_return_value">test_dice_roll_return_value</a></code></li>
 <li><code><a title="test_dice.TestDice.test_easy_ai_roll_type_error" href="#test_dice.TestDice.test_easy_ai_roll_type_error">test_easy_ai_roll_type_error</a></code></li>
 <li><code><a title="test_dice.TestDice.test_easy_ai_roll_value_error" href="#test_dice.TestDice.test_easy_ai_roll_value_error">test_easy_ai_roll_value_error</a></code></li>
 <li><code><a title="test_dice.TestDice.test_hard_ai_roll_type_error" href="#test_dice.TestDice.test_hard_ai_roll_type_error">test_hard_ai_roll_type_error</a></code></li>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
 <title>high_score API documentation</title>
-<meta name="description" content="This script is used to create and update dictionaries for high scores …" />
+<meta name="description" content="This script is used to create and update lists for the high scores …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -22,14 +22,14 @@
 <h1 class="title">Module <code>high_score</code></h1>
 </header>
 <section id="section-intro">
-<p>This script is used to create and update dictionaries for high scores.</p>
+<p>This script is used to create and update lists for the high scores.</p>
 <p>Authors: Farah, Alfred, Emil</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">&#34;&#34;&#34;
-This script is used to create and update dictionaries for high scores.
+This script is used to create and update lists for the high scores.
 
 Authors: Farah, Alfred, Emil
 &#34;&#34;&#34;
@@ -37,79 +37,70 @@ from file_handling import FileHandling
 
 
 fh = FileHandling()
+high_score_list = []
 
 
 class HighScore:
     &#34;&#34;&#34;Do operation to compare, add, and update highscore.&#34;&#34;&#34;
 
-    sorted_dic = fh.read_dic_files(&#34;Pig/text_high_score.txt&#34;)
+    def get_high_score_list(self):
+        &#34;&#34;&#34;Return the current high score list.&#34;&#34;&#34;
+        return high_score_list
 
-    def get_high_score_dic(self):
-        &#34;&#34;&#34;Return the current high score dictionary.&#34;&#34;&#34;
-        return self.sorted_dic
-
-    def view_high_scores(self, high_score_dic: dict[str:int]):
-        &#34;&#34;&#34;Take high score dictionary and show high score on screen.&#34;&#34;&#34;
-        if not isinstance(high_score_dic, dict):
+    def view_high_scores(self, high_score_list: list[list[str, int]]):
+        &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
+        if not isinstance(high_score_list, list):
             raise ValueError(
-                &#34;Please enter a dictionary with strings as keys and integers \
-                    as values!&#34;
+                &#34;Please enter a list of lists with names and scores&#34;
             )
-        i = 1
+        order = 1
+        ind = 0
+        h = 0
         print(&#34;High scores:\n&#34;)
-        for key_name, value_score in high_score_dic.items():
-            print(f&#34;{i}. {key_name:30} Score: {value_score}&#34;)
-            i += 1
+        while ind &lt; len(high_score_list):
+            name = high_score_list[h][0]
+            score = high_score_list[h][1]
+            ind += 1
+            order += 1
+            h += 1
+            print(f&#34;{order}. {name:30} Score: {score}&#34;)
+        return True
 
     def update_high_score(self, old_name: str, new_name: str):
-        &#34;&#34;&#34;Take name to update the old name to the new name \
-            in the dictionary.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take name, update old name to the new name in list.&#34;&#34;&#34;
         if not isinstance(old_name, str) or not isinstance(new_name, str):
             raise ValueError(
-                &#34;The name should be a string and the score should be \
-                an integer&#34;
+                &#34;The name should be a string and the score should be&#34;
+                &#34;an integer&#34;
             )
-        change = False
-        for key_name in self.sorted_dic.keys():
-            if key_name == old_name:
-                change = True
-        if change is True:
-            self.sorted_dic[new_name] = self.sorted_dic.pop(old_name)
-        sorted_tuples =\
-            sorted(self.sorted_dic.items(), key=lambda item: item[1])
-        self.sorted_dic = {k: v for k, v in sorted_tuples}
-        return self.sorted_dic
+        for lis in high_score_list:
+            for value in lis:
+                if lis[0] == old_name:
+                    lis[0] = new_name
+        return high_score_list
 
     def add_compare_high_scores(self, name: str, score: int):
-        &#34;&#34;&#34;Take name and score of winner to check \
-            if it is a new high score.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take name and score of winner, check if new high score.&#34;&#34;&#34;
         if not isinstance(name, str) or not isinstance(score, int):
             raise ValueError(
-                &#34;The name should be a string and the score should be \
-                an integer&#34;
+                &#34;The name should be a string and the score should be&#34;
+                &#34;an integer&#34;
             )
-        if len(self.sorted_dic.keys()) &lt; 5:
-            self.sorted_dic[name] = score
-        else:
-            sorted_tuples = sorted(
-                self.sorted_dic.items(), key=lambda item: item[1], reverse=True
-            )
-            self.sorted_dic = {k: v for k, v in sorted_tuples}
-            for key, value in self.sorted_dic.items():
-                if name == key:
-                    if value &lt; score:
-                        break
-                    self.sorted_dic[name] = self.sorted_dic.pop(key)
-                    self.sorted_dic[name] = score
-                    break
-                if score &lt; value:
-                    self.sorted_dic[name] = self.sorted_dic.pop(key)
-                    self.sorted_dic[name] = score
-                    break
-        sorted_tuples = \
-            sorted(self.sorted_dic.items(), key=lambda item: item[1])
-        self.sorted_dic = {k: v for k, v in sorted_tuples}
-        return self.sorted_dic</code></pre>
+        if len(high_score_list) &lt; 5:
+            small_list = []
+            small_list.append(name)
+            small_list.append(score)
+            high_score_list.append(small_list)
+            sorted_list = sorted(high_score_list, key=lambda x: x[1])
+            return sorted_list
+        sorted_list = sorted(high_score_list, key=lambda x: x[1], reverse=True)
+        for lis in sorted_list:
+            for value in lis:
+                if lis[1] &gt; score:
+                    lis[0] = name
+                    lis[1] = score
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+        return sorted_list</code></pre>
 </details>
 </section>
 <section>
@@ -133,191 +124,164 @@ class HighScore:
 <pre><code class="python">class HighScore:
     &#34;&#34;&#34;Do operation to compare, add, and update highscore.&#34;&#34;&#34;
 
-    sorted_dic = fh.read_dic_files(&#34;Pig/text_high_score.txt&#34;)
+    def get_high_score_list(self):
+        &#34;&#34;&#34;Return the current high score list.&#34;&#34;&#34;
+        return high_score_list
 
-    def get_high_score_dic(self):
-        &#34;&#34;&#34;Return the current high score dictionary.&#34;&#34;&#34;
-        return self.sorted_dic
-
-    def view_high_scores(self, high_score_dic: dict[str:int]):
-        &#34;&#34;&#34;Take high score dictionary and show high score on screen.&#34;&#34;&#34;
-        if not isinstance(high_score_dic, dict):
+    def view_high_scores(self, high_score_list: list[list[str, int]]):
+        &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
+        if not isinstance(high_score_list, list):
             raise ValueError(
-                &#34;Please enter a dictionary with strings as keys and integers \
-                    as values!&#34;
+                &#34;Please enter a list of lists with names and scores&#34;
             )
-        i = 1
+        order = 1
+        ind = 0
+        h = 0
         print(&#34;High scores:\n&#34;)
-        for key_name, value_score in high_score_dic.items():
-            print(f&#34;{i}. {key_name:30} Score: {value_score}&#34;)
-            i += 1
+        while ind &lt; len(high_score_list):
+            name = high_score_list[h][0]
+            score = high_score_list[h][1]
+            ind += 1
+            order += 1
+            h += 1
+            print(f&#34;{order}. {name:30} Score: {score}&#34;)
+        return True
 
     def update_high_score(self, old_name: str, new_name: str):
-        &#34;&#34;&#34;Take name to update the old name to the new name \
-            in the dictionary.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take name, update old name to the new name in list.&#34;&#34;&#34;
         if not isinstance(old_name, str) or not isinstance(new_name, str):
             raise ValueError(
-                &#34;The name should be a string and the score should be \
-                an integer&#34;
+                &#34;The name should be a string and the score should be&#34;
+                &#34;an integer&#34;
             )
-        change = False
-        for key_name in self.sorted_dic.keys():
-            if key_name == old_name:
-                change = True
-        if change is True:
-            self.sorted_dic[new_name] = self.sorted_dic.pop(old_name)
-        sorted_tuples =\
-            sorted(self.sorted_dic.items(), key=lambda item: item[1])
-        self.sorted_dic = {k: v for k, v in sorted_tuples}
-        return self.sorted_dic
+        for lis in high_score_list:
+            for value in lis:
+                if lis[0] == old_name:
+                    lis[0] = new_name
+        return high_score_list
 
     def add_compare_high_scores(self, name: str, score: int):
-        &#34;&#34;&#34;Take name and score of winner to check \
-            if it is a new high score.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take name and score of winner, check if new high score.&#34;&#34;&#34;
         if not isinstance(name, str) or not isinstance(score, int):
             raise ValueError(
-                &#34;The name should be a string and the score should be \
-                an integer&#34;
+                &#34;The name should be a string and the score should be&#34;
+                &#34;an integer&#34;
             )
-        if len(self.sorted_dic.keys()) &lt; 5:
-            self.sorted_dic[name] = score
-        else:
-            sorted_tuples = sorted(
-                self.sorted_dic.items(), key=lambda item: item[1], reverse=True
-            )
-            self.sorted_dic = {k: v for k, v in sorted_tuples}
-            for key, value in self.sorted_dic.items():
-                if name == key:
-                    if value &lt; score:
-                        break
-                    self.sorted_dic[name] = self.sorted_dic.pop(key)
-                    self.sorted_dic[name] = score
-                    break
-                if score &lt; value:
-                    self.sorted_dic[name] = self.sorted_dic.pop(key)
-                    self.sorted_dic[name] = score
-                    break
-        sorted_tuples = \
-            sorted(self.sorted_dic.items(), key=lambda item: item[1])
-        self.sorted_dic = {k: v for k, v in sorted_tuples}
-        return self.sorted_dic</code></pre>
+        if len(high_score_list) &lt; 5:
+            small_list = []
+            small_list.append(name)
+            small_list.append(score)
+            high_score_list.append(small_list)
+            sorted_list = sorted(high_score_list, key=lambda x: x[1])
+            return sorted_list
+        sorted_list = sorted(high_score_list, key=lambda x: x[1], reverse=True)
+        for lis in sorted_list:
+            for value in lis:
+                if lis[1] &gt; score:
+                    lis[0] = name
+                    lis[1] = score
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+        return sorted_list</code></pre>
 </details>
-<h3>Class variables</h3>
-<dl>
-<dt id="high_score.HighScore.sorted_dic"><code class="name">var <span class="ident">sorted_dic</span></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
 <h3>Methods</h3>
 <dl>
 <dt id="high_score.HighScore.add_compare_high_scores"><code class="name flex">
 <span>def <span class="ident">add_compare_high_scores</span></span>(<span>self, name: str, score: int)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take name and score of winner to check
-if it is a new high score.</p></div>
+<div class="desc"><p>Take name and score of winner, check if new high score.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def add_compare_high_scores(self, name: str, score: int):
-    &#34;&#34;&#34;Take name and score of winner to check \
-        if it is a new high score.&#34;&#34;&#34;
+    &#34;&#34;&#34;Take name and score of winner, check if new high score.&#34;&#34;&#34;
     if not isinstance(name, str) or not isinstance(score, int):
         raise ValueError(
-            &#34;The name should be a string and the score should be \
-            an integer&#34;
+            &#34;The name should be a string and the score should be&#34;
+            &#34;an integer&#34;
         )
-    if len(self.sorted_dic.keys()) &lt; 5:
-        self.sorted_dic[name] = score
-    else:
-        sorted_tuples = sorted(
-            self.sorted_dic.items(), key=lambda item: item[1], reverse=True
-        )
-        self.sorted_dic = {k: v for k, v in sorted_tuples}
-        for key, value in self.sorted_dic.items():
-            if name == key:
-                if value &lt; score:
-                    break
-                self.sorted_dic[name] = self.sorted_dic.pop(key)
-                self.sorted_dic[name] = score
-                break
-            if score &lt; value:
-                self.sorted_dic[name] = self.sorted_dic.pop(key)
-                self.sorted_dic[name] = score
-                break
-    sorted_tuples = \
-        sorted(self.sorted_dic.items(), key=lambda item: item[1])
-    self.sorted_dic = {k: v for k, v in sorted_tuples}
-    return self.sorted_dic</code></pre>
+    if len(high_score_list) &lt; 5:
+        small_list = []
+        small_list.append(name)
+        small_list.append(score)
+        high_score_list.append(small_list)
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+        return sorted_list
+    sorted_list = sorted(high_score_list, key=lambda x: x[1], reverse=True)
+    for lis in sorted_list:
+        for value in lis:
+            if lis[1] &gt; score:
+                lis[0] = name
+                lis[1] = score
+    sorted_list = sorted(high_score_list, key=lambda x: x[1])
+    return sorted_list</code></pre>
 </details>
 </dd>
-<dt id="high_score.HighScore.get_high_score_dic"><code class="name flex">
-<span>def <span class="ident">get_high_score_dic</span></span>(<span>self)</span>
+<dt id="high_score.HighScore.get_high_score_list"><code class="name flex">
+<span>def <span class="ident">get_high_score_list</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Return the current high score dictionary.</p></div>
+<div class="desc"><p>Return the current high score list.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_high_score_dic(self):
-    &#34;&#34;&#34;Return the current high score dictionary.&#34;&#34;&#34;
-    return self.sorted_dic</code></pre>
+<pre><code class="python">def get_high_score_list(self):
+    &#34;&#34;&#34;Return the current high score list.&#34;&#34;&#34;
+    return high_score_list</code></pre>
 </details>
 </dd>
 <dt id="high_score.HighScore.update_high_score"><code class="name flex">
 <span>def <span class="ident">update_high_score</span></span>(<span>self, old_name: str, new_name: str)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take name to update the old name to the new name
-in the dictionary.</p></div>
+<div class="desc"><p>Take name, update old name to the new name in list.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update_high_score(self, old_name: str, new_name: str):
-    &#34;&#34;&#34;Take name to update the old name to the new name \
-        in the dictionary.&#34;&#34;&#34;
+    &#34;&#34;&#34;Take name, update old name to the new name in list.&#34;&#34;&#34;
     if not isinstance(old_name, str) or not isinstance(new_name, str):
         raise ValueError(
-            &#34;The name should be a string and the score should be \
-            an integer&#34;
+            &#34;The name should be a string and the score should be&#34;
+            &#34;an integer&#34;
         )
-    change = False
-    for key_name in self.sorted_dic.keys():
-        if key_name == old_name:
-            change = True
-    if change is True:
-        self.sorted_dic[new_name] = self.sorted_dic.pop(old_name)
-    sorted_tuples =\
-        sorted(self.sorted_dic.items(), key=lambda item: item[1])
-    self.sorted_dic = {k: v for k, v in sorted_tuples}
-    return self.sorted_dic</code></pre>
+    for lis in high_score_list:
+        for value in lis:
+            if lis[0] == old_name:
+                lis[0] = new_name
+    return high_score_list</code></pre>
 </details>
 </dd>
 <dt id="high_score.HighScore.view_high_scores"><code class="name flex">
-<span>def <span class="ident">view_high_scores</span></span>(<span>self, high_score_dic: dict[slice(<class 'str'>, <class 'int'>, None)])</span>
+<span>def <span class="ident">view_high_scores</span></span>(<span>self, high_score_list: list[list[str, int]])</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take high score dictionary and show high score on screen.</p></div>
+<div class="desc"><p>Take high score list: list[list[str, int]] show high score.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def view_high_scores(self, high_score_dic: dict[str:int]):
-    &#34;&#34;&#34;Take high score dictionary and show high score on screen.&#34;&#34;&#34;
-    if not isinstance(high_score_dic, dict):
+<pre><code class="python">def view_high_scores(self, high_score_list: list[list[str, int]]):
+    &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
+    if not isinstance(high_score_list, list):
         raise ValueError(
-            &#34;Please enter a dictionary with strings as keys and integers \
-                as values!&#34;
+            &#34;Please enter a list of lists with names and scores&#34;
         )
-    i = 1
+    order = 1
+    ind = 0
+    h = 0
     print(&#34;High scores:\n&#34;)
-    for key_name, value_score in high_score_dic.items():
-        print(f&#34;{i}. {key_name:30} Score: {value_score}&#34;)
-        i += 1</code></pre>
+    while ind &lt; len(high_score_list):
+        name = high_score_list[h][0]
+        score = high_score_list[h][1]
+        ind += 1
+        order += 1
+        h += 1
+        print(f&#34;{order}. {name:30} Score: {score}&#34;)
+    return True</code></pre>
 </details>
 </dd>
 </dl>
@@ -337,8 +301,7 @@ in the dictionary.</p></div>
 <h4><code><a title="high_score.HighScore" href="#high_score.HighScore">HighScore</a></code></h4>
 <ul class="">
 <li><code><a title="high_score.HighScore.add_compare_high_scores" href="#high_score.HighScore.add_compare_high_scores">add_compare_high_scores</a></code></li>
-<li><code><a title="high_score.HighScore.get_high_score_dic" href="#high_score.HighScore.get_high_score_dic">get_high_score_dic</a></code></li>
-<li><code><a title="high_score.HighScore.sorted_dic" href="#high_score.HighScore.sorted_dic">sorted_dic</a></code></li>
+<li><code><a title="high_score.HighScore.get_high_score_list" href="#high_score.HighScore.get_high_score_list">get_high_score_list</a></code></li>
 <li><code><a title="high_score.HighScore.update_high_score" href="#high_score.HighScore.update_high_score">update_high_score</a></code></li>
 <li><code><a title="high_score.HighScore.view_high_scores" href="#high_score.HighScore.view_high_scores">view_high_scores</a></code></li>
 </ul>

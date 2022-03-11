@@ -45,8 +45,8 @@ class Display:
         &#34;&#34;&#34;Take a parameter: str, display who won the game.&#34;&#34;&#34;
         if not isinstance(name, str):
             raise TypeError(
-                &#34;Something went wrong while trying to\
- retrieve the winning players&#39; name&#34;
+                &#34;Something went wrong while trying to \
+retrieve the winning players&#39; name&#34;
             )
         print(&#34;\n&#34;, &#34;-&#34; * 80)
         print(f&#34;\n          Congratulations {name}, you have won the game!\n&#34;)
@@ -69,8 +69,8 @@ class Display:
             choice = int(input(&#34;Please enter your choice here: &#34;))
             if not isinstance(choice, int):
                 raise ValueError(
-                    &#34;You can only use numbers\
- to choose an option&#34;
+                    &#34;You can only use numbers \
+to choose an option&#34;
                 )
             if choice in [1, 2, 3, 4, 5, 6, 7]:
                 return choice
@@ -83,17 +83,17 @@ class Display:
         print(&#34;-  The player may roll as many times as they want in a round.&#34;)
         print(
             &#34;-  If the dice lands on a 1, the round ends and all \
- points from the current round will be deducted.&#34;
+points from the current round will be deducted.&#34;
         )
         print(
-            &#34;-  For every other number on the dice the points relevant\
- to the dice surface will add up to a round total&#34;
+            &#34;-  For every other number on the dice the points relevant \
+to the dice surface will add up to a round total&#34;
         )
         print(&#34;-  The first player to reach 100 points will be the victor!\n&#34;)
 
     def game_summary(self, name: str, rounds: int):
         &#34;&#34;&#34;Take parameters(name: str, amount of rounds: int), display a \
-            summary of the winner and the amount of rounds.&#34;&#34;&#34;
+summary of the winner and the amount of rounds.&#34;&#34;&#34;
         if not isinstance(name, str) or not isinstance(rounds, int):
             raise TypeError(&#34;The game summary is not available right now&#34;)
         print(
@@ -124,7 +124,7 @@ class Display:
 
     def view_prog(self, player: str, points: int, player2: str, points2: int):
         &#34;&#34;&#34;Take parameters(str, int, str, int) for names and points, show the \
-            player names and how much points they currently have.&#34;&#34;&#34;
+player names and how much points they currently have.&#34;&#34;&#34;
         if (
             not isinstance(player, str)
             or not isinstance(points, int)
@@ -137,12 +137,12 @@ class Display:
         print(f&#34;Points: {points:&lt;61} Points: {points2}\n&#34;)
 
     def view_difficulties(self):
-        &#34;&#34;&#34;Take no parameters, show the different difficulties of the AI,\
-            return the choice.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take no parameters, show the different difficulties of the AI, \
+return the choice.&#34;&#34;&#34;
         not_correct = True
         while not_correct:
             print(
-                &#34;\nHere are the difficulties, which\
+                &#34;\nHere are the difficulties, which \
 one do you dare to oppose?\n&#34;
             )
             print(&#34;1:  Easy Mode&#34;)
@@ -151,14 +151,14 @@ one do you dare to oppose?\n&#34;
             print(&#34;4:  Go back to the main menu&#34;)
             choice = int(
                 input(
-                    &#34;\nPlease enter the number of the challenge you\
- dare to try today. It is okay to be a coward: &#34;
+                    &#34;\nPlease enter the number of the challenge you \
+dare to try today. It is okay to be a coward: &#34;
                 )
             )
             if not isinstance(choice, int):
                 raise ValueError(
-                    &#34;You can only use numbers\
- to choose an option&#34;
+                    &#34;You can only use numbers \
+to choose an option&#34;
                 )
             if choice in [1, 2, 3, 4]:
                 return choice
@@ -190,8 +190,8 @@ one do you dare to oppose?\n&#34;
         &#34;&#34;&#34;Take a parameter: str, display who won the game.&#34;&#34;&#34;
         if not isinstance(name, str):
             raise TypeError(
-                &#34;Something went wrong while trying to\
- retrieve the winning players&#39; name&#34;
+                &#34;Something went wrong while trying to \
+retrieve the winning players&#39; name&#34;
             )
         print(&#34;\n&#34;, &#34;-&#34; * 80)
         print(f&#34;\n          Congratulations {name}, you have won the game!\n&#34;)
@@ -214,8 +214,8 @@ one do you dare to oppose?\n&#34;
             choice = int(input(&#34;Please enter your choice here: &#34;))
             if not isinstance(choice, int):
                 raise ValueError(
-                    &#34;You can only use numbers\
- to choose an option&#34;
+                    &#34;You can only use numbers \
+to choose an option&#34;
                 )
             if choice in [1, 2, 3, 4, 5, 6, 7]:
                 return choice
@@ -228,17 +228,17 @@ one do you dare to oppose?\n&#34;
         print(&#34;-  The player may roll as many times as they want in a round.&#34;)
         print(
             &#34;-  If the dice lands on a 1, the round ends and all \
- points from the current round will be deducted.&#34;
+points from the current round will be deducted.&#34;
         )
         print(
-            &#34;-  For every other number on the dice the points relevant\
- to the dice surface will add up to a round total&#34;
+            &#34;-  For every other number on the dice the points relevant \
+to the dice surface will add up to a round total&#34;
         )
         print(&#34;-  The first player to reach 100 points will be the victor!\n&#34;)
 
     def game_summary(self, name: str, rounds: int):
         &#34;&#34;&#34;Take parameters(name: str, amount of rounds: int), display a \
-            summary of the winner and the amount of rounds.&#34;&#34;&#34;
+summary of the winner and the amount of rounds.&#34;&#34;&#34;
         if not isinstance(name, str) or not isinstance(rounds, int):
             raise TypeError(&#34;The game summary is not available right now&#34;)
         print(
@@ -269,7 +269,7 @@ one do you dare to oppose?\n&#34;
 
     def view_prog(self, player: str, points: int, player2: str, points2: int):
         &#34;&#34;&#34;Take parameters(str, int, str, int) for names and points, show the \
-            player names and how much points they currently have.&#34;&#34;&#34;
+player names and how much points they currently have.&#34;&#34;&#34;
         if (
             not isinstance(player, str)
             or not isinstance(points, int)
@@ -282,12 +282,12 @@ one do you dare to oppose?\n&#34;
         print(f&#34;Points: {points:&lt;61} Points: {points2}\n&#34;)
 
     def view_difficulties(self):
-        &#34;&#34;&#34;Take no parameters, show the different difficulties of the AI,\
-            return the choice.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take no parameters, show the different difficulties of the AI, \
+return the choice.&#34;&#34;&#34;
         not_correct = True
         while not_correct:
             print(
-                &#34;\nHere are the difficulties, which\
+                &#34;\nHere are the difficulties, which \
 one do you dare to oppose?\n&#34;
             )
             print(&#34;1:  Easy Mode&#34;)
@@ -296,14 +296,14 @@ one do you dare to oppose?\n&#34;
             print(&#34;4:  Go back to the main menu&#34;)
             choice = int(
                 input(
-                    &#34;\nPlease enter the number of the challenge you\
- dare to try today. It is okay to be a coward: &#34;
+                    &#34;\nPlease enter the number of the challenge you \
+dare to try today. It is okay to be a coward: &#34;
                 )
             )
             if not isinstance(choice, int):
                 raise ValueError(
-                    &#34;You can only use numbers\
- to choose an option&#34;
+                    &#34;You can only use numbers \
+to choose an option&#34;
                 )
             if choice in [1, 2, 3, 4]:
                 return choice
@@ -320,20 +320,20 @@ one do you dare to oppose?\n&#34;
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">   def display_game_rules(self):
-       &#34;&#34;&#34;Take no parameters, display the rules of the game.&#34;&#34;&#34;
-       print(&#34;\nThe rules for Pig-Game are as following:\n&#34;)
-       print(&#34;-  The player begins each turn by rolling the dice.&#34;)
-       print(&#34;-  The player may roll as many times as they want in a round.&#34;)
-       print(
-           &#34;-  If the dice lands on a 1, the round ends and all \
+<pre><code class="python">    def display_game_rules(self):
+        &#34;&#34;&#34;Take no parameters, display the rules of the game.&#34;&#34;&#34;
+        print(&#34;\nThe rules for Pig-Game are as following:\n&#34;)
+        print(&#34;-  The player begins each turn by rolling the dice.&#34;)
+        print(&#34;-  The player may roll as many times as they want in a round.&#34;)
+        print(
+            &#34;-  If the dice lands on a 1, the round ends and all \
 points from the current round will be deducted.&#34;
-       )
-       print(
-           &#34;-  For every other number on the dice the points relevant\
+        )
+        print(
+            &#34;-  For every other number on the dice the points relevant \
 to the dice surface will add up to a round total&#34;
-       )
-       print(&#34;-  The first player to reach 100 points will be the victor!\n&#34;)</code></pre>
+        )
+        print(&#34;-  The first player to reach 100 points will be the victor!\n&#34;)</code></pre>
 </details>
 </dd>
 <dt id="display.Display.game_menu"><code class="name flex">
@@ -345,54 +345,53 @@ to the dice surface will add up to a round total&#34;
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">   def game_menu(self):
-       &#34;&#34;&#34;Take no parameter, display the main menu, return the choice.&#34;&#34;&#34;
-       not_correct = True
-       while not_correct:
-           print(&#34;\n                           THE PIG GAME&#34;)
-           print(&#34;-&#34; * 70)
-           print(&#34;1:  Start a one player game&#34;)
-           print(&#34;2:  Start a two player game&#34;)
-           print(&#34;3:  Update existing player name&#34;)
-           print(&#34;4:  Delete existing player&#34;)
-           print(&#34;5:  View highscore&#34;)
-           print(&#34;6:  Show rules&#34;)
-           print(&#34;7:  Exit game&#34;)
-           print(&#34;-&#34; * 70, &#34;\n&#34;)
-           choice = int(input(&#34;Please enter your choice here: &#34;))
-           if not isinstance(choice, int):
-               raise ValueError(
-                   &#34;You can only use numbers\
+<pre><code class="python">    def game_menu(self):
+        &#34;&#34;&#34;Take no parameter, display the main menu, return the choice.&#34;&#34;&#34;
+        not_correct = True
+        while not_correct:
+            print(&#34;\n                           THE PIG GAME&#34;)
+            print(&#34;-&#34; * 70)
+            print(&#34;1:  Start a one player game&#34;)
+            print(&#34;2:  Start a two player game&#34;)
+            print(&#34;3:  Update existing player name&#34;)
+            print(&#34;4:  Delete existing player&#34;)
+            print(&#34;5:  View highscore&#34;)
+            print(&#34;6:  Show rules&#34;)
+            print(&#34;7:  Exit game&#34;)
+            print(&#34;-&#34; * 70, &#34;\n&#34;)
+            choice = int(input(&#34;Please enter your choice here: &#34;))
+            if not isinstance(choice, int):
+                raise ValueError(
+                    &#34;You can only use numbers \
 to choose an option&#34;
-               )
-           if choice in [1, 2, 3, 4, 5, 6, 7]:
-               return choice
-           print(&#34;Please enter a number from the available options&#34;)</code></pre>
+                )
+            if choice in [1, 2, 3, 4, 5, 6, 7]:
+                return choice
+            print(&#34;Please enter a number from the available options&#34;)</code></pre>
 </details>
 </dd>
 <dt id="display.Display.game_summary"><code class="name flex">
 <span>def <span class="ident">game_summary</span></span>(<span>self, name: str, rounds: int)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take parameters(name: str, amount of rounds: int), display a
-summary of the winner and the amount of rounds.</p></div>
+<div class="desc"><p>Take parameters(name: str, amount of rounds: int), display a summary of the winner and the amount of rounds.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def game_summary(self, name: str, rounds: int):
-    &#34;&#34;&#34;Take parameters(name: str, amount of rounds: int), display a \
-        summary of the winner and the amount of rounds.&#34;&#34;&#34;
-    if not isinstance(name, str) or not isinstance(rounds, int):
-        raise TypeError(&#34;The game summary is not available right now&#34;)
-    print(
-        &#34;\nHere is the amount of rolls for\
-        the player to reach 100 points\n&#34;
-    )
-    print(f&#39;Name {&#34;Amount of rounds&#34;:&gt;35}&#39;)
-    print(&#34;-&#34; * 70)
-    print(f&#34;{name:25}  {rounds:&gt;6}&#34;)
-    print(&#34;-&#34; * 70, &#34;\n&#34;)</code></pre>
+<pre><code class="python">    def game_summary(self, name: str, rounds: int):
+        &#34;&#34;&#34;Take parameters(name: str, amount of rounds: int), display a \
+summary of the winner and the amount of rounds.&#34;&#34;&#34;
+        if not isinstance(name, str) or not isinstance(rounds, int):
+            raise TypeError(&#34;The game summary is not available right now&#34;)
+        print(
+            &#34;\nHere is the amount of rolls for\
+            the player to reach 100 points\n&#34;
+        )
+        print(f&#39;Name {&#34;Amount of rounds&#34;:&gt;35}&#39;)
+        print(&#34;-&#34; * 70)
+        print(f&#34;{name:25}  {rounds:&gt;6}&#34;)
+        print(&#34;-&#34; * 70, &#34;\n&#34;)</code></pre>
 </details>
 </dd>
 <dt id="display.Display.show_players"><code class="name flex">
@@ -426,19 +425,18 @@ summary of the winner and the amount of rounds.</p></div>
 <span>def <span class="ident">view_difficulties</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take no parameters, show the different difficulties of the AI,
-return the choice.</p></div>
+<div class="desc"><p>Take no parameters, show the different difficulties of the AI, return the choice.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">    def view_difficulties(self):
-        &#34;&#34;&#34;Take no parameters, show the different difficulties of the AI,\
-            return the choice.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take no parameters, show the different difficulties of the AI, \
+return the choice.&#34;&#34;&#34;
         not_correct = True
         while not_correct:
             print(
-                &#34;\nHere are the difficulties, which\
+                &#34;\nHere are the difficulties, which \
 one do you dare to oppose?\n&#34;
             )
             print(&#34;1:  Easy Mode&#34;)
@@ -447,14 +445,14 @@ one do you dare to oppose?\n&#34;
             print(&#34;4:  Go back to the main menu&#34;)
             choice = int(
                 input(
-                    &#34;\nPlease enter the number of the challenge you\
- dare to try today. It is okay to be a coward: &#34;
+                    &#34;\nPlease enter the number of the challenge you \
+dare to try today. It is okay to be a coward: &#34;
                 )
             )
             if not isinstance(choice, int):
                 raise ValueError(
-                    &#34;You can only use numbers\
- to choose an option&#34;
+                    &#34;You can only use numbers \
+to choose an option&#34;
                 )
             if choice in [1, 2, 3, 4]:
                 return choice
@@ -465,25 +463,24 @@ one do you dare to oppose?\n&#34;
 <span>def <span class="ident">view_prog</span></span>(<span>self, player: str, points: int, player2: str, points2: int)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take parameters(str, int, str, int) for names and points, show the
-player names and how much points they currently have.</p></div>
+<div class="desc"><p>Take parameters(str, int, str, int) for names and points, show the player names and how much points they currently have.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def view_prog(self, player: str, points: int, player2: str, points2: int):
-    &#34;&#34;&#34;Take parameters(str, int, str, int) for names and points, show the \
-        player names and how much points they currently have.&#34;&#34;&#34;
-    if (
-        not isinstance(player, str)
-        or not isinstance(points, int)
-        or not isinstance(player2, str)
-        or not isinstance(points2, int)
-    ):
-        raise TypeError(&#34;The game progress is not available right now&#34;)
+<pre><code class="python">    def view_prog(self, player: str, points: int, player2: str, points2: int):
+        &#34;&#34;&#34;Take parameters(str, int, str, int) for names and points, show the \
+player names and how much points they currently have.&#34;&#34;&#34;
+        if (
+            not isinstance(player, str)
+            or not isinstance(points, int)
+            or not isinstance(player2, str)
+            or not isinstance(points2, int)
+        ):
+            raise TypeError(&#34;The game progress is not available right now&#34;)
 
-    print(f&#34;\n\nPlayer1: {player:60} Player2: {player2}&#34;)
-    print(f&#34;Points: {points:&lt;61} Points: {points2}\n&#34;)</code></pre>
+        print(f&#34;\n\nPlayer1: {player:60} Player2: {player2}&#34;)
+        print(f&#34;Points: {points:&lt;61} Points: {points2}\n&#34;)</code></pre>
 </details>
 </dd>
 <dt id="display.Display.winner"><code class="name flex">
@@ -495,16 +492,16 @@ player names and how much points they currently have.</p></div>
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">   def winner(self, name: str):
-       &#34;&#34;&#34;Take a parameter: str, display who won the game.&#34;&#34;&#34;
-       if not isinstance(name, str):
-           raise TypeError(
-               &#34;Something went wrong while trying to\
+<pre><code class="python">    def winner(self, name: str):
+        &#34;&#34;&#34;Take a parameter: str, display who won the game.&#34;&#34;&#34;
+        if not isinstance(name, str):
+            raise TypeError(
+                &#34;Something went wrong while trying to \
 retrieve the winning players&#39; name&#34;
-           )
-       print(&#34;\n&#34;, &#34;-&#34; * 80)
-       print(f&#34;\n          Congratulations {name}, you have won the game!\n&#34;)
-       print(&#34;-&#34; * 80, &#34;\n&#34;)</code></pre>
+            )
+        print(&#34;\n&#34;, &#34;-&#34; * 80)
+        print(f&#34;\n          Congratulations {name}, you have won the game!\n&#34;)
+        print(&#34;-&#34; * 80, &#34;\n&#34;)</code></pre>
 </details>
 </dd>
 </dl>

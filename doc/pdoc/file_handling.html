@@ -51,6 +51,33 @@ class FileHandling:
         reading.close()
         return names
 
+    def read_hs_file(self, file_name: str):
+        &#34;&#34;&#34;Take a file as parameter: str, read the contents from the file,\
+            return a list with the content.&#34;&#34;&#34;
+        reading = open(file_name, &#34;r&#34;, encoding=&#34;utf8&#34;)
+        high_scores = []
+        for line in reading:
+            small_list = []
+            name = line.rstrip(&#34;\n&#34;)
+            small_list.append(name)
+            score = reading.readline().rstrip(&#34;\n&#34;)
+            small_list.append(int(score))
+            high_scores.append(small_list)
+            return high_scores
+
+    def write_hs_files(self, file_name: str,
+                       high_scores: list[list[str, int]]):
+        &#34;&#34;&#34;Take a file: str and a list: list[list[str: int]] as parameters,\
+            write the content in the list to the file, close the file.&#34;&#34;&#34;
+        if not isinstance(file_name, str) or not isinstance(high_scores, list):
+            raise ValueError(&#34;The file or the list was not correct&#34;)
+        writing = open(file_name, &#34;w&#34;, encoding=&#34;utf8&#34;)
+        for lis in high_scores:
+            for value in lis:
+                writing.write(str(value) + &#34;\n&#34;)
+        writing.close()
+        return True
+
     def write_name_files(self, file_name: str, names: list[str]):
         &#34;&#34;&#34;Take a file: str and a list: list[str] as parameters, write the\
             content in the list to the file, close the file.&#34;&#34;&#34;
@@ -60,35 +87,7 @@ class FileHandling:
         for name in names:
             writing.write(name + &#34;\n&#34;)
         writing.close()
-
-    def read_dic_files(self, file_name: str):
-        &#34;&#34;&#34;Take a file as a parameter: str, read the content from the file,\
-            return a dictionary with the content.&#34;&#34;&#34;
-        highscore_dic = {}
-        name = &#34;&#34;
-        score = 0
-        if not isinstance(file_name, str):
-            raise ValueError(&#34;The file was not correct&#34;)
-        reading = open(file_name, &#34;r&#34;, encoding=&#34;utf8&#34;)
-        for line in reading:
-            name = line.rstrip(&#34;\n&#34;)
-            score = reading.readline().rstrip(&#34;\n&#34;)
-            int_value = int(score)
-            highscore_dic[name] = int_value
-        reading.close()
-        return highscore_dic
-
-    def write_dic_files(self, file_name: str, highscore_dic: dict[str:int]):
-        &#34;&#34;&#34;Take a file: str and a dictionary: dict[str: int] as parameters,\
-            write the content in the dictionary to the file, close the file.&#34;&#34;&#34;
-        if not isinstance(file_name, str)\
-           or not isinstance(highscore_dic, dict):
-            raise ValueError(&#34;The file or the dictionary was not correct&#34;)
-        writing = open(file_name, &#34;w&#34;, encoding=&#34;utf8&#34;)
-        for key, value in highscore_dic.items():
-            string_value = str(value)
-            writing.write(key + &#34;\n&#34; + string_value + &#34;\n&#34;)
-        writing.close()</code></pre>
+        return True</code></pre>
 </details>
 </section>
 <section>
@@ -125,6 +124,33 @@ class FileHandling:
         reading.close()
         return names
 
+    def read_hs_file(self, file_name: str):
+        &#34;&#34;&#34;Take a file as parameter: str, read the contents from the file,\
+            return a list with the content.&#34;&#34;&#34;
+        reading = open(file_name, &#34;r&#34;, encoding=&#34;utf8&#34;)
+        high_scores = []
+        for line in reading:
+            small_list = []
+            name = line.rstrip(&#34;\n&#34;)
+            small_list.append(name)
+            score = reading.readline().rstrip(&#34;\n&#34;)
+            small_list.append(int(score))
+            high_scores.append(small_list)
+            return high_scores
+
+    def write_hs_files(self, file_name: str,
+                       high_scores: list[list[str, int]]):
+        &#34;&#34;&#34;Take a file: str and a list: list[list[str: int]] as parameters,\
+            write the content in the list to the file, close the file.&#34;&#34;&#34;
+        if not isinstance(file_name, str) or not isinstance(high_scores, list):
+            raise ValueError(&#34;The file or the list was not correct&#34;)
+        writing = open(file_name, &#34;w&#34;, encoding=&#34;utf8&#34;)
+        for lis in high_scores:
+            for value in lis:
+                writing.write(str(value) + &#34;\n&#34;)
+        writing.close()
+        return True
+
     def write_name_files(self, file_name: str, names: list[str]):
         &#34;&#34;&#34;Take a file: str and a list: list[str] as parameters, write the\
             content in the list to the file, close the file.&#34;&#34;&#34;
@@ -134,64 +160,33 @@ class FileHandling:
         for name in names:
             writing.write(name + &#34;\n&#34;)
         writing.close()
-
-    def read_dic_files(self, file_name: str):
-        &#34;&#34;&#34;Take a file as a parameter: str, read the content from the file,\
-            return a dictionary with the content.&#34;&#34;&#34;
-        highscore_dic = {}
-        name = &#34;&#34;
-        score = 0
-        if not isinstance(file_name, str):
-            raise ValueError(&#34;The file was not correct&#34;)
-        reading = open(file_name, &#34;r&#34;, encoding=&#34;utf8&#34;)
-        for line in reading:
-            name = line.rstrip(&#34;\n&#34;)
-            score = reading.readline().rstrip(&#34;\n&#34;)
-            int_value = int(score)
-            highscore_dic[name] = int_value
-        reading.close()
-        return highscore_dic
-
-    def write_dic_files(self, file_name: str, highscore_dic: dict[str:int]):
-        &#34;&#34;&#34;Take a file: str and a dictionary: dict[str: int] as parameters,\
-            write the content in the dictionary to the file, close the file.&#34;&#34;&#34;
-        if not isinstance(file_name, str)\
-           or not isinstance(highscore_dic, dict):
-            raise ValueError(&#34;The file or the dictionary was not correct&#34;)
-        writing = open(file_name, &#34;w&#34;, encoding=&#34;utf8&#34;)
-        for key, value in highscore_dic.items():
-            string_value = str(value)
-            writing.write(key + &#34;\n&#34; + string_value + &#34;\n&#34;)
-        writing.close()</code></pre>
+        return True</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="file_handling.FileHandling.read_dic_files"><code class="name flex">
-<span>def <span class="ident">read_dic_files</span></span>(<span>self, file_name: str)</span>
+<dt id="file_handling.FileHandling.read_hs_file"><code class="name flex">
+<span>def <span class="ident">read_hs_file</span></span>(<span>self, file_name: str)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take a file as a parameter: str, read the content from the file,
-return a dictionary with the content.</p></div>
+<div class="desc"><p>Take a file as parameter: str, read the contents from the file,
+return a list with the content.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def read_dic_files(self, file_name: str):
-    &#34;&#34;&#34;Take a file as a parameter: str, read the content from the file,\
-        return a dictionary with the content.&#34;&#34;&#34;
-    highscore_dic = {}
-    name = &#34;&#34;
-    score = 0
-    if not isinstance(file_name, str):
-        raise ValueError(&#34;The file was not correct&#34;)
+<pre><code class="python">def read_hs_file(self, file_name: str):
+    &#34;&#34;&#34;Take a file as parameter: str, read the contents from the file,\
+        return a list with the content.&#34;&#34;&#34;
     reading = open(file_name, &#34;r&#34;, encoding=&#34;utf8&#34;)
+    high_scores = []
     for line in reading:
+        small_list = []
         name = line.rstrip(&#34;\n&#34;)
+        small_list.append(name)
         score = reading.readline().rstrip(&#34;\n&#34;)
-        int_value = int(score)
-        highscore_dic[name] = int_value
-    reading.close()
-    return highscore_dic</code></pre>
+        small_list.append(int(score))
+        high_scores.append(small_list)
+        return high_scores</code></pre>
 </details>
 </dd>
 <dt id="file_handling.FileHandling.read_name_files"><code class="name flex">
@@ -218,27 +213,28 @@ return a list with the content.</p></div>
     return names</code></pre>
 </details>
 </dd>
-<dt id="file_handling.FileHandling.write_dic_files"><code class="name flex">
-<span>def <span class="ident">write_dic_files</span></span>(<span>self, file_name: str, highscore_dic: dict[slice(<class 'str'>, <class 'int'>, None)])</span>
+<dt id="file_handling.FileHandling.write_hs_files"><code class="name flex">
+<span>def <span class="ident">write_hs_files</span></span>(<span>self, file_name: str, high_scores: list[list[str, int]])</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take a file: str and a dictionary: dict[str: int] as parameters,
-write the content in the dictionary to the file, close the file.</p></div>
+<div class="desc"><p>Take a file: str and a list: list[list[str: int]] as parameters,
+write the content in the list to the file, close the file.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def write_dic_files(self, file_name: str, highscore_dic: dict[str:int]):
-    &#34;&#34;&#34;Take a file: str and a dictionary: dict[str: int] as parameters,\
-        write the content in the dictionary to the file, close the file.&#34;&#34;&#34;
-    if not isinstance(file_name, str)\
-       or not isinstance(highscore_dic, dict):
-        raise ValueError(&#34;The file or the dictionary was not correct&#34;)
+<pre><code class="python">def write_hs_files(self, file_name: str,
+                   high_scores: list[list[str, int]]):
+    &#34;&#34;&#34;Take a file: str and a list: list[list[str: int]] as parameters,\
+        write the content in the list to the file, close the file.&#34;&#34;&#34;
+    if not isinstance(file_name, str) or not isinstance(high_scores, list):
+        raise ValueError(&#34;The file or the list was not correct&#34;)
     writing = open(file_name, &#34;w&#34;, encoding=&#34;utf8&#34;)
-    for key, value in highscore_dic.items():
-        string_value = str(value)
-        writing.write(key + &#34;\n&#34; + string_value + &#34;\n&#34;)
-    writing.close()</code></pre>
+    for lis in high_scores:
+        for value in lis:
+            writing.write(str(value) + &#34;\n&#34;)
+    writing.close()
+    return True</code></pre>
 </details>
 </dd>
 <dt id="file_handling.FileHandling.write_name_files"><code class="name flex">
@@ -259,7 +255,8 @@ content in the list to the file, close the file.</p></div>
     writing = open(file_name, &#34;w&#34;, encoding=&#34;utf8&#34;)
     for name in names:
         writing.write(name + &#34;\n&#34;)
-    writing.close()</code></pre>
+    writing.close()
+    return True</code></pre>
 </details>
 </dd>
 </dl>
@@ -278,9 +275,9 @@ content in the list to the file, close the file.</p></div>
 <li>
 <h4><code><a title="file_handling.FileHandling" href="#file_handling.FileHandling">FileHandling</a></code></h4>
 <ul class="">
-<li><code><a title="file_handling.FileHandling.read_dic_files" href="#file_handling.FileHandling.read_dic_files">read_dic_files</a></code></li>
+<li><code><a title="file_handling.FileHandling.read_hs_file" href="#file_handling.FileHandling.read_hs_file">read_hs_file</a></code></li>
 <li><code><a title="file_handling.FileHandling.read_name_files" href="#file_handling.FileHandling.read_name_files">read_name_files</a></code></li>
-<li><code><a title="file_handling.FileHandling.write_dic_files" href="#file_handling.FileHandling.write_dic_files">write_dic_files</a></code></li>
+<li><code><a title="file_handling.FileHandling.write_hs_files" href="#file_handling.FileHandling.write_hs_files">write_hs_files</a></code></li>
 <li><code><a title="file_handling.FileHandling.write_name_files" href="#file_handling.FileHandling.write_name_files">write_name_files</a></code></li>
 </ul>
 </li>

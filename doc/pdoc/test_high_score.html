@@ -44,13 +44,13 @@ class TestHighScore(unittest.TestCase):
 
     def test_view_high_scores_wrong_type(self):
         &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
-            is entered.&#34;&#34;&#34;
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.view_high_scores(&#34;hi&#34;)
 
     def test_add_compare_high_scores(self):
         &#34;&#34;&#34;Tests that the high score dictionary will be returned after adding \
-            or replacing keys and values to it.&#34;&#34;&#34;
+or replacing keys and values to it.&#34;&#34;&#34;
         dic = {&#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
         self.assertDictEqual(hs.add_compare_high_scores(&#34;Farah&#34;, 13), dic)
         dic = {&#34;shhh&#34;: 3, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
@@ -63,32 +63,32 @@ class TestHighScore(unittest.TestCase):
         self.assertDictEqual(hs.add_compare_high_scores(&#34;suha&#34;, 4), dic)
 
     def test_get_high_score_dic(self):
-        &#34;&#34;&#34;Tests that the high score dictionary will be returned when asking\
-             to get it.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that the high score dictionary will be returned when asking \
+to get it.&#34;&#34;&#34;
         dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
         self.assertDictEqual(hs.get_high_score_dic(), dic)
 
     def test_add_compare_high_scores_wrong_name(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-             is entered.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.add_compare_high_scores([], 2)
 
     def test_add_compare_high_scores_wrong_score(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-             is entered.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.add_compare_high_scores(&#34;hi&#34;, &#34;world&#34;)
 
     def test_update_high_score(self):
-        &#34;&#34;&#34;Tests that the updated high score dictionary will be returned after\
-             changing a key in it.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that the updated high score dictionary will be returned after \
+changing a key in it.&#34;&#34;&#34;
         dic = {&#34;kami&#34;: 1, &#34;Fera&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
         self.assertDictEqual(hs.update_high_score(&#34;shhh&#34;, &#34;Fera&#34;), dic)
 
     def test_update_high_score_wrong_type(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-             is entered.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.add_compare_high_scores(3, &#34;world&#34;)
         with self.assertRaises(ValueError):
@@ -126,13 +126,13 @@ not have a method with the specified name.</p></div>
 
     def test_view_high_scores_wrong_type(self):
         &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
-            is entered.&#34;&#34;&#34;
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.view_high_scores(&#34;hi&#34;)
 
     def test_add_compare_high_scores(self):
         &#34;&#34;&#34;Tests that the high score dictionary will be returned after adding \
-            or replacing keys and values to it.&#34;&#34;&#34;
+or replacing keys and values to it.&#34;&#34;&#34;
         dic = {&#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
         self.assertDictEqual(hs.add_compare_high_scores(&#34;Farah&#34;, 13), dic)
         dic = {&#34;shhh&#34;: 3, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
@@ -145,32 +145,32 @@ not have a method with the specified name.</p></div>
         self.assertDictEqual(hs.add_compare_high_scores(&#34;suha&#34;, 4), dic)
 
     def test_get_high_score_dic(self):
-        &#34;&#34;&#34;Tests that the high score dictionary will be returned when asking\
-             to get it.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that the high score dictionary will be returned when asking \
+to get it.&#34;&#34;&#34;
         dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
         self.assertDictEqual(hs.get_high_score_dic(), dic)
 
     def test_add_compare_high_scores_wrong_name(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-             is entered.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.add_compare_high_scores([], 2)
 
     def test_add_compare_high_scores_wrong_score(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-             is entered.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.add_compare_high_scores(&#34;hi&#34;, &#34;world&#34;)
 
     def test_update_high_score(self):
-        &#34;&#34;&#34;Tests that the updated high score dictionary will be returned after\
-             changing a key in it.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that the updated high score dictionary will be returned after \
+changing a key in it.&#34;&#34;&#34;
         dic = {&#34;kami&#34;: 1, &#34;Fera&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
         self.assertDictEqual(hs.update_high_score(&#34;shhh&#34;, &#34;Fera&#34;), dic)
 
     def test_update_high_score_wrong_type(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-             is entered.&#34;&#34;&#34;
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             hs.add_compare_high_scores(3, &#34;world&#34;)
         with self.assertRaises(ValueError):
@@ -186,129 +186,122 @@ not have a method with the specified name.</p></div>
 <span>def <span class="ident">test_add_compare_high_scores</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that the high score dictionary will be returned after adding
-or replacing keys and values to it.</p></div>
+<div class="desc"><p>Tests that the high score dictionary will be returned after adding or replacing keys and values to it.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_add_compare_high_scores(self):
-    &#34;&#34;&#34;Tests that the high score dictionary will be returned after adding \
-        or replacing keys and values to it.&#34;&#34;&#34;
-    dic = {&#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
-    self.assertDictEqual(hs.add_compare_high_scores(&#34;Farah&#34;, 13), dic)
-    dic = {&#34;shhh&#34;: 3, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
-    self.assertDictEqual(hs.add_compare_high_scores(&#34;shhh&#34;, 3), dic)
-    dic = {&#34;shhh&#34;: 3, &#34;maha&#34;: 7, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
-    self.assertDictEqual(hs.add_compare_high_scores(&#34;maha&#34;, 7), dic)
-    dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;maha&#34;: 7, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
-    self.assertDictEqual(hs.add_compare_high_scores(&#34;kami&#34;, 1), dic)
-    dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
-    self.assertDictEqual(hs.add_compare_high_scores(&#34;suha&#34;, 4), dic)</code></pre>
+<pre><code class="python">    def test_add_compare_high_scores(self):
+        &#34;&#34;&#34;Tests that the high score dictionary will be returned after adding \
+or replacing keys and values to it.&#34;&#34;&#34;
+        dic = {&#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
+        self.assertDictEqual(hs.add_compare_high_scores(&#34;Farah&#34;, 13), dic)
+        dic = {&#34;shhh&#34;: 3, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
+        self.assertDictEqual(hs.add_compare_high_scores(&#34;shhh&#34;, 3), dic)
+        dic = {&#34;shhh&#34;: 3, &#34;maha&#34;: 7, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
+        self.assertDictEqual(hs.add_compare_high_scores(&#34;maha&#34;, 7), dic)
+        dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;maha&#34;: 7, &#34;Farah&#34;: 13, &#34;Developer&#34;: 9001}
+        self.assertDictEqual(hs.add_compare_high_scores(&#34;kami&#34;, 1), dic)
+        dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
+        self.assertDictEqual(hs.add_compare_high_scores(&#34;suha&#34;, 4), dic)</code></pre>
 </details>
 </dd>
 <dt id="test_high_score.TestHighScore.test_add_compare_high_scores_wrong_name"><code class="name flex">
 <span>def <span class="ident">test_add_compare_high_scores_wrong_name</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments
-is entered.</p></div>
+<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments is entered.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_add_compare_high_scores_wrong_name(self):
-    &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-         is entered.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        hs.add_compare_high_scores([], 2)</code></pre>
+<pre><code class="python">    def test_add_compare_high_scores_wrong_name(self):
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            hs.add_compare_high_scores([], 2)</code></pre>
 </details>
 </dd>
 <dt id="test_high_score.TestHighScore.test_add_compare_high_scores_wrong_score"><code class="name flex">
 <span>def <span class="ident">test_add_compare_high_scores_wrong_score</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments
-is entered.</p></div>
+<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments is entered.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_add_compare_high_scores_wrong_score(self):
-    &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-         is entered.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        hs.add_compare_high_scores(&#34;hi&#34;, &#34;world&#34;)</code></pre>
+<pre><code class="python">    def test_add_compare_high_scores_wrong_score(self):
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            hs.add_compare_high_scores(&#34;hi&#34;, &#34;world&#34;)</code></pre>
 </details>
 </dd>
 <dt id="test_high_score.TestHighScore.test_get_high_score_dic"><code class="name flex">
 <span>def <span class="ident">test_get_high_score_dic</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that the high score dictionary will be returned when asking
-to get it.</p></div>
+<div class="desc"><p>Tests that the high score dictionary will be returned when asking to get it.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_get_high_score_dic(self):
-    &#34;&#34;&#34;Tests that the high score dictionary will be returned when asking\
-         to get it.&#34;&#34;&#34;
-    dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
-    self.assertDictEqual(hs.get_high_score_dic(), dic)</code></pre>
+<pre><code class="python">    def test_get_high_score_dic(self):
+        &#34;&#34;&#34;Tests that the high score dictionary will be returned when asking \
+to get it.&#34;&#34;&#34;
+        dic = {&#34;kami&#34;: 1, &#34;shhh&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
+        self.assertDictEqual(hs.get_high_score_dic(), dic)</code></pre>
 </details>
 </dd>
 <dt id="test_high_score.TestHighScore.test_update_high_score"><code class="name flex">
 <span>def <span class="ident">test_update_high_score</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that the updated high score dictionary will be returned after
-changing a key in it.</p></div>
+<div class="desc"><p>Tests that the updated high score dictionary will be returned after changing a key in it.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_update_high_score(self):
-    &#34;&#34;&#34;Tests that the updated high score dictionary will be returned after\
-         changing a key in it.&#34;&#34;&#34;
-    dic = {&#34;kami&#34;: 1, &#34;Fera&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
-    self.assertDictEqual(hs.update_high_score(&#34;shhh&#34;, &#34;Fera&#34;), dic)</code></pre>
+<pre><code class="python">    def test_update_high_score(self):
+        &#34;&#34;&#34;Tests that the updated high score dictionary will be returned after \
+changing a key in it.&#34;&#34;&#34;
+        dic = {&#34;kami&#34;: 1, &#34;Fera&#34;: 3, &#34;suha&#34;: 4, &#34;maha&#34;: 7, &#34;Farah&#34;: 13}
+        self.assertDictEqual(hs.update_high_score(&#34;shhh&#34;, &#34;Fera&#34;), dic)</code></pre>
 </details>
 </dd>
 <dt id="test_high_score.TestHighScore.test_update_high_score_wrong_type"><code class="name flex">
 <span>def <span class="ident">test_update_high_score_wrong_type</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments
-is entered.</p></div>
+<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments is entered.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_update_high_score_wrong_type(self):
-    &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments\
-         is entered.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        hs.add_compare_high_scores(3, &#34;world&#34;)
-    with self.assertRaises(ValueError):
-        hs.add_compare_high_scores(&#34;eren&#34;, [])</code></pre>
+<pre><code class="python">    def test_update_high_score_wrong_type(self):
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            hs.add_compare_high_scores(3, &#34;world&#34;)
+        with self.assertRaises(ValueError):
+            hs.add_compare_high_scores(&#34;eren&#34;, [])</code></pre>
 </details>
 </dd>
 <dt id="test_high_score.TestHighScore.test_view_high_scores_wrong_type"><code class="name flex">
 <span>def <span class="ident">test_view_high_scores_wrong_type</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments
-is entered.</p></div>
+<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments is entered.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_view_high_scores_wrong_type(self):
-    &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
-        is entered.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        hs.view_high_scores(&#34;hi&#34;)</code></pre>
+<pre><code class="python">    def test_view_high_scores_wrong_type(self):
+        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+is entered.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            hs.view_high_scores(&#34;hi&#34;)</code></pre>
 </details>
 </dd>
 </dl>

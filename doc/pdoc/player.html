@@ -41,7 +41,7 @@ fh = FileHandling()
 
 class Player:
     &#34;&#34;&#34;This class represents the players. it is responsible for updating, \
-        settting, and deleting names, and also setting scores.&#34;&#34;&#34;
+setting, and deleting names, and also setting scores.&#34;&#34;&#34;
 
     names = fh.read_name_files(&#34;Pig/text_name_file.txt&#34;)
     current_names = [&#34;&#34;, &#34;&#34;]
@@ -57,7 +57,7 @@ class Player:
 
     def update_name(self, old_name: str, new_name: str):
         &#34;&#34;&#34;Take two parameters, old_name: str and new_name: str and update \
-            the name.&#34;&#34;&#34;
+the name.&#34;&#34;&#34;
         if not isinstance(old_name, str) or not isinstance(new_name, str):
             raise TypeError(&#34;old_name and new_name has to be strings&#34;)
         for index, item in enumerate(self.names):
@@ -84,7 +84,7 @@ class Player:
 
     def add_current_names(self, name1: str, name2: str):
         &#34;&#34;&#34;Take two parameters, name1: str and name2: str and add them to \
-            list of names.&#34;&#34;&#34;
+list of names.&#34;&#34;&#34;
         if not isinstance(name1, str) or not isinstance(name2, str):
             raise TypeError(&#34;both names has to be string&#34;)
         self.current_names[0] = name1
@@ -113,15 +113,14 @@ class Player:
 <span>class <span class="ident">Player</span></span>
 </code></dt>
 <dd>
-<div class="desc"><p>This class represents the players. it is responsible for updating,
-settting, and deleting names, and also setting scores.</p></div>
+<div class="desc"><p>This class represents the players. it is responsible for updating, setting, and deleting names, and also setting scores.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Player:
     &#34;&#34;&#34;This class represents the players. it is responsible for updating, \
-        settting, and deleting names, and also setting scores.&#34;&#34;&#34;
+setting, and deleting names, and also setting scores.&#34;&#34;&#34;
 
     names = fh.read_name_files(&#34;Pig/text_name_file.txt&#34;)
     current_names = [&#34;&#34;, &#34;&#34;]
@@ -137,7 +136,7 @@ settting, and deleting names, and also setting scores.</p></div>
 
     def update_name(self, old_name: str, new_name: str):
         &#34;&#34;&#34;Take two parameters, old_name: str and new_name: str and update \
-            the name.&#34;&#34;&#34;
+the name.&#34;&#34;&#34;
         if not isinstance(old_name, str) or not isinstance(new_name, str):
             raise TypeError(&#34;old_name and new_name has to be strings&#34;)
         for index, item in enumerate(self.names):
@@ -164,7 +163,7 @@ settting, and deleting names, and also setting scores.</p></div>
 
     def add_current_names(self, name1: str, name2: str):
         &#34;&#34;&#34;Take two parameters, name1: str and name2: str and add them to \
-            list of names.&#34;&#34;&#34;
+list of names.&#34;&#34;&#34;
         if not isinstance(name1, str) or not isinstance(name2, str):
             raise TypeError(&#34;both names has to be string&#34;)
         self.current_names[0] = name1
@@ -200,20 +199,19 @@ settting, and deleting names, and also setting scores.</p></div>
 <span>def <span class="ident">add_current_names</span></span>(<span>self, name1: str, name2: str)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take two parameters, name1: str and name2: str and add them to
-list of names.</p></div>
+<div class="desc"><p>Take two parameters, name1: str and name2: str and add them to list of names.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def add_current_names(self, name1: str, name2: str):
-    &#34;&#34;&#34;Take two parameters, name1: str and name2: str and add them to \
-        list of names.&#34;&#34;&#34;
-    if not isinstance(name1, str) or not isinstance(name2, str):
-        raise TypeError(&#34;both names has to be string&#34;)
-    self.current_names[0] = name1
-    self.current_names[1] = name2
-    return self.current_names[0]</code></pre>
+<pre><code class="python">    def add_current_names(self, name1: str, name2: str):
+        &#34;&#34;&#34;Take two parameters, name1: str and name2: str and add them to \
+list of names.&#34;&#34;&#34;
+        if not isinstance(name1, str) or not isinstance(name2, str):
+            raise TypeError(&#34;both names has to be string&#34;)
+        self.current_names[0] = name1
+        self.current_names[1] = name2
+        return self.current_names[0]</code></pre>
 </details>
 </dd>
 <dt id="player.Player.delete_name"><code class="name flex">
@@ -313,21 +311,20 @@ list of names.</p></div>
 <span>def <span class="ident">update_name</span></span>(<span>self, old_name: str, new_name: str)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take two parameters, old_name: str and new_name: str and update
-the name.</p></div>
+<div class="desc"><p>Take two parameters, old_name: str and new_name: str and update the name.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def update_name(self, old_name: str, new_name: str):
-    &#34;&#34;&#34;Take two parameters, old_name: str and new_name: str and update \
-        the name.&#34;&#34;&#34;
-    if not isinstance(old_name, str) or not isinstance(new_name, str):
-        raise TypeError(&#34;old_name and new_name has to be strings&#34;)
-    for index, item in enumerate(self.names):
-        if item == old_name:
-            self.names[index] = new_name
-    fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, self.names)</code></pre>
+<pre><code class="python">    def update_name(self, old_name: str, new_name: str):
+        &#34;&#34;&#34;Take two parameters, old_name: str and new_name: str and update \
+the name.&#34;&#34;&#34;
+        if not isinstance(old_name, str) or not isinstance(new_name, str):
+            raise TypeError(&#34;old_name and new_name has to be strings&#34;)
+        for index, item in enumerate(self.names):
+            if item == old_name:
+                self.names[index] = new_name
+        fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, self.names)</code></pre>
 </details>
 </dd>
 </dl>

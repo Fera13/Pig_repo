@@ -44,32 +44,44 @@ class TestFileHandling(unittest.TestCase):
     &#34;&#34;&#34;Testing the FileHandling class.&#34;&#34;&#34;
 
     def test_read_name_files(self):
-        &#34;&#34;&#34;Testing the readNameFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the readNameFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.read_name_files(2)
 
     def test_read_dic_files(self):
-        &#34;&#34;&#34;Testing the readDicFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the readDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.read_dic_files(3)
 
     def test_write_name_files(self):
-        &#34;&#34;&#34;Testing the writeNameFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the writeNameFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, 3)
         with self.assertRaises(ValueError):
             fh.write_name_files(8, [&#34;Kalle&#34;, &#34;Anna&#34;])
 
     def test_write_dic_files(self):
-        &#34;&#34;&#34;Testing the writeDicFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.write_dic_files(4, {&#34;Kalle&#34;: 7})
         with self.assertRaises(ValueError):
-            fh.write_dic_files(&#34;Pig/text_name_file.txt&#34;, 7)
+            fh.write_dic_files(&#34;Pig/text_high_score.txt&#34;, 7)
+
+    def test_write_dic_files_true(self):
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        self.assertEqual(fh.write_dic_files(&#34;Pig/text_high_score.txt&#34;,
+                                            {&#34;Kalle&#34;: 2}), True)
+
+    def test_write_name_files_true(self):
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        self.assertEqual(fh.write_name_files(&#34;Pig/text_name_file.txt&#34;,
+                                             [&#34;Kalle&#34;, &#34;Peter&#34;]), True)
 
 
 if __name__ == &#34;__main__&#34;:
@@ -102,32 +114,44 @@ not have a method with the specified name.</p></div>
     &#34;&#34;&#34;Testing the FileHandling class.&#34;&#34;&#34;
 
     def test_read_name_files(self):
-        &#34;&#34;&#34;Testing the readNameFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the readNameFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.read_name_files(2)
 
     def test_read_dic_files(self):
-        &#34;&#34;&#34;Testing the readDicFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the readDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.read_dic_files(3)
 
     def test_write_name_files(self):
-        &#34;&#34;&#34;Testing the writeNameFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the writeNameFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, 3)
         with self.assertRaises(ValueError):
             fh.write_name_files(8, [&#34;Kalle&#34;, &#34;Anna&#34;])
 
     def test_write_dic_files(self):
-        &#34;&#34;&#34;Testing the writeDicFiles method\
-        Checking if a ValueError is raised.&#34;&#34;&#34;
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             fh.write_dic_files(4, {&#34;Kalle&#34;: 7})
         with self.assertRaises(ValueError):
-            fh.write_dic_files(&#34;Pig/text_name_file.txt&#34;, 7)</code></pre>
+            fh.write_dic_files(&#34;Pig/text_high_score.txt&#34;, 7)
+
+    def test_write_dic_files_true(self):
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        self.assertEqual(fh.write_dic_files(&#34;Pig/text_high_score.txt&#34;,
+                                            {&#34;Kalle&#34;: 2}), True)
+
+    def test_write_name_files_true(self):
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        self.assertEqual(fh.write_name_files(&#34;Pig/text_name_file.txt&#34;,
+                                             [&#34;Kalle&#34;, &#34;Peter&#34;]), True)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -139,72 +163,100 @@ not have a method with the specified name.</p></div>
 <span>def <span class="ident">test_read_dic_files</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Testing the readDicFiles method
-Checking if a ValueError is raised.</p></div>
+<div class="desc"><p>Testing the readDicFiles method Checking if a ValueError is raised.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_read_dic_files(self):
-    &#34;&#34;&#34;Testing the readDicFiles method\
-    Checking if a ValueError is raised.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        fh.read_dic_files(3)</code></pre>
+<pre><code class="python">    def test_read_dic_files(self):
+        &#34;&#34;&#34;Testing the readDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            fh.read_dic_files(3)</code></pre>
 </details>
 </dd>
 <dt id="test_file_handling.TestFileHandling.test_read_name_files"><code class="name flex">
 <span>def <span class="ident">test_read_name_files</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Testing the readNameFiles method
-Checking if a ValueError is raised.</p></div>
+<div class="desc"><p>Testing the readNameFiles method Checking if a ValueError is raised.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_read_name_files(self):
-    &#34;&#34;&#34;Testing the readNameFiles method\
-    Checking if a ValueError is raised.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        fh.read_name_files(2)</code></pre>
+<pre><code class="python">    def test_read_name_files(self):
+        &#34;&#34;&#34;Testing the readNameFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            fh.read_name_files(2)</code></pre>
 </details>
 </dd>
 <dt id="test_file_handling.TestFileHandling.test_write_dic_files"><code class="name flex">
 <span>def <span class="ident">test_write_dic_files</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Testing the writeDicFiles method
-Checking if a ValueError is raised.</p></div>
+<div class="desc"><p>Testing the writeDicFiles method Checking if a ValueError is raised.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_write_dic_files(self):
-    &#34;&#34;&#34;Testing the writeDicFiles method\
-    Checking if a ValueError is raised.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        fh.write_dic_files(4, {&#34;Kalle&#34;: 7})
-    with self.assertRaises(ValueError):
-        fh.write_dic_files(&#34;Pig/text_name_file.txt&#34;, 7)</code></pre>
+<pre><code class="python">    def test_write_dic_files(self):
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            fh.write_dic_files(4, {&#34;Kalle&#34;: 7})
+        with self.assertRaises(ValueError):
+            fh.write_dic_files(&#34;Pig/text_high_score.txt&#34;, 7)</code></pre>
+</details>
+</dd>
+<dt id="test_file_handling.TestFileHandling.test_write_dic_files_true"><code class="name flex">
+<span>def <span class="ident">test_write_dic_files_true</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Testing the writeDicFiles method Checking if a ValueError is raised.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def test_write_dic_files_true(self):
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        self.assertEqual(fh.write_dic_files(&#34;Pig/text_high_score.txt&#34;,
+                                            {&#34;Kalle&#34;: 2}), True)</code></pre>
 </details>
 </dd>
 <dt id="test_file_handling.TestFileHandling.test_write_name_files"><code class="name flex">
 <span>def <span class="ident">test_write_name_files</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Testing the writeNameFiles method
-Checking if a ValueError is raised.</p></div>
+<div class="desc"><p>Testing the writeNameFiles method Checking if a ValueError is raised.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def test_write_name_files(self):
-    &#34;&#34;&#34;Testing the writeNameFiles method\
-    Checking if a ValueError is raised.&#34;&#34;&#34;
-    with self.assertRaises(ValueError):
-        fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, 3)
-    with self.assertRaises(ValueError):
-        fh.write_name_files(8, [&#34;Kalle&#34;, &#34;Anna&#34;])</code></pre>
+<pre><code class="python">    def test_write_name_files(self):
+        &#34;&#34;&#34;Testing the writeNameFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        with self.assertRaises(ValueError):
+            fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, 3)
+        with self.assertRaises(ValueError):
+            fh.write_name_files(8, [&#34;Kalle&#34;, &#34;Anna&#34;])</code></pre>
+</details>
+</dd>
+<dt id="test_file_handling.TestFileHandling.test_write_name_files_true"><code class="name flex">
+<span>def <span class="ident">test_write_name_files_true</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Testing the writeDicFiles method Checking if a ValueError is raised.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def test_write_name_files_true(self):
+        &#34;&#34;&#34;Testing the writeDicFiles method \
+Checking if a ValueError is raised.&#34;&#34;&#34;
+        self.assertEqual(fh.write_name_files(&#34;Pig/text_name_file.txt&#34;,
+                                             [&#34;Kalle&#34;, &#34;Peter&#34;]), True)</code></pre>
 </details>
 </dd>
 </dl>
@@ -226,7 +278,9 @@ Checking if a ValueError is raised.</p></div>
 <li><code><a title="test_file_handling.TestFileHandling.test_read_dic_files" href="#test_file_handling.TestFileHandling.test_read_dic_files">test_read_dic_files</a></code></li>
 <li><code><a title="test_file_handling.TestFileHandling.test_read_name_files" href="#test_file_handling.TestFileHandling.test_read_name_files">test_read_name_files</a></code></li>
 <li><code><a title="test_file_handling.TestFileHandling.test_write_dic_files" href="#test_file_handling.TestFileHandling.test_write_dic_files">test_write_dic_files</a></code></li>
+<li><code><a title="test_file_handling.TestFileHandling.test_write_dic_files_true" href="#test_file_handling.TestFileHandling.test_write_dic_files_true">test_write_dic_files_true</a></code></li>
 <li><code><a title="test_file_handling.TestFileHandling.test_write_name_files" href="#test_file_handling.TestFileHandling.test_write_name_files">test_write_name_files</a></code></li>
+<li><code><a title="test_file_handling.TestFileHandling.test_write_name_files_true" href="#test_file_handling.TestFileHandling.test_write_name_files_true">test_write_name_files_true</a></code></li>
 </ul>
 </li>
 </ul>
