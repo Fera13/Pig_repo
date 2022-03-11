@@ -1,10 +1,2 @@
-Farah
-1
-Farah
-3
-Kalle
-4
-Kalle
-6
-Milo
-44
+Developer
+9001

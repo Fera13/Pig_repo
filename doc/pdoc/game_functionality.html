@@ -90,7 +90,7 @@ connect to the right methods.&#34;&#34;&#34;
             self.restart()
         elif choice == 5:
             hs_dic = {}
-            hs_dic = hs.get_high_score_dic()
+            hs_dic = hs.get_high_score_list()
             hs.view_high_scores(hs_dic)
             input(
                 &#34;\nWhen you are done reading the high scores press any \
@@ -104,8 +104,10 @@ button to go back: &#34;
 to go back: &#34;
             )
             self.restart()
-        else:
+        elif choice == 7:
             quit()
+        else:
+            return 1
 
     def start_setup(self):
         &#34;&#34;&#34;Do the necessary resetings of values before each game.&#34;&#34;&#34;
@@ -114,6 +116,7 @@ to go back: &#34;
         dise.reset_totals()
         dise.reset_round_num()
         playr.reset_current_scores()
+        return True
 
     def enter_names2p(self):
         &#34;&#34;&#34;Ask for players names, add the names in the names list and the \
@@ -133,6 +136,7 @@ the list, enter it): &#34;
         names2 = playr.get_names()
         fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, names2)
         playr.add_current_names(name, name2)
+        return None
 
     def start_game2p(self):
         &#34;&#34;&#34;Start the game for 2 players in a loop that would check if there \
@@ -183,6 +187,7 @@ enter it): &#34;
         names2 = playr.get_names()
         fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, names2)
         playr.add_current_names(name, ai_name)
+        return None
 
     def ask_for_rolls(self):
         &#34;&#34;&#34;Ask the player for the number of rolls \
@@ -253,11 +258,13 @@ dificulty choosen.&#34;&#34;&#34;
             &#34;\nYou just had to cheat, didn&#39;t you :(\nAnyway, your score has \
 now been set to 99\n&#34;
         )
+        return None
 
     def restart(self):
         &#34;&#34;&#34;Take you back to the main menu no matter where you are.&#34;&#34;&#34;
         choice = disp.game_menu()
-        self.handle_menu_choice(choice)</code></pre>
+        self.handle_menu_choice(choice)
+        return None</code></pre>
 </details>
 </section>
 <section>
@@ -320,7 +327,7 @@ connect to the right methods.&#34;&#34;&#34;
             self.restart()
         elif choice == 5:
             hs_dic = {}
-            hs_dic = hs.get_high_score_dic()
+            hs_dic = hs.get_high_score_list()
             hs.view_high_scores(hs_dic)
             input(
                 &#34;\nWhen you are done reading the high scores press any \
@@ -334,8 +341,10 @@ button to go back: &#34;
 to go back: &#34;
             )
             self.restart()
-        else:
+        elif choice == 7:
             quit()
+        else:
+            return 1
 
     def start_setup(self):
         &#34;&#34;&#34;Do the necessary resetings of values before each game.&#34;&#34;&#34;
@@ -344,6 +353,7 @@ to go back: &#34;
         dise.reset_totals()
         dise.reset_round_num()
         playr.reset_current_scores()
+        return True
 
     def enter_names2p(self):
         &#34;&#34;&#34;Ask for players names, add the names in the names list and the \
@@ -363,6 +373,7 @@ the list, enter it): &#34;
         names2 = playr.get_names()
         fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, names2)
         playr.add_current_names(name, name2)
+        return None
 
     def start_game2p(self):
         &#34;&#34;&#34;Start the game for 2 players in a loop that would check if there \
@@ -413,6 +424,7 @@ enter it): &#34;
         names2 = playr.get_names()
         fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, names2)
         playr.add_current_names(name, ai_name)
+        return None
 
     def ask_for_rolls(self):
         &#34;&#34;&#34;Ask the player for the number of rolls \
@@ -483,11 +495,13 @@ dificulty choosen.&#34;&#34;&#34;
             &#34;\nYou just had to cheat, didn&#39;t you :(\nAnyway, your score has \
 now been set to 99\n&#34;
         )
+        return None
 
     def restart(self):
         &#34;&#34;&#34;Take you back to the main menu no matter where you are.&#34;&#34;&#34;
         choice = disp.game_menu()
-        self.handle_menu_choice(choice)</code></pre>
+        self.handle_menu_choice(choice)
+        return None</code></pre>
 </details>
 <h3>Class variables</h3>
 <dl>
@@ -613,7 +627,8 @@ right?&#34;
         print(
             &#34;\nYou just had to cheat, didn&#39;t you :(\nAnyway, your score has \
 now been set to 99\n&#34;
-        )</code></pre>
+        )
+        return None</code></pre>
 </details>
 </dd>
 <dt id="game_functionality.GameFunctionality.enter_names1p"><code class="name flex">
@@ -638,7 +653,8 @@ enter it): &#34;
         ai_name = intel.name_of_ai()
         names2 = playr.get_names()
         fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, names2)
-        playr.add_current_names(name, ai_name)</code></pre>
+        playr.add_current_names(name, ai_name)
+        return None</code></pre>
 </details>
 </dd>
 <dt id="game_functionality.GameFunctionality.enter_names2p"><code class="name flex">
@@ -667,7 +683,8 @@ the list, enter it): &#34;
         playr.set_name(name2.capitalize())
         names2 = playr.get_names()
         fh.write_name_files(&#34;Pig/text_name_file.txt&#34;, names2)
-        playr.add_current_names(name, name2)</code></pre>
+        playr.add_current_names(name, name2)
+        return None</code></pre>
 </details>
 </dd>
 <dt id="game_functionality.GameFunctionality.handle_menu_choice"><code class="name flex">
@@ -713,7 +730,7 @@ connect to the right methods.&#34;&#34;&#34;
             self.restart()
         elif choice == 5:
             hs_dic = {}
-            hs_dic = hs.get_high_score_dic()
+            hs_dic = hs.get_high_score_list()
             hs.view_high_scores(hs_dic)
             input(
                 &#34;\nWhen you are done reading the high scores press any \
@@ -727,8 +744,10 @@ button to go back: &#34;
 to go back: &#34;
             )
             self.restart()
+        elif choice == 7:
+            quit()
         else:
-            quit()</code></pre>
+            return 1</code></pre>
 </details>
 </dd>
 <dt id="game_functionality.GameFunctionality.restart"><code class="name flex">
@@ -743,7 +762,8 @@ to go back: &#34;
 <pre><code class="python">def restart(self):
     &#34;&#34;&#34;Take you back to the main menu no matter where you are.&#34;&#34;&#34;
     choice = disp.game_menu()
-    self.handle_menu_choice(choice)</code></pre>
+    self.handle_menu_choice(choice)
+    return None</code></pre>
 </details>
 </dd>
 <dt id="game_functionality.GameFunctionality.start_game1p"><code class="name flex">
@@ -816,7 +836,8 @@ are winners so it can display the end screen.&#34;&#34;&#34;
     disp.view_prog(player_names[0], 0, player_names[1], 0)
     dise.reset_totals()
     dise.reset_round_num()
-    playr.reset_current_scores()</code></pre>
+    playr.reset_current_scores()
+    return True</code></pre>
 </details>
 </dd>
 </dl>

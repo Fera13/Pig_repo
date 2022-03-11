@@ -37,7 +37,7 @@ from file_handling import FileHandling
 
 
 fh = FileHandling()
-high_score_list = []
+high_score_list = fh.read_hs_file(&#34;Pig/text_high_score.txt&#34;)
 
 
 class HighScore:
@@ -45,7 +45,8 @@ class HighScore:
 
     def get_high_score_list(self):
         &#34;&#34;&#34;Return the current high score list.&#34;&#34;&#34;
-        return high_score_list
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+        return sorted_list
 
     def view_high_scores(self, high_score_list: list[list[str, int]]):
         &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
@@ -53,17 +54,18 @@ class HighScore:
             raise ValueError(
                 &#34;Please enter a list of lists with names and scores&#34;
             )
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
         order = 1
         ind = 0
         h = 0
         print(&#34;High scores:\n&#34;)
-        while ind &lt; len(high_score_list):
-            name = high_score_list[h][0]
-            score = high_score_list[h][1]
+        while ind &lt; len(sorted_list):
+            name = sorted_list[h][0]
+            score = sorted_list[h][1]
             ind += 1
-            order += 1
             h += 1
             print(f&#34;{order}. {name:30} Score: {score}&#34;)
+            order += 1
         return True
 
     def update_high_score(self, old_name: str, new_name: str):
@@ -77,7 +79,8 @@ class HighScore:
             for value in lis:
                 if lis[0] == old_name:
                     lis[0] = new_name
-        return high_score_list
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+        return sorted_list
 
     def add_compare_high_scores(self, name: str, score: int):
         &#34;&#34;&#34;Take name and score of winner, check if new high score.&#34;&#34;&#34;
@@ -93,13 +96,15 @@ class HighScore:
             high_score_list.append(small_list)
             sorted_list = sorted(high_score_list, key=lambda x: x[1])
             return sorted_list
-        sorted_list = sorted(high_score_list, key=lambda x: x[1], reverse=True)
-        for lis in sorted_list:
+        sorted_lis1 = sorted(high_score_list, key=lambda x: x[1], reverse=True)
+        for lis in sorted_lis1:
             for value in lis:
                 if lis[1] &gt; score:
                     lis[0] = name
                     lis[1] = score
-        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+                break
+            break
+        sorted_list = sorted(sorted_lis1, key=lambda x: x[1])
         return sorted_list</code></pre>
 </details>
 </section>
@@ -126,7 +131,8 @@ class HighScore:
 
     def get_high_score_list(self):
         &#34;&#34;&#34;Return the current high score list.&#34;&#34;&#34;
-        return high_score_list
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+        return sorted_list
 
     def view_high_scores(self, high_score_list: list[list[str, int]]):
         &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
@@ -134,17 +140,18 @@ class HighScore:
             raise ValueError(
                 &#34;Please enter a list of lists with names and scores&#34;
             )
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
         order = 1
         ind = 0
         h = 0
         print(&#34;High scores:\n&#34;)
-        while ind &lt; len(high_score_list):
-            name = high_score_list[h][0]
-            score = high_score_list[h][1]
+        while ind &lt; len(sorted_list):
+            name = sorted_list[h][0]
+            score = sorted_list[h][1]
             ind += 1
-            order += 1
             h += 1
             print(f&#34;{order}. {name:30} Score: {score}&#34;)
+            order += 1
         return True
 
     def update_high_score(self, old_name: str, new_name: str):
@@ -158,7 +165,8 @@ class HighScore:
             for value in lis:
                 if lis[0] == old_name:
                     lis[0] = new_name
-        return high_score_list
+        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+        return sorted_list
 
     def add_compare_high_scores(self, name: str, score: int):
         &#34;&#34;&#34;Take name and score of winner, check if new high score.&#34;&#34;&#34;
@@ -174,13 +182,15 @@ class HighScore:
             high_score_list.append(small_list)
             sorted_list = sorted(high_score_list, key=lambda x: x[1])
             return sorted_list
-        sorted_list = sorted(high_score_list, key=lambda x: x[1], reverse=True)
-        for lis in sorted_list:
+        sorted_lis1 = sorted(high_score_list, key=lambda x: x[1], reverse=True)
+        for lis in sorted_lis1:
             for value in lis:
                 if lis[1] &gt; score:
                     lis[0] = name
                     lis[1] = score
-        sorted_list = sorted(high_score_list, key=lambda x: x[1])
+                break
+            break
+        sorted_list = sorted(sorted_lis1, key=lambda x: x[1])
         return sorted_list</code></pre>
 </details>
 <h3>Methods</h3>
@@ -208,13 +218,15 @@ class HighScore:
         high_score_list.append(small_list)
         sorted_list = sorted(high_score_list, key=lambda x: x[1])
         return sorted_list
-    sorted_list = sorted(high_score_list, key=lambda x: x[1], reverse=True)
-    for lis in sorted_list:
+    sorted_lis1 = sorted(high_score_list, key=lambda x: x[1], reverse=True)
+    for lis in sorted_lis1:
         for value in lis:
             if lis[1] &gt; score:
                 lis[0] = name
                 lis[1] = score
-    sorted_list = sorted(high_score_list, key=lambda x: x[1])
+            break
+        break
+    sorted_list = sorted(sorted_lis1, key=lambda x: x[1])
     return sorted_list</code></pre>
 </details>
 </dd>
@@ -229,7 +241,8 @@ class HighScore:
 </summary>
 <pre><code class="python">def get_high_score_list(self):
     &#34;&#34;&#34;Return the current high score list.&#34;&#34;&#34;
-    return high_score_list</code></pre>
+    sorted_list = sorted(high_score_list, key=lambda x: x[1])
+    return sorted_list</code></pre>
 </details>
 </dd>
 <dt id="high_score.HighScore.update_high_score"><code class="name flex">
@@ -252,7 +265,8 @@ class HighScore:
         for value in lis:
             if lis[0] == old_name:
                 lis[0] = new_name
-    return high_score_list</code></pre>
+    sorted_list = sorted(high_score_list, key=lambda x: x[1])
+    return sorted_list</code></pre>
 </details>
 </dd>
 <dt id="high_score.HighScore.view_high_scores"><code class="name flex">
@@ -270,17 +284,18 @@ class HighScore:
         raise ValueError(
             &#34;Please enter a list of lists with names and scores&#34;
         )
+    sorted_list = sorted(high_score_list, key=lambda x: x[1])
     order = 1
     ind = 0
     h = 0
     print(&#34;High scores:\n&#34;)
-    while ind &lt; len(high_score_list):
-        name = high_score_list[h][0]
-        score = high_score_list[h][1]
+    while ind &lt; len(sorted_list):
+        name = sorted_list[h][0]
+        score = sorted_list[h][1]
         ind += 1
-        order += 1
         h += 1
         print(f&#34;{order}. {name:30} Score: {score}&#34;)
+        order += 1
     return True</code></pre>
 </details>
 </dd>

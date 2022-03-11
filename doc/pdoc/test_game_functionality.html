@@ -40,13 +40,33 @@ gf = GameFunctionality()
 
 
 class TestGameFunctionality(unittest.TestCase):
-    &#34;&#34;&#34;Tests the game functionality class.&#34;&#34;&#34;
+    &#34;&#34;&#34;Test the game functionality class.&#34;&#34;&#34;
 
     def test_handle_menu_choice_wrong_value(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+        &#34;&#34;&#34;Test that an error will be raised if the wrong type of arguments \
 is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             gf.handle_menu_choice(&#34;hi&#34;)
+
+    def test_handle_menu_choice(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertEqual(gf.handle_menu_choice(8), 1)
+
+    def test_start_setup(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertTrue(gf.start_setup(), True)
+
+    def test_enter_names2p(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertIsNone(gf.enter_names2p(), None)
+
+    def test_enter_names1p(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertIsNone(gf.enter_names1p(), None)
+
+    def test_cheat(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertIsNone(gf.cheat(), None)
 
 
 if __name__ == &#34;__main__&#34;:
@@ -67,7 +87,7 @@ if __name__ == &#34;__main__&#34;:
 <span>(</span><span>methodName='runTest')</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests the game functionality class.</p>
+<div class="desc"><p>Test the game functionality class.</p>
 <p>Create an instance of the class that will use the named test
 method when executed. Raises a ValueError if the instance does
 not have a method with the specified name.</p></div>
@@ -76,13 +96,33 @@ not have a method with the specified name.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class TestGameFunctionality(unittest.TestCase):
-    &#34;&#34;&#34;Tests the game functionality class.&#34;&#34;&#34;
+    &#34;&#34;&#34;Test the game functionality class.&#34;&#34;&#34;
 
     def test_handle_menu_choice_wrong_value(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+        &#34;&#34;&#34;Test that an error will be raised if the wrong type of arguments \
 is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
-            gf.handle_menu_choice(&#34;hi&#34;)</code></pre>
+            gf.handle_menu_choice(&#34;hi&#34;)
+
+    def test_handle_menu_choice(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertEqual(gf.handle_menu_choice(8), 1)
+
+    def test_start_setup(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertTrue(gf.start_setup(), True)
+
+    def test_enter_names2p(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertIsNone(gf.enter_names2p(), None)
+
+    def test_enter_names1p(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertIsNone(gf.enter_names1p(), None)
+
+    def test_cheat(self):
+        &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+        self.assertIsNone(gf.cheat(), None)</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -90,20 +130,90 @@ is entered.&#34;&#34;&#34;
 </ul>
 <h3>Methods</h3>
 <dl>
+<dt id="test_game_functionality.TestGameFunctionality.test_cheat"><code class="name flex">
+<span>def <span class="ident">test_cheat</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that everything is ok with the method.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_cheat(self):
+    &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+    self.assertIsNone(gf.cheat(), None)</code></pre>
+</details>
+</dd>
+<dt id="test_game_functionality.TestGameFunctionality.test_enter_names1p"><code class="name flex">
+<span>def <span class="ident">test_enter_names1p</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that everything is ok with the method.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_enter_names1p(self):
+    &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+    self.assertIsNone(gf.enter_names1p(), None)</code></pre>
+</details>
+</dd>
+<dt id="test_game_functionality.TestGameFunctionality.test_enter_names2p"><code class="name flex">
+<span>def <span class="ident">test_enter_names2p</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that everything is ok with the method.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_enter_names2p(self):
+    &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+    self.assertIsNone(gf.enter_names2p(), None)</code></pre>
+</details>
+</dd>
+<dt id="test_game_functionality.TestGameFunctionality.test_handle_menu_choice"><code class="name flex">
+<span>def <span class="ident">test_handle_menu_choice</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that everything is ok with the method.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_handle_menu_choice(self):
+    &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+    self.assertEqual(gf.handle_menu_choice(8), 1)</code></pre>
+</details>
+</dd>
 <dt id="test_game_functionality.TestGameFunctionality.test_handle_menu_choice_wrong_value"><code class="name flex">
 <span>def <span class="ident">test_handle_menu_choice_wrong_value</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Tests that an error will be raised if the wrong type of arguments is entered.</p></div>
+<div class="desc"><p>Test that an error will be raised if the wrong type of arguments is entered.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">    def test_handle_menu_choice_wrong_value(self):
-        &#34;&#34;&#34;Tests that an error will be raised if the wrong type of arguments \
+        &#34;&#34;&#34;Test that an error will be raised if the wrong type of arguments \
 is entered.&#34;&#34;&#34;
         with self.assertRaises(ValueError):
             gf.handle_menu_choice(&#34;hi&#34;)</code></pre>
+</details>
+</dd>
+<dt id="test_game_functionality.TestGameFunctionality.test_start_setup"><code class="name flex">
+<span>def <span class="ident">test_start_setup</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Test that everything is ok with the method.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_start_setup(self):
+    &#34;&#34;&#34;Test that everything is ok with the method.&#34;&#34;&#34;
+    self.assertTrue(gf.start_setup(), True)</code></pre>
 </details>
 </dd>
 </dl>
@@ -122,7 +232,12 @@ is entered.&#34;&#34;&#34;
 <li>
 <h4><code><a title="test_game_functionality.TestGameFunctionality" href="#test_game_functionality.TestGameFunctionality">TestGameFunctionality</a></code></h4>
 <ul class="">
+<li><code><a title="test_game_functionality.TestGameFunctionality.test_cheat" href="#test_game_functionality.TestGameFunctionality.test_cheat">test_cheat</a></code></li>
+<li><code><a title="test_game_functionality.TestGameFunctionality.test_enter_names1p" href="#test_game_functionality.TestGameFunctionality.test_enter_names1p">test_enter_names1p</a></code></li>
+<li><code><a title="test_game_functionality.TestGameFunctionality.test_enter_names2p" href="#test_game_functionality.TestGameFunctionality.test_enter_names2p">test_enter_names2p</a></code></li>
+<li><code><a title="test_game_functionality.TestGameFunctionality.test_handle_menu_choice" href="#test_game_functionality.TestGameFunctionality.test_handle_menu_choice">test_handle_menu_choice</a></code></li>
 <li><code><a title="test_game_functionality.TestGameFunctionality.test_handle_menu_choice_wrong_value" href="#test_game_functionality.TestGameFunctionality.test_handle_menu_choice_wrong_value">test_handle_menu_choice_wrong_value</a></code></li>
+<li><code><a title="test_game_functionality.TestGameFunctionality.test_start_setup" href="#test_game_functionality.TestGameFunctionality.test_start_setup">test_start_setup</a></code></li>
 </ul>
 </li>
 </ul>

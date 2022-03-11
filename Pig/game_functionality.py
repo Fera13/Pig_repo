@@ -74,8 +74,10 @@ button to go back: "
 to go back: "
             )
             self.restart()
-        else:
+        elif choice == 7:
             quit()
+        else:
+            return 1
 
     def start_setup(self):
         """Do the necessary resetings of values before each game."""
@@ -84,6 +86,7 @@ to go back: "
         dise.reset_totals()
         dise.reset_round_num()
         playr.reset_current_scores()
+        return True
 
     def enter_names2p(self):
         """Ask for players names, add the names in the names list and the \
@@ -103,6 +106,7 @@ the list, enter it): "
         names2 = playr.get_names()
         fh.write_name_files("Pig/text_name_file.txt", names2)
         playr.add_current_names(name, name2)
+        return None
 
     def start_game2p(self):
         """Start the game for 2 players in a loop that would check if there \
@@ -153,6 +157,7 @@ enter it): "
         names2 = playr.get_names()
         fh.write_name_files("Pig/text_name_file.txt", names2)
         playr.add_current_names(name, ai_name)
+        return None
 
     def ask_for_rolls(self):
         """Ask the player for the number of rolls \
@@ -223,8 +228,10 @@ dificulty choosen."""
             "\nYou just had to cheat, didn't you :(\nAnyway, your score has \
 now been set to 99\n"
         )
+        return None
 
     def restart(self):
         """Take you back to the main menu no matter where you are."""
         choice = disp.game_menu()
         self.handle_menu_choice(choice)
+        return None

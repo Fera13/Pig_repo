@@ -63,7 +63,8 @@ class FileHandling:
             score = reading.readline().rstrip(&#34;\n&#34;)
             small_list.append(int(score))
             high_scores.append(small_list)
-            return high_scores
+        sorted_list = sorted(high_scores, key=lambda x: x[1])
+        return sorted_list
 
     def write_hs_files(self, file_name: str,
                        high_scores: list[list[str, int]]):
@@ -136,7 +137,8 @@ class FileHandling:
             score = reading.readline().rstrip(&#34;\n&#34;)
             small_list.append(int(score))
             high_scores.append(small_list)
-            return high_scores
+        sorted_list = sorted(high_scores, key=lambda x: x[1])
+        return sorted_list
 
     def write_hs_files(self, file_name: str,
                        high_scores: list[list[str, int]]):
@@ -186,7 +188,8 @@ return a list with the content.</p></div>
         score = reading.readline().rstrip(&#34;\n&#34;)
         small_list.append(int(score))
         high_scores.append(small_list)
-        return high_scores</code></pre>
+    sorted_list = sorted(high_scores, key=lambda x: x[1])
+    return sorted_list</code></pre>
 </details>
 </dd>
 <dt id="file_handling.FileHandling.read_name_files"><code class="name flex">
