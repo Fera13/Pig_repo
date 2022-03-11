@@ -49,8 +49,6 @@ class TestPlayer(unittest.TestCase):
     def test_set_name_duplicates(self):
         &#34;&#34;&#34;Testing if you can add duplicate names.&#34;&#34;&#34;
         self.assertEqual(player.set_name(&#34;name1&#34;), LENGTH + 1)
-        self.assertEqual(player.set_name(&#34;name2&#34;), LENGTH + 2)
-        self.assertEqual(player.set_name(&#34;name3&#34;), LENGTH + 3)
 
     def test_update_name_wrong_type(self):
         &#34;&#34;&#34;Testing for wrong type entered.&#34;&#34;&#34;
@@ -106,8 +104,6 @@ not have a method with the specified name.</p></div>
     def test_set_name_duplicates(self):
         &#34;&#34;&#34;Testing if you can add duplicate names.&#34;&#34;&#34;
         self.assertEqual(player.set_name(&#34;name1&#34;), LENGTH + 1)
-        self.assertEqual(player.set_name(&#34;name2&#34;), LENGTH + 2)
-        self.assertEqual(player.set_name(&#34;name3&#34;), LENGTH + 3)
 
     def test_update_name_wrong_type(self):
         &#34;&#34;&#34;Testing for wrong type entered.&#34;&#34;&#34;
@@ -193,9 +189,7 @@ not have a method with the specified name.</p></div>
 </summary>
 <pre><code class="python">def test_set_name_duplicates(self):
     &#34;&#34;&#34;Testing if you can add duplicate names.&#34;&#34;&#34;
-    self.assertEqual(player.set_name(&#34;name1&#34;), LENGTH + 1)
-    self.assertEqual(player.set_name(&#34;name2&#34;), LENGTH + 2)
-    self.assertEqual(player.set_name(&#34;name3&#34;), LENGTH + 3)</code></pre>
+    self.assertEqual(player.set_name(&#34;name1&#34;), LENGTH + 1)</code></pre>
 </details>
 </dd>
 <dt id="test_player.TestPlayer.test_update_name_wrong_type"><code class="name flex">

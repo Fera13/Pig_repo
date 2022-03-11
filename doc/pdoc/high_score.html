@@ -49,7 +49,7 @@ class HighScore:
         return sorted_list
 
     def view_high_scores(self, high_score_list: list[list[str, int]]):
-        &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take high score list: list[list] show high score.&#34;&#34;&#34;
         if not isinstance(high_score_list, list):
             raise ValueError(
                 &#34;Please enter a list of lists with names and scores&#34;
@@ -135,7 +135,7 @@ class HighScore:
         return sorted_list
 
     def view_high_scores(self, high_score_list: list[list[str, int]]):
-        &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
+        &#34;&#34;&#34;Take high score list: list[list] show high score.&#34;&#34;&#34;
         if not isinstance(high_score_list, list):
             raise ValueError(
                 &#34;Please enter a list of lists with names and scores&#34;
@@ -273,13 +273,13 @@ class HighScore:
 <span>def <span class="ident">view_high_scores</span></span>(<span>self, high_score_list: list[list[str, int]])</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Take high score list: list[list[str, int]] show high score.</p></div>
+<div class="desc"><p>Take high score list: list[list] show high score.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def view_high_scores(self, high_score_list: list[list[str, int]]):
-    &#34;&#34;&#34;Take high score list: list[list[str, int]] show high score.&#34;&#34;&#34;
+    &#34;&#34;&#34;Take high score list: list[list] show high score.&#34;&#34;&#34;
     if not isinstance(high_score_list, list):
         raise ValueError(
             &#34;Please enter a list of lists with names and scores&#34;

@@ -19,8 +19,6 @@ class TestPlayer(unittest.TestCase):
     def test_set_name_duplicates(self):
         """Testing if you can add duplicate names."""
         self.assertEqual(player.set_name("name1"), LENGTH + 1)
-        self.assertEqual(player.set_name("name2"), LENGTH + 2)
-        self.assertEqual(player.set_name("name3"), LENGTH + 3)
 
     def test_update_name_wrong_type(self):
         """Testing for wrong type entered."""
